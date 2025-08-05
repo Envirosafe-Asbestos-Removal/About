@@ -1,0 +1,171 @@
+
+/*
+ * Global site styles for Envirosafe Removal Specialists.
+ *
+ * This stylesheet defines a modern, professional look using a clean
+ * dark/navy and green colour palette inspired by the company logo.
+ * It introduces responsive layouts, improved typography, and reusable
+ * components for buttons, hero sections and content containers. These
+ * styles apply across all pages without requiring HTML changes.
+ */
+
+/* Colour and spacing variables */
+:root {
+  --primary-color: #0A1F44; /* dark navy */
+  --secondary-color: #1E4D2B; /* deep green */
+  --accent-color: #408944; /* lighter green for highlights */
+  --bg-light: #F5F7FA; /* subtle light background */
+  --text-color: #1F2937; /* dark grey for body copy */
+  --max-width: 1100px;
+}
+
+/* Reset margins and set base typography */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  line-height: 1.6;
+  background-color: var(--bg-light);
+  color: var(--text-color);
+}
+
+a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--accent-color);
+}
+
+/* Header and navigation */
+header {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  padding: 1.2rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+header .logo {
+  height: 60px;
+  width: auto;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+nav ul li a {
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding-bottom: 0.2rem;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  border-color: var(--accent-color);
+}
+
+/* Hero section */
+.hero {
+  background-color: var(--secondary-color);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin-bottom: 1.5rem;
+}
+
+.button {
+  display: inline-block;
+  background-color: var(--accent-color);
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+}
+
+.button:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Sections */
+section {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+}
+
+section h1,
+section h2 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+section ul {
+  padding-left: 1.5rem;
+}
+
+section ul li {
+  margin-bottom: 0.5rem;
+}
+
+/* Testimonials */
+blockquote {
+  border-left: 4px solid var(--secondary-color);
+  padding-left: 1rem;
+  font-style: italic;
+  margin: 1rem 0;
+  color: var(--primary-color);
+}
+
+/* Footer */
+footer {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding: 6rem 2rem;
+  }
+  .hero h1 {
+    font-size: 3rem;
+  }
+  .hero p {
+    font-size: 1.25rem;
+  }
+  nav ul {
+    gap: 2rem;
+  }
+}
