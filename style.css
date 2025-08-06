@@ -11,11 +11,11 @@
 
 /* Colour and spacing variables */
 :root {
-  --primary-color: #0A1F44; /* dark navy */
-  --secondary-color: #1E4D2B; /* deep green */
+  --primary-color: #0b2038; /* dark navy */
+  --secondary-color: #6BBE44; /* deep green */
   --accent-color: #408944; /* lighter green for highlights */
   --bg-light: #F5F7FA; /* subtle light background */
-  --text-color: #1F2937; /* dark grey for body copy */
+  --text-color: #FFFFFF; /* dark grey for body copy */
   --max-width: 1100px;
 }
 
@@ -51,7 +51,7 @@ header {
 }
 
 header .logo {
-  height: 60px;
+  height: 120px;
   width: auto;
 }
 
