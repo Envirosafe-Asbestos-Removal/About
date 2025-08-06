@@ -1,171 +1,130 @@
-
-/*
- * Global site styles for Envirosafe Removal Specialists.
- *
- * This stylesheet defines a modern, professional look using a clean
- * dark/navy and green colour palette inspired by the company logo.
- * It introduces responsive layouts, improved typography, and reusable
- * components for buttons, hero sections and content containers. These
- * styles apply across all pages without requiring HTML changes.
- */
-
-/* Colour and spacing variables */
-:root {
-  --primary-color: #0b2038; /* dark navy */
-  --secondary-color: #6BBE44; /* deep green */
-  --accent-color: #408944; /* lighter green for highlights */
-  --bg-light: #F5F7FA; /* subtle light background */
-  --text-color: #FFFFFF; /* dark grey for body copy */
-  --max-width: 1100px;
+/* Global Reset and Font */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Reset margins and set base typography */
 body {
-  margin: 0;
-  padding: 0;
-  font-family: "Segoe UI", Tahoma, sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #ffffff;
+  color: #0B2038;
   line-height: 1.6;
-  background-color: var(--bg-light);
-  color: var(--text-color);
 }
 
-a {
-  color: var(--secondary-color);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-a:hover {
-  color: var(--accent-color);
-}
-
-/* Header and navigation */
+/* Header */
 header {
-  background-color: var(--primary-color);
+  background-color: #0B2038;
   color: #ffffff;
-  padding: 1.2rem 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-header .logo {
-  height: 120px;
-  width: auto;
-}
-
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-
-nav ul li a {
-  color: #ffffff;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  padding-bottom: 0.2rem;
-  border-bottom: 2px solid transparent;
-  transition: border-color 0.3s ease;
-}
-
-nav ul li a:hover,
-nav ul li a.active {
-  border-color: var(--accent-color);
-}
-
-/* Hero section */
-.hero {
-  background-color: var(--secondary-color);
-  color: #ffffff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  padding: 1.5rem 2rem;
   text-align: center;
-  padding: 4rem 2rem;
+  border-bottom: 5px solid #6BBE44;
 }
 
-.hero h1 {
-  font-size: 2.5rem;
+header h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
   margin-bottom: 0.5rem;
+}
+
+header img.logo {
+  height: 60px;
+  margin-bottom: 1rem;
+}
+
+/* Navigation */
+nav {
+  background-color: #0B2038;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.8rem 1.2rem;
+  display: inline-block;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+nav a:hover {
+  background-color: #6BBE44;
+  color: #0B2038;
+}
+
+/* Hero Section */
+.hero {
+  background-color: #F5F5F5;
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.hero h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #0B2038;
 }
 
 .hero p {
   font-size: 1.1rem;
-  max-width: 700px;
-  margin-bottom: 1.5rem;
+  color: #333;
 }
 
-.button {
+/* CTA Button */
+.cta-button {
   display: inline-block;
-  background-color: var(--accent-color);
+  padding: 0.9rem 2rem;
+  background-color: #6BBE44;
   color: #ffffff;
-  padding: 0.75rem 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
   border-radius: 4px;
-  font-weight: 600;
-  transition: background-color 0.3s ease;
   margin-top: 1rem;
+  transition: background-color 0.3s ease;
 }
 
-.button:hover {
-  background-color: var(--secondary-color);
+.cta-button:hover {
+  background-color: #5AAE39;
 }
 
-/* Sections */
-section {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 2.5rem 1.5rem;
-}
-
-section h1,
+/* Section Headings */
 section h2 {
-  color: var(--primary-color);
+  font-size: 1.8rem;
   margin-bottom: 1rem;
+  color: #0B2038;
 }
 
-section ul {
-  padding-left: 1.5rem;
-}
-
-section ul li {
-  margin-bottom: 0.5rem;
-}
-
-/* Testimonials */
-blockquote {
-  border-left: 4px solid var(--secondary-color);
-  padding-left: 1rem;
-  font-style: italic;
-  margin: 1rem 0;
-  color: var(--primary-color);
+/* Content Sections */
+section {
+  padding: 2rem;
 }
 
 /* Footer */
 footer {
-  background-color: var(--primary-color);
+  background-color: #0B2038;
   color: #ffffff;
   text-align: center;
-  padding: 1.5rem 1rem;
+  padding: 1.2rem;
   font-size: 0.9rem;
+  margin-top: 2rem;
 }
 
-@media (min-width: 768px) {
-  .hero {
-    padding: 6rem 2rem;
+/* Responsive */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.6rem;
   }
-  .hero h1 {
-    font-size: 3rem;
+
+  .hero h2 {
+    font-size: 1.6rem;
   }
-  .hero p {
-    font-size: 1.25rem;
+
+  nav a {
+    padding: 0.6rem 1rem;
   }
-  nav ul {
-    gap: 2rem;
+
+  section {
+    padding: 1.2rem;
   }
 }
