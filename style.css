@@ -1,4 +1,12 @@
-/* Global Reset and Font */
+
+/*
+ * Updated global styles for Envirosafe Removal Specialists.
+ *
+ * This stylesheet applies the brand palette of primary navy (#0B2038), safety green (#6BBE44) and white (#FFFFFF).
+ * Typography uses Open Sans for a clean, professional look. The layout is mobile responsive using a simple media query.
+ */
+
+/* Reset and base styles */
 * {
   margin: 0;
   padding: 0;
@@ -7,7 +15,7 @@
 
 body {
   font-family: 'Open Sans', sans-serif;
-  background-color: #ffffff;
+  background-color: #f8f9fa;
   color: #0B2038;
   line-height: 1.6;
 }
@@ -16,36 +24,49 @@ body {
 header {
   background-color: #0B2038;
   color: #ffffff;
-  padding: 1.5rem 2rem;
+  padding: 1.2rem 2rem;
   text-align: center;
   border-bottom: 5px solid #6BBE44;
 }
 
-header h1 {
-  font-size: 2.2rem;
-  font-weight: 700;
+header img.logo {
+  height: 60px;
   margin-bottom: 0.5rem;
 }
 
-header img.logo {
-  height: 60px;
-  margin-bottom: 1rem;
+header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
 }
 
 /* Navigation */
 nav {
   background-color: #0B2038;
   text-align: center;
-  padding: 0.5rem;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+nav li {
+  margin: 0.5rem 0.75rem;
 }
 
 nav a {
   color: #ffffff;
   text-decoration: none;
   padding: 0.8rem 1.2rem;
-  display: inline-block;
   font-weight: 600;
+  display: inline-block;
   transition: background 0.3s ease;
+  border-radius: 4px;
 }
 
 nav a:hover {
@@ -53,34 +74,34 @@ nav a:hover {
   color: #0B2038;
 }
 
-/* Hero Section */
+/* Hero section */
 .hero {
-  background-color: #F5F5F5;
+  background-color: #f2f4f7;
   text-align: center;
   padding: 3rem 2rem;
 }
 
-.hero h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+.hero h1 {
   color: #0B2038;
+  font-size: 2rem;
+  margin-bottom: 0.6rem;
 }
 
 .hero p {
+  color: #333333;
   font-size: 1.1rem;
-  color: #333;
+  margin-bottom: 1.2rem;
 }
 
-/* CTA Button */
+/* CTA button */
 .cta-button {
   display: inline-block;
   padding: 0.9rem 2rem;
   background-color: #6BBE44;
-  color: #ffffff;
+  color: #0B2038;
   font-weight: bold;
   text-decoration: none;
   border-radius: 4px;
-  margin-top: 1rem;
   transition: background-color 0.3s ease;
 }
 
@@ -88,16 +109,17 @@ nav a:hover {
   background-color: #5AAE39;
 }
 
-/* Section Headings */
-section h2 {
+/* Sections */
+section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+section h1, section h2 {
   font-size: 1.8rem;
   margin-bottom: 1rem;
   color: #0B2038;
-}
-
-/* Content Sections */
-section {
-  padding: 2rem;
 }
 
 /* Footer */
@@ -106,25 +128,29 @@ footer {
   color: #ffffff;
   text-align: center;
   padding: 1.2rem;
-  font-size: 0.9rem;
   margin-top: 2rem;
+  font-size: 0.9rem;
 }
 
-/* Responsive */
+/* Responsive design */
 @media (max-width: 768px) {
   header h1 {
     font-size: 1.6rem;
   }
-
-  .hero h2 {
+  .hero h1 {
     font-size: 1.6rem;
   }
-
   nav a {
+    display: block;
     padding: 0.6rem 1rem;
   }
-
+  .cta-button {
+    width: 80%;
+    margin: 1rem auto;
+    display: block;
+    text-align: center;
+  }
   section {
-    padding: 1.2rem;
+    padding: 1.5rem;
   }
 }
