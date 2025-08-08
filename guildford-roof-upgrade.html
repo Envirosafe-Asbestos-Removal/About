@@ -7,6 +7,61 @@
     <title>Guildford Roof Upgrade | Envirosafe Removal Specialists</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://envirosafe-asbestos-removal.github.io/About/style.css">
+<style id="dropdown-nav-style">
+  .main-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #0B2038;
+    flex-wrap: wrap;
+  }
+  .main-nav > li {
+    position: relative;
+    margin: 0 1rem;
+  }
+  .main-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.8rem 1.2rem;
+    display: block;
+    font-weight: 600;
+    border-radius: 4px;
+  }
+  .main-nav a:hover {
+    background-color: #6BBE44;
+    color: #0B2038;
+  }
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #0B2038;
+    list-style: none;
+    padding: 0.5rem 0;
+    min-width: 220px;
+    z-index: 1000;
+    display: none !important;
+  }
+  .dropdown-menu li a {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    color: #6BBE44;
+  }
+  .dropdown-menu li a:hover {
+    background-color: #6BBE44;
+    color: #0B2038;
+  }
+  /* Show submenu on hover for desktop */
+  .dropdown:hover > .dropdown-menu {
+    display: block !important;
+  }
+  /* Show submenu when opened via script */
+  .dropdown.open > .dropdown-menu {
+    display: block !important;
+  }
+</style>
     <link rel="canonical" href="https://envirosafe-asbestos-removal.github.io/About/guildford-roof-upgrade.html">
     <script type="application/ld+json">
 {
@@ -35,19 +90,30 @@
 <header>
     <img src="https://envirosafe-asbestos-removal.github.io/About/logo.jpg" alt="Envirosafe Removal Specialists logo" class="logo">
     <h1>Envirosafe Removal Specialists</h1>
+    
     <nav>
-        <ul>
-            <li><a href="https://envirosafe-asbestos-removal.github.io/About/index.html">Home</a></li>
-            <li><a href="https://envirosafe-asbestos-removal.github.io/About/licensed.html">Licensed Removal</a></li>
-            <li><a href="https://envirosafe-asbestos-removal.github.io/About/non-licensed.html">Non-Licensed Removal</a></li>
-            <li><a href="https://envirosafe-asbestos-removal.github.io/About/surveys.html">Asbestos Surveys</a></li>
-            <li><a href="https://envirosafe-asbestos-removal.github.io/About/commercial.html">Commercial</a></li>
-            <li><a href="https://envirosafe-asbestos-removal.github.io/About/residential.html">Residential</a></li>
-            <li><a href="https://envirosafe-asbestos-removal.github.io/About/about.html">About</a></li>
-            <li><a href="https://envirosafe-asbestos-removal.github.io/About/contact.html">Contact</a></li>
-            <li><a href="https://envirosafe-asbestos-removal.github.io/About/faq.html">FAQ</a></li>
-        </ul>
+    <ul class="main-nav">
+        <li><a href="https://envirosafe-asbestos-removal.github.io/About/index.html">Home</a></li>
+        <li class="dropdown"><a href="#" class="dropdown-toggle">Services</a>
+            <ul class="dropdown-menu">
+                <li><a href="https://envirosafe-asbestos-removal.github.io/About/licensed.html">Licensed Removal</a></li>
+                <li><a href="https://envirosafe-asbestos-removal.github.io/About/non-licensed.html">Non-Licensed Removal</a></li>
+                <li><a href="https://envirosafe-asbestos-removal.github.io/About/surveys.html">Asbestos Surveys</a></li>
+                <li><a href="https://envirosafe-asbestos-removal.github.io/About/commercial.html">Commercial</a></li>
+                <li><a href="https://envirosafe-asbestos-removal.github.io/About/residential.html">Residential</a></li>
+            </ul>
+        </li>
+        <li class="dropdown"><a href="#" class="dropdown-toggle">About</a>
+            <ul class="dropdown-menu">
+                <li><a href="https://envirosafe-asbestos-removal.github.io/About/about.html">About Us</a></li>
+                <li><a href="https://envirosafe-asbestos-removal.github.io/About/contact.html">Contact Us</a></li>
+                <li><a href="https://envirosafe-asbestos-removal.github.io/About/faq.html">FAQ</a></li>
+                <li><a href="https://envirosafe-asbestos-removal.github.io/About/testimonials.html">Testimonials</a></li>
+            </ul>
+        </li>
+    </ul>
     </nav>
+
 </header>
 <section class="hero">
     <h1>Guildford Project</h1>
@@ -66,5 +132,26 @@
   <a href="https://envirosafe-asbestos-removal.github.io/About/contact.html" class="cta-button">Contact Us</a>
 </section>
 <footer><p>&copy; 2025 Envirosafe Removal Specialists. All rights reserved.</p></footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  function setupDropdowns() {
+    var isMobile = window.innerWidth <= 768;
+    document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
+      // Reset any existing onclick handlers
+      toggle.onclick = null;
+      if (isMobile) {
+        toggle.onclick = function(e) {
+          e.preventDefault();
+          this.parentElement.classList.toggle('open');
+        };
+      }
+    });
+  }
+  setupDropdowns();
+  window.addEventListener('resize', setupDropdowns);
+});
+</script>
+
 </body>
 </html>
