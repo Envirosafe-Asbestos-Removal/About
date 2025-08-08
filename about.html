@@ -6,7 +6,7 @@
     <meta name="description" content="Learn about Envirosafe Removal Specialists: our history, certifications, mission and commitment to safe asbestos removal.">
     <title>About Us | Envirosafe Removal Specialists</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://envirosafe-asbestos-removal.github.io/About/style.css">
     <link rel="canonical" href="https://envirosafe-asbestos-removal.github.io/about.html">
     <script type="application/ld+json">
 {
@@ -30,21 +30,30 @@
 <body>
     
 <header>
-    <img src="logo.jpg" alt="Envirosafe Removal Specialists logo" class="logo">
+    <img src="https://envirosafe-asbestos-removal.github.io/About/logo.jpg" alt="Envirosafe Removal Specialists logo" class="logo">
     <h1>Envirosafe Removal Specialists</h1>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="licensed.html">Licensed Removal</a></li>
-            <li><a href="non-licensed.html">Non-Licensed Removal</a></li>
-            <li><a href="surveys.html">Asbestos Surveys</a></li>
-            <li><a href="commercial.html">Commercial</a></li>
-            <li><a href="residential.html">Residential</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-        </ul>
-    </nav>
+        <nav>
+    <ul class="main-nav">
+        <li><a href="https://envirosafe-asbestos-removal.github.io/About/index.html">Home</a></li>
+        <li class="dropdown"><a href="#">Services</a>
+            <ul class="dropdown-menu">
+                <li><a href="https://envirosafe-asbestos-removal.github.io/About/licensed.html">Licensed Removal</a></li>
+                <li><a href="https://envirosafe-asbestos-removal.github.io/About/non-licensed.html">Non-Licensed Removal</a></li>
+                <li><a href="https://envirosafe-asbestos-removal.github.io/About/surveys.html">Asbestos Surveys</a></li>
+                <li><a href="https://envirosafe-asbestos-removal.github.io/About/commercial.html">Commercial</a></li>
+                <li><a href="https://envirosafe-asbestos-removal.github.io/About/residential.html">Residential</a></li>
+            </ul>
+        </li>
+        <li class="dropdown"><a href="#">About</a>
+            <ul class="dropdown-menu">
+                <li><a href="https://envirosafe-asbestos-removal.github.io/About/about.html">About Us</a></li>
+                <li><a href="https://envirosafe-asbestos-removal.github.io/About/contact.html">Contact Us</a></li>
+                <li><a href="https://envirosafe-asbestos-removal.github.io/About/faq.html">FAQ</a></li>
+                <li><a href="https://envirosafe-asbestos-removal.github.io/About/testimonials.html">Testimonials</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
 </header>
 
     
@@ -64,8 +73,19 @@
     <section>
   <h2>Speak to Our Experts</h2>
   <p>Contact us today for professional asbestos removal services and expert advice.</p>
-  <a href="contact.html" class="cta-button">Contact Us</a>
+  <a href="https://envirosafe-asbestos-removal.github.io/About/contact.html" class="cta-button">Contact Us</a>
 </section>
-<footer><p>&copy; 2025 Envirosafe Removal Specialists. All rights reserved.</p></footer>
+<footer><p>&copy; 2025 Envirosafe Removal Specialists. All rights reserved.</p></footer><script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Allow click to toggle dropdown menus on mobile
+  document.querySelectorAll('.dropdown > a').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      // Prevent default navigation for parent items
+      e.preventDefault();
+      this.parentElement.classList.toggle('open');
+    });
+  });
+});
+</script>
 </body>
 </html>
