@@ -196,12 +196,21 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
-    toggle.addEventListener('click', function(e) {
-      e.preventDefault();
-      this.parentElement.classList.toggle('open');
+  function setupDropdowns() {
+    var isMobile = window.innerWidth <= 768;
+    document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
+      // Reset any existing onclick handlers
+      toggle.onclick = null;
+      if (isMobile) {
+        toggle.onclick = function(e) {
+          e.preventDefault();
+          this.parentElement.classList.toggle('open');
+        };
+      }
     });
-  });
+  }
+  setupDropdowns();
+  window.addEventListener('resize', setupDropdowns);
 });
 </script>
 

@@ -62,6 +62,44 @@
   .dropdown.open > .dropdown-menu {
     display: block !important;
   }
+
+<style id="contact-form-style">
+  .contact-form-section {
+    margin-top: 2rem;
+  }
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: auto;
+  }
+  .contact-form label {
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    color: #0B2038;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #0B2038;
+    border-radius: 4px;
+    font-family: inherit;
+  }
+  .contact-form button {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    background-color: #0B2038;
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  .contact-form button:hover {
+    background-color: #6BBE44;
+    color: #0B2038;
+  }
 </style>
 
     <link rel="canonical" href="https://envirosafe-asbestos-removal.github.io/contact.html">
@@ -122,20 +160,20 @@
     <h2>Address</h2>
     <p>Overglen Court, Liss, Hampshire, GU33 7PB</p>
     <h2>Phone</h2>
-    <p><a href="tel:">[Your phone number here]</a></p>
+    <p><a href="tel:+447859970938">07859970938</a></p>
     <h2>Email</h2>
-    <p><a href="mailto:">[Your email address here]</a></p>
+    <p><a href="mailto:josh@envirosaferemovals.co.uk">josh@envirosaferemovals.co.uk</a></p>
     <h2>WhatsApp</h2>
-    <p><a href="">[WhatsApp number here]</a></p>
+    <p><a href="https://wa.me/447859970938">07859970938</a></p>
     <h2>Contact Form</h2>
-    <form action="#" method="post">
-        <label for="name">Name:</label><br>
-        <input type="text" id="name" name="name" required><br><br>
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required><br><br>
-        <label for="message">Message:</label><br>
-        <textarea id="message" name="message" rows="5" required></textarea><br><br>
-        <button type="submit" class="cta-button">Send Message</button>
+    <form class="contact-form" action="#" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+        <button type="submit">Send</button>
     </form>
     <h2>Map</h2>
     <p>View our location on Google Maps:</p>
@@ -151,12 +189,21 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
-    toggle.addEventListener('click', function(e) {
-      e.preventDefault();
-      this.parentElement.classList.toggle('open');
+  function setupDropdowns() {
+    var isMobile = window.innerWidth <= 768;
+    document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
+      // Reset any existing onclick handlers
+      toggle.onclick = null;
+      if (isMobile) {
+        toggle.onclick = function(e) {
+          e.preventDefault();
+          this.parentElement.classList.toggle('open');
+        };
+      }
     });
-  });
+  }
+  setupDropdowns();
+  window.addEventListener('resize', setupDropdowns);
 });
 </script>
 
