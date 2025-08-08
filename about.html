@@ -6,7 +6,78 @@
     <meta name="description" content="Learn about Envirosafe Removal Specialists: our history, certifications, mission and commitment to safe asbestos removal.">
     <title>About Us | Envirosafe Removal Specialists</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://envirosafe-asbestos-removal.github.io/About/style.css">
+    
+<style id="dropdown-nav-style">
+  /* Inline navigation styles to ensure dropdowns are hidden until activated */
+  .main-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #0B2038;
+    flex-wrap: wrap;
+  }
+  .main-nav > li {
+    position: relative;
+    margin: 0 1rem;
+  }
+  .main-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.8rem 1.2rem;
+    display: block;
+    font-weight: 600;
+    border-radius: 4px;
+  }
+  .main-nav a:hover {
+    background-color: #6BBE44;
+    color: #0B2038;
+  }
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #0B2038;
+    list-style: none;
+    padding: 0.5rem 0;
+    min-width: 220px;
+    z-index: 1000;
+    display: none !important;
+  }
+  .dropdown-menu li a {
+    padding: 0.6rem 1rem;
+    color: #ffffff;
+  }
+  .dropdown-menu li a:hover {
+    background-color: #6BBE44;
+    color: #0B2038;
+  }
+  .dropdown:hover > .dropdown-menu {
+    display: block !important;
+  }
+  .dropdown.open > .dropdown-menu {
+    display: block !important;
+  }
+  @media (max-width: 768px) {
+    .main-nav {
+      flex-direction: column;
+      align-items: center;
+    }
+    .main-nav > li {
+      margin: 0.4rem 0;
+    }
+    .main-nav a {
+      width: 100%;
+    }
+    .dropdown-menu {
+      position: static;
+      width: 100%;
+      min-width: 100%;
+    }
+  }
+</style>
+<link rel="stylesheet" href="https://envirosafe-asbestos-removal.github.io/About/style.css">
     <link rel="canonical" href="https://envirosafe-asbestos-removal.github.io/about.html">
     <script type="application/ld+json">
 {
