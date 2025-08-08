@@ -6,7 +6,8 @@
     <meta name="description" content="Comprehensive commercial asbestos removal, surveys and disposal. Experienced teams manage large-scale projects with minimal disruption.">
     <title>Commercial Asbestos Services | Envirosafe Removal Specialists</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
-    
+    <link rel="stylesheet" href="https://envirosafe-asbestos-removal.github.io/About/style.css">
+
 <style id="dropdown-nav-style">
   .main-nav {
     list-style: none;
@@ -52,9 +53,11 @@
     background-color: #6BBE44;
     color: #0B2038;
   }
+  /* Show submenu on hover for desktop */
   .dropdown:hover > .dropdown-menu {
     display: block !important;
   }
+  /* Show submenu when opened via script */
   .dropdown.open > .dropdown-menu {
     display: block !important;
   }
@@ -76,7 +79,7 @@
     }
   }
 </style>
-<link rel="stylesheet" href="https://envirosafe-asbestos-removal.github.io/About/style.css">
+
     <link rel="canonical" href="https://envirosafe-asbestos-removal.github.io/commercial.html">
     <script type="application/ld+json">
 {
@@ -102,10 +105,11 @@
 <header>
     <img src="https://envirosafe-asbestos-removal.github.io/About/logo.jpg" alt="Envirosafe Removal Specialists logo" class="logo">
     <h1>Envirosafe Removal Specialists</h1>
+    
     <nav>
     <ul class="main-nav">
         <li><a href="https://envirosafe-asbestos-removal.github.io/About/index.html">Home</a></li>
-        <li class="dropdown"><a href="#">Services</a>
+        <li class="dropdown"><a href="#" class="dropdown-toggle">Services</a>
             <ul class="dropdown-menu">
                 <li><a href="https://envirosafe-asbestos-removal.github.io/About/licensed.html">Licensed Removal</a></li>
                 <li><a href="https://envirosafe-asbestos-removal.github.io/About/non-licensed.html">Non-Licensed Removal</a></li>
@@ -114,7 +118,7 @@
                 <li><a href="https://envirosafe-asbestos-removal.github.io/About/residential.html">Residential</a></li>
             </ul>
         </li>
-        <li class="dropdown"><a href="#">About</a>
+        <li class="dropdown"><a href="#" class="dropdown-toggle">About</a>
             <ul class="dropdown-menu">
                 <li><a href="https://envirosafe-asbestos-removal.github.io/About/about.html">About Us</a></li>
                 <li><a href="https://envirosafe-asbestos-removal.github.io/About/contact.html">Contact Us</a></li>
@@ -123,7 +127,8 @@
             </ul>
         </li>
     </ul>
-</nav>
+    </nav>
+
 </header>
 
     
@@ -144,18 +149,20 @@
     <section>
   <h2>Speak to Our Experts</h2>
   <p>Contact us today for professional asbestos removal services and expert advice.</p>
-  <a href="https://envirosafe-asbestos-removal.github.io/About/contact.html" class="cta-button">Contact Us</a>
+  <a href="contact.html" class="cta-button">Contact Us</a>
 </section>
 <footer><p>&copy; 2025 Envirosafe Removal Specialists. All rights reserved.</p></footer>
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.dropdown > a').forEach(function(link) {
-    link.addEventListener('click', function(e) {
+  document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
+    toggle.addEventListener('click', function(e) {
       e.preventDefault();
       this.parentElement.classList.toggle('open');
     });
   });
 });
 </script>
+
 </body>
 </html>
