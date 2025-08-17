@@ -64,6 +64,7 @@
   }
 
 <style id="contact-form-style">
+  /* Contact form layout */
   .contact-form-section {
     margin-top: 2rem;
   }
@@ -100,26 +101,16 @@
     background-color: #6BBE44;
     color: #0F1727;
   }
-</style>
-
-<!-- Additional styles for contact options buttons -->
-<style id="contact-options-style">
+  /* Layout for call‑to‑action buttons beneath contact details */
   .contact-options {
     display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-    margin-bottom: 1.5rem;
-    max-width: 600px;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 1rem 0 2rem;
   }
-  @media (min-width: 600px) {
-    .contact-options {
-      flex-direction: row;
-      flex-wrap: wrap;
-    }
-    .contact-options .cta-button {
-      margin-right: 1rem;
-      margin-bottom: 0;
-    }
+  .contact-options .cta-button {
+    flex: 1 1 auto;
+    text-align: center;
   }
 </style>
 
@@ -187,7 +178,7 @@
       <a href="https://wa.me/447859970938" class="cta-button">WhatsApp Us</a>
     </div>
     <h2>Contact Form</h2>
-    <form class="contact-form" action="mailto:josh@envirosaferemovals.co.uk?subject=Enquiry%20from%20Website" method="post" enctype="text/plain">
+    <form class="contact-form" onsubmit="sendEmail(event)" method="get">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
         <label for="email">Email:</label>
@@ -198,6 +189,7 @@
     </form>
     <h2>Map</h2>
     <p>View our location on Google Maps:</p>
+    <!-- Embed map targeting Envirosafe Removal Specialists at Overglen Court. Using a simple maps query string without specifying another business. -->
     <iframe src="https://www.google.com/maps?q=Envirosafe%20Removal%20Specialists%20Overglen%20Court%20Hill%20Brow%20Liss%20GU33%207PB&output=embed" width="100%" height="300" style="border:0;" allowfullscreen loading="lazy"></iframe>
 </section>
 
@@ -225,6 +217,32 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   setupDropdowns();
   window.addEventListener('resize', setupDropdowns);
+});
+</script>
+
+<!-- Script to handle contact form submission via mailto. This constructs a mailto link with the
+     form data and navigates to it. -->
+<script>
+function sendEmail(event) {
+  event.preventDefault();
+  var name = document.getElementById('name').value || '';
+  var email = document.getElementById('email').value || '';
+  var message = document.getElementById('message').value || '';
+  // Encode subject and body for inclusion in a mailto link
+  var subject = encodeURIComponent('Website enquiry from ' + name);
+  var body = encodeURIComponent('Name: ' + name + '\n' +
+                                'Email: ' + email + '\n\n' +
+                                message);
+  var mailto = 'mailto:josh@envirosaferemovals.co.uk?subject=' + subject + '&body=' + body;
+  // Use window.location.href to launch the mailto link. This opens the user\'s default mail client.
+  window.location.href = mailto;
+}
+// Attach the handler after DOM load in case the form script loads early
+document.addEventListener('DOMContentLoaded', function() {
+  var form = document.querySelector('.contact-form');
+  if (form) {
+    form.addEventListener('submit', sendEmail);
+  }
 });
 </script>
 

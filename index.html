@@ -64,6 +64,35 @@
   }
 </style>
 
+    <!-- Styles specific to the home page hero slider -->
+    <style id="hero-slider-style">
+      .hero {
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        color: #ffffff;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+        padding: 3rem 2rem;
+      }
+      .slider-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0,0,0,0.4);
+        border: none;
+        color: #ffffff;
+        font-size: 2rem;
+        padding: 0.2rem 0.5rem;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+      #slider-prev { left: 1rem; }
+      #slider-next { right: 1rem; }
+      @media (max-width: 768px) {
+        .slider-arrow { font-size: 1.5rem; }
+      }
+    </style>
+
     <link rel="canonical" href="https://www.envirosaferemovals.co.uk/index.html">
     <script type="application/ld+json">
 {
@@ -122,6 +151,9 @@
     <p>Committed to Your Safety</p>
     <p>Specialists in licensed &amp; non-licensed asbestos removal, surveys, disposal and encapsulation across London and South East England.</p>
     <a id="service-button" href="licensed.html" class="cta-button">More &gt;</a>
+    <!-- Slider navigation arrows -->
+    <button id="slider-prev" class="slider-arrow">&#8249;</button>
+    <button id="slider-next" class="slider-arrow">&#8250;</button>
 </div>
 <section>
     <h2>Our Services</h2>
@@ -172,40 +204,62 @@ document.addEventListener('DOMContentLoaded', function() {
   setupDropdowns();
   window.addEventListener('resize', setupDropdowns);
 });
-</script>
+  </script>
 
-<!-- Service slider script: cycles through key services and updates the
-     hero title and button link on the home page. -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  var slides = [
-    { title: 'Licensed Asbestos Removal', link: 'licensed.html' },
-    { title: 'Non-Licensed Asbestos Removal', link: 'non-licensed.html' },
-    { title: 'Asbestos Surveys & Testing', link: 'surveys.html' },
-    { title: 'Commercial Asbestos Services', link: 'commercial.html' },
-    { title: 'Residential Asbestos Services', link: 'residential.html' }
-  ];
-  var index = 0;
-  var titleEl = document.getElementById('service-title');
-  var buttonEl = document.getElementById('service-button');
+  <!-- Service slider script: cycles through key services and updates the
+       hero title, button link and background image on the home page. -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var slides = [
+      { title: 'Licensed Asbestos Removal', link: 'licensed.html', image: 'images/slide1.png' },
+      { title: 'Non-Licensed Asbestos Removal', link: 'non-licensed.html', image: 'images/slide2.png' },
+      { title: 'Asbestos Surveys & Testing', link: 'surveys.html', image: 'images/slide3.png' },
+      { title: 'Commercial Asbestos Services', link: 'commercial.html', image: 'images/slide4.png' },
+      { title: 'Residential Asbestos Services', link: 'residential.html', image: 'images/slide5.png' }
+    ];
+    var index = 0;
+    var titleEl = document.getElementById('service-title');
+    var buttonEl = document.getElementById('service-button');
+    var heroEl = document.querySelector('.hero');
 
-  function showSlide(i) {
-    var slide = slides[i];
-    if (titleEl) titleEl.textContent = slide.title;
-    if (buttonEl) buttonEl.setAttribute('href', slide.link);
-  }
+    function showSlide(i) {
+      var slide = slides[i];
+      if (titleEl) titleEl.textContent = slide.title;
+      if (buttonEl) buttonEl.setAttribute('href', slide.link);
+      if (heroEl) heroEl.style.backgroundImage = "url('" + slide.image + "')";
+    }
 
-  function nextSlide() {
-    index = (index + 1) % slides.length;
-    showSlide(index);
-  }
+    function nextSlide() {
+      index = (index + 1) % slides.length;
+      showSlide(index);
+    }
+    function prevSlide() {
+      index = (index - 1 + slides.length) % slides.length;
+      showSlide(index);
+    }
 
-  // initialise first slide
-  showSlide(0);
-  // rotate slides every 6 seconds
-  setInterval(nextSlide, 6000);
-});
-</script>
+    // attach event handlers to arrows
+    var prevBtn = document.getElementById('slider-prev');
+    var nextBtn = document.getElementById('slider-next');
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function(event) {
+        event.preventDefault();
+        prevSlide();
+      });
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function(event) {
+        event.preventDefault();
+        nextSlide();
+      });
+    }
 
-</body>
-</html>
+    // initialise first slide
+    showSlide(0);
+    // auto rotate every 6 seconds
+    setInterval(nextSlide, 6000);
+  });
+  </script>
+
+  </body>
+  </html>
