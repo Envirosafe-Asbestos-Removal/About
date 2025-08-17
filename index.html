@@ -117,10 +117,11 @@
 
     
 <div class="hero">
-    <h1>Envirosafe Removal Specialists</h1>
+    <!-- The service title and button below will rotate through key services via JavaScript. -->
+    <h1 id="service-title">Licensed Asbestos Removal</h1>
     <p>Committed to Your Safety</p>
-    <p>Specialists in licensed & non-licensed asbestos removal, surveys, disposal and encapsulation across London and South East England.</p>
-    <a href="contact.html" class="cta-button">Contact Us</a>
+    <p>Specialists in licensed &amp; non-licensed asbestos removal, surveys, disposal and encapsulation across London and South East England.</p>
+    <a id="service-button" href="licensed.html" class="cta-button">More &gt;</a>
 </div>
 <section>
     <h2>Our Services</h2>
@@ -170,6 +171,40 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   setupDropdowns();
   window.addEventListener('resize', setupDropdowns);
+});
+</script>
+
+<!-- Service slider script: cycles through key services and updates the
+     hero title and button link on the home page.  This functionality
+     emulates the rotating hero seen on other asbestos removal sites. -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var slides = [
+    { title: 'Licensed Asbestos Removal', link: 'licensed.html' },
+    { title: 'Non‑Licensed Asbestos Removal', link: 'non-licensed.html' },
+    { title: 'Asbestos Surveys & Testing', link: 'surveys.html' },
+    { title: 'Commercial Asbestos Services', link: 'commercial.html' },
+    { title: 'Residential Asbestos Services', link: 'residential.html' }
+  ];
+  var index = 0;
+  var titleEl = document.getElementById('service-title');
+  var buttonEl = document.getElementById('service-button');
+
+  function showSlide(i) {
+    var slide = slides[i];
+    if (titleEl) titleEl.textContent = slide.title;
+    if (buttonEl) buttonEl.setAttribute('href', slide.link);
+  }
+
+  function nextSlide() {
+    index = (index + 1) % slides.length;
+    showSlide(index);
+  }
+
+  // Show the first slide on load
+  showSlide(0);
+  // Automatically advance slides every 6 seconds
+  setInterval(nextSlide, 6000);
 });
 </script>
 
