@@ -117,7 +117,7 @@
 
     
 <div class="hero">
-    <!-- The service title and button below will rotate through key services via JavaScript. -->
+    <!-- Dynamic service title and button; updated via JavaScript to cycle through key services -->
     <h1 id="service-title">Licensed Asbestos Removal</h1>
     <p>Committed to Your Safety</p>
     <p>Specialists in licensed &amp; non-licensed asbestos removal, surveys, disposal and encapsulation across London and South East England.</p>
@@ -175,13 +175,12 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <!-- Service slider script: cycles through key services and updates the
-     hero title and button link on the home page.  This functionality
-     emulates the rotating hero seen on other asbestos removal sites. -->
+     hero title and button link on the home page. -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   var slides = [
     { title: 'Licensed Asbestos Removal', link: 'licensed.html' },
-    { title: 'Non‑Licensed Asbestos Removal', link: 'non-licensed.html' },
+    { title: 'Non-Licensed Asbestos Removal', link: 'non-licensed.html' },
     { title: 'Asbestos Surveys & Testing', link: 'surveys.html' },
     { title: 'Commercial Asbestos Services', link: 'commercial.html' },
     { title: 'Residential Asbestos Services', link: 'residential.html' }
@@ -201,9 +200,9 @@ document.addEventListener('DOMContentLoaded', function() {
     showSlide(index);
   }
 
-  // Show the first slide on load
+  // initialise first slide
   showSlide(0);
-  // Automatically advance slides every 6 seconds
+  // rotate slides every 6 seconds
   setInterval(nextSlide, 6000);
 });
 </script>

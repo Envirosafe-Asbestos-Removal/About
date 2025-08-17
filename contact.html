@@ -102,6 +102,27 @@
   }
 </style>
 
+<!-- Additional styles for contact options buttons -->
+<style id="contact-options-style">
+  .contact-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+    max-width: 600px;
+  }
+  @media (min-width: 600px) {
+    .contact-options {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    .contact-options .cta-button {
+      margin-right: 1rem;
+      margin-bottom: 0;
+    }
+  }
+</style>
+
     <link rel="canonical" href="https://www.envirosaferemovals.co.uk/contact.html">
     <script type="application/ld+json">
 {
@@ -159,14 +180,14 @@
     <p>Have a question or need a quote? Get in touch with our friendly team.</p>
     <h2>Address</h2>
     <p>Overglen Court, Liss, Hampshire, GU33 7PB</p>
-    <h2>Phone</h2>
-    <p><a href="tel:+447859970938">07859970938</a></p>
-    <h2>Email</h2>
-    <p><a href="mailto:josh@envirosaferemovals.co.uk">josh@envirosaferemovals.co.uk</a></p>
-    <h2>WhatsApp</h2>
-    <p><a href="https://wa.me/447859970938">07859970938</a></p>
+    <h2>Get in Touch</h2>
+    <div class="contact-options">
+      <a href="tel:+447859970938" class="cta-button">Call Us: 07859&nbsp;970&nbsp;938</a>
+      <a href="mailto:josh@envirosaferemovals.co.uk" class="cta-button">Email Us</a>
+      <a href="https://wa.me/447859970938" class="cta-button">WhatsApp Us</a>
+    </div>
     <h2>Contact Form</h2>
-    <form class="contact-form" action="#" method="post">
+    <form class="contact-form" action="mailto:josh@envirosaferemovals.co.uk?subject=Enquiry%20from%20Website" method="post" enctype="text/plain">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
         <label for="email">Email:</label>
@@ -177,7 +198,7 @@
     </form>
     <h2>Map</h2>
     <p>View our location on Google Maps:</p>
-    <iframe src="https://www.google.com/maps?q=Overglen%20Court%20Liss%20GU33%207PB&output=embed" width="100%" height="300" style="border:0;" allowfullscreen loading="lazy"></iframe>
+    <iframe src="https://www.google.com/maps?q=Envirosafe%20Removal%20Specialists%20Overglen%20Court%20Hill%20Brow%20Liss%20GU33%207PB&output=embed" width="100%" height="300" style="border:0;" allowfullscreen loading="lazy"></iframe>
 </section>
 
     <section>
