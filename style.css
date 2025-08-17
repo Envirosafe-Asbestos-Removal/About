@@ -22,7 +22,7 @@ body {
 
 /* Header */
 header {
-  background-color: #0B2038;
+  background-color: #161B2F;
   color: #ffffff;
   padding: 1.2rem 2rem;
   text-align: center;
@@ -43,7 +43,7 @@ header h1 {
 
 /* Navigation */
 nav {
-  background-color: #0B2038;
+  background-color: #161B2F;
   text-align: center;
 }
 
@@ -72,7 +72,7 @@ nav a {
 
 nav a:hover {
   background-color: #6BBE44;
-  color: #0B2038;
+  color: #161B2F;
 }
 
 /* Hero section */
@@ -188,7 +188,7 @@ footer {
   padding: 0;
   display: flex;
   justify-content: center;
-  background-color: #0B2038;
+  background-color: #161B2F;
   flex-wrap: wrap;
 }
 .main-nav > li {
@@ -205,13 +205,13 @@ footer {
 }
 .main-nav a:hover {
   background-color: #6BBE44;
-  color: #0B2038;
+  color: #161B2F;
 }
 .dropdown-menu {
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: #0B2038;
+  background-color: #161B2F;
   list-style: none;
   padding: 0.5rem 0;
   min-width: 220px;
@@ -224,7 +224,7 @@ footer {
 }
 .dropdown-menu li a:hover {
   background-color: #6BBE44;
-  color: #0B2038;
+  color: #161B2F;
 }
 /* Show dropdown on hover for desktop */
 .dropdown:hover > .dropdown-menu {
