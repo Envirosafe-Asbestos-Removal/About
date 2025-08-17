@@ -224,7 +224,7 @@ footer {
 }
 .dropdown-menu li a:hover {
   background-color: #6BBE44;
-  color: #0B2038;
+  color: #0F1727;
 }
 /* Show dropdown on hover for desktop */
 .dropdown:hover > .dropdown-menu {
