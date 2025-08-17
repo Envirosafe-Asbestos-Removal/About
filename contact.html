@@ -179,12 +179,12 @@
     </div>
     <h2>Contact Form</h2>
     <!-- Use an external form handling service to route submissions to the business email.
-         Replace `{your-form-id}` with the ID provided by Formspree or a similar provider.
-         Using POST ensures form data is sent to the service. -->
+         This form is configured for Web3Forms. Sign up at https://web3forms.com/ to obtain
+         your access key, then update the value below. Submissions will be sent directly
+         to your designated email address. -->
     <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
-        <!-- The access_key identifies your Web3Forms account. Replace YOUR_ACCESS_KEY
-             with the key provided when you sign up at https://web3forms.com/.  Without
-             this key the form will not be processed. -->
+        <!-- The access_key identifies your Web3Forms account. Replace this value with your
+             own key. For example: 8117cccb-9c09-4f94-80bd-ae118e6d0a17 -->
         <input type="hidden" name="access_key" value="8117cccb-9c09-4f94-80bd-ae118e6d0a17">
         <!-- Customise the subject line for your email notifications -->
         <input type="hidden" name="subject" value="New Enquiry from Envirosafe Removal Specialists">
