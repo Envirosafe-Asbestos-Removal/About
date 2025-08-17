@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contact Envirosafe Removal Specialists for asbestos removal services, surveys and disposal in London and South East England.">
+    <meta name="description" content="Envirosafe Removal Specialists provide licensed and non‑licensed asbestos removal, surveys and safe disposal across London and the South East. Get your quote today.">
     <title>Contact | Envirosafe Removal Specialists</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://www.envirosaferemovals.co.uk/style.css">
@@ -178,7 +178,10 @@
       <a href="https://wa.me/447859970938" class="cta-button">WhatsApp Us</a>
     </div>
     <h2>Contact Form</h2>
-    <form class="contact-form" onsubmit="sendEmail(event)" method="get">
+    <!-- Use an external form handling service to route submissions to the business email.
+         Replace `{your-form-id}` with the ID provided by Formspree or a similar provider.
+         Using POST ensures form data is sent to the service. -->
+    <form class="contact-form" action="https://formspree.io/f/{your-form-id}" method="POST">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
         <label for="email">Email:</label>
@@ -220,31 +223,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<!-- Script to handle contact form submission via mailto. This constructs a mailto link with the
-     form data and navigates to it. -->
-<script>
-function sendEmail(event) {
-  event.preventDefault();
-  var name = document.getElementById('name').value || '';
-  var email = document.getElementById('email').value || '';
-  var message = document.getElementById('message').value || '';
-  // Encode subject and body for inclusion in a mailto link
-  var subject = encodeURIComponent('Website enquiry from ' + name);
-  var body = encodeURIComponent('Name: ' + name + '\n' +
-                                'Email: ' + email + '\n\n' +
-                                message);
-  var mailto = 'mailto:josh@envirosaferemovals.co.uk?subject=' + subject + '&body=' + body;
-  // Use window.location.href to launch the mailto link. This opens the user\'s default mail client.
-  window.location.href = mailto;
-}
-// Attach the handler after DOM load in case the form script loads early
-document.addEventListener('DOMContentLoaded', function() {
-  var form = document.querySelector('.contact-form');
-  if (form) {
-    form.addEventListener('submit', sendEmail);
-  }
-});
-</script>
+<!-- The online contact form posts directly to a back‑end service. No client‑side script needed -->
 
 </body>
 </html>
