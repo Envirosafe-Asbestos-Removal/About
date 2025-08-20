@@ -1,13 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Expert licensed asbestos removal services in London and the South East. HSE licensed and BOHS‑accredited. Contact us today for a free quote.">
-    <title>Licensed Asbestos Removal | Envirosafe Removal</title>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Expert licensed asbestos removal services in London and the South East. HSE licensed and BOHS‑accredited. Contact us today for a free quote." name="description"/>
+<title>Licensed Asbestos Removal | Envirosafe Removal</title>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
 <style id="dropdown-nav-style">
   .main-nav {
     list-style: none;
@@ -63,14 +63,78 @@
     display: block !important;
   }
 </style>
+<link href="licensed.html" rel="canonical"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Envirosafe Removal",
+  "image": "https://www.envirosaferemovals.co.uk/logo.png",
+  "@id": "https://www.envirosaferemovals.co.uk",
+  "url": "https://www.envirosaferemovals.co.uk",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Overglen Court",
+    "addressLocality": "Liss",
+    "addressRegion": "Hampshire",
+    "postalCode": "GU33 7PB",
+    "addressCountry": "GB"
+  }
+}
+    </script>
+</head>
+<body>
+<header><div class="header-left"><img alt="Envirosafe Removal logo" class="logo" src="logo.png"/><h1>Envirosafe Removal</h1></div><a class="call-button" href="tel:07859970938">Call Us</a><button aria-label="Menu" class="menu-toggle" id="menu-toggle">☰</button><nav>
+<ul class="main-nav">
+<li><a href="index.html">Home</a></li>
+<li class="dropdown"><a class="dropdown-toggle" href="#">Services</a>
+<ul class="dropdown-menu">
+<li><a href="licensed.html">Licensed Removal</a></li>
+<li><a href="non-licensed.html">Non-Licensed Removal</a></li>
+<li><a href="surveys.html">Asbestos Surveys</a></li>
+<li><a href="commercial.html">Commercial</a></li>
+<li><a href="residential.html">Residential</a></li>
+</ul>
+</li>
+<li class="dropdown"><a class="dropdown-toggle" href="#">About</a>
+<ul class="dropdown-menu">
+<li><a href="about.html">About Us</a></li>
+<li><a href="contact.html">Contact Us</a></li>
+<li><a href="faq.html">FAQ</a></li>
+<li><a href="testimonials.html">Testimonials</a></li>
+</ul>
+</li>
+</ul>
+</nav></header>
+<section>
+<h1>Licensed Asbestos Removal</h1>
+<p>High-risk asbestos materials require a contractor with a full licence from the Health and Safety Executive (HSE). Examples of licensed work include removing sprayed asbestos coatings, lagging on pipes and boilers, asbestos insulation board (AIB) and loose-fill insulation. These materials tend to produce large amounts of asbestos fibres when disturbed and therefore must be handled by trained, licensed professionals.</p>
+<p>Our experienced team is licensed by the HSE to safely remove high-risk asbestos in compliance with UK regulations. We carry out comprehensive risk assessments and use specialist equipment to ensure fibres do not contaminate your property or the environment. All waste is transported to approved disposal facilities.</p>
+<h2>When is Licensed Removal Required?</h2>
+<ul>
+<li>Sprayed asbestos coatings and decorative finishes</li>
+<li>Pipe lagging and thermal insulation</li>
+<li>Asbestos insulation board (AIB) panels and partitions</li>
+<li>Asbestos millboard and paper products</li>
+<li>Large-scale projects where exposure is high or prolonged</li>
+</ul>
+<p>If you suspect high-risk asbestos in your building, contact us for a free consultation. Our licensed experts will advise on the best course of action.</p>
+</section>
+<section>
+<h2>Speak to Our Experts</h2>
+<p>Contact us today for professional asbestos removal services and expert advice.</p>
+<a class="cta-button" href="contact.html">Contact Us</a>
+</section>
+<footer><p>© 2025 Envirosafe Removal. All rights reserved.</p><p class="nap">Envirosafe Removal, Overglen Court, Liss, Hampshire GU33 7PB · Tel: 07859 970 938</p></footer>
 
-    <link rel="canonical" href="licensed.html">
-    
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  var toggleBtn = document.getElementById('menu-toggle');
+<script>document.addEventListener('DOMContentLoaded', function() {
+  var menuToggle = document.getElementById('menu-toggle');
   var nav = document.querySelector('header nav');
+  if (menuToggle && nav) {
+    menuToggle.addEventListener('click', function() {
+      nav.classList.toggle('nav-open');
+    });
+  }
   function setupDropdowns() {
     var isMobile = window.innerWidth <= 900;
     document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
@@ -85,13 +149,5 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   setupDropdowns();
   window.addEventListener('resize', setupDropdowns);
-  if (toggleBtn && nav) {
-    toggleBtn.addEventListener('click', function(e) {
-      e.preventDefault();
-      nav.classList.toggle('nav-open');
-    });
-  }
-});
-</script>
-</body>
+});</script></body>
 </html>
