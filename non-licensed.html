@@ -6,7 +6,7 @@
     <meta name="description" content="Expert non‑licensed asbestos removal services in London and the South East. HSE licensed and BOHS‑accredited. Contact us today for a free quote.">
     <title>Non‑Licensed Asbestos Removal | Envirosafe Removal</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://www.envirosaferemovals.co.uk/style.css">
+    <link rel="stylesheet" href="style.css">
 
 <style id="dropdown-nav-style">
   .main-nav {
@@ -25,7 +25,7 @@
   .main-nav a {
     color: #ffffff;
     text-decoration: none;
-    padding: 0.6rem 1rem;
+    padding: 0.8rem 1.2rem;
     display: block;
     font-weight: 600;
     border-radius: 4px;
@@ -64,7 +64,7 @@
   }
 </style>
 
-    <link rel="canonical" href="https://www.envirosaferemovals.co.uk/non-licensed.html">
+    <link rel="canonical" href="non-licensed.html">
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -87,32 +87,34 @@
 <body>
     
 <header>
+  <div class="header-left">
     <img src="https://www.envirosaferemovals.co.uk/logo.png" alt="Envirosafe Removal logo" class="logo">
     <h1>Envirosafe Removal</h1>
-    
-    <nav>
+  </div>
+  <a class="call-button" href="tel:07859970938">Call Us</a>
+  <button class="menu-toggle" id="menu-toggle">☰</button>
+  <nav>
     <ul class="main-nav">
-        <li><a href="https://www.envirosaferemovals.co.uk/index.html">Home</a></li>
+        <li><a href="index.html">Home</a></li>
         <li class="dropdown"><a href="#" class="dropdown-toggle">Services</a>
             <ul class="dropdown-menu">
-                <li><a href="https://www.envirosaferemovals.co.uk/licensed.html">Licensed Removal</a></li>
-                <li><a href="https://www.envirosaferemovals.co.uk/non-licensed.html">Non-Licensed Removal</a></li>
-                <li><a href="https://www.envirosaferemovals.co.uk/surveys.html">Asbestos Surveys</a></li>
-                <li><a href="https://www.envirosaferemovals.co.uk/commercial.html">Commercial</a></li>
-                <li><a href="https://www.envirosaferemovals.co.uk/residential.html">Residential</a></li>
+                <li><a href="licensed.html">Licensed Removal</a></li>
+                <li><a href="non-licensed.html">Non-Licensed Removal</a></li>
+                <li><a href="surveys.html">Asbestos Surveys</a></li>
+                <li><a href="commercial.html">Commercial</a></li>
+                <li><a href="residential.html">Residential</a></li>
             </ul>
         </li>
         <li class="dropdown"><a href="#" class="dropdown-toggle">About</a>
             <ul class="dropdown-menu">
-                <li><a href="https://www.envirosaferemovals.co.uk/about.html">About Us</a></li>
-                <li><a href="https://www.envirosaferemovals.co.uk/contact.html">Contact Us</a></li>
-                <li><a href="https://www.envirosaferemovals.co.uk/faq.html">FAQ</a></li>
-                <li><a href="https://www.envirosaferemovals.co.uk/testimonials.html">Testimonials</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
             </ul>
         </li>
     </ul>
     </nav>
-
 </header>
 
     
@@ -155,6 +157,20 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   setupDropdowns();
   window.addEventListener('resize', setupDropdowns);
+});
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var btn = document.getElementById('mobile-menu-button');
+  var nav = document.querySelector('header nav');
+  if (btn && nav) {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      nav.classList.toggle('nav-open');
+    });
+  }
 });
 </script>
 
