@@ -65,87 +65,15 @@
 </style>
 
     <link rel="canonical" href="non-licensed.html">
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "Envirosafe Removal",
-  "image": "https://www.envirosaferemovals.co.uk/logo.png",
-  "@id": "https://www.envirosaferemovals.co.uk",
-  "url": "https://www.envirosaferemovals.co.uk",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Overglen Court",
-    "addressLocality": "Liss",
-    "addressRegion": "Hampshire",
-    "postalCode": "GU33 7PB",
-    "addressCountry": "GB"
-  }
-}
-    </script>
-</head>
-<body>
     
-<header>
-  <div class="header-left">
-    <img src="https://www.envirosaferemovals.co.uk/logo.png" alt="Envirosafe Removal logo" class="logo">
-    <h1>Envirosafe Removal</h1>
-  </div>
-  <a class="call-button" href="tel:07859970938">Call Us</a>
-  <button class="menu-toggle" id="menu-toggle">☰</button>
-  <nav>
-    <ul class="main-nav">
-        <li><a href="index.html">Home</a></li>
-        <li class="dropdown"><a href="#" class="dropdown-toggle">Services</a>
-            <ul class="dropdown-menu">
-                <li><a href="licensed.html">Licensed Removal</a></li>
-                <li><a href="non-licensed.html">Non-Licensed Removal</a></li>
-                <li><a href="surveys.html">Asbestos Surveys</a></li>
-                <li><a href="commercial.html">Commercial</a></li>
-                <li><a href="residential.html">Residential</a></li>
-            </ul>
-        </li>
-        <li class="dropdown"><a href="#" class="dropdown-toggle">About</a>
-            <ul class="dropdown-menu">
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-                <li><a href="testimonials.html">Testimonials</a></li>
-            </ul>
-        </li>
-    </ul>
-    </nav>
-</header>
-
-    
-<section>
-    <h1>Non-Licensed Asbestos Removal</h1>
-    <p>Certain asbestos work can be carried out without an HSE licence because the risk of fibre release is lower. To qualify, the work must be sporadic and of low intensity, with exposure less than 0.6 fibres per cubic centimetre of air over a 10‑minute period and not exceed 0.1 fibres per cubic centimetre averaged over a 4‑hour period. Examples include removing asbestos cement sheets, drilling small holes in textured coatings or encapsulating asbestos.</p>
-    <p>Even without a licence, non-licensed work still requires trained personnel, proper risk assessment and safe working procedures. Our team is fully trained to carry out these tasks and will advise whether your project falls under licensed or non-licensed requirements.</p>
-    <h2>Examples of Non-Licensed Work</h2>
-    <ul>
-        <li>Removing asbestos cement roofing and guttering in good condition</li>
-        <li>Drilling or cutting small holes in textured coatings</li>
-        <li>Encapsulating asbestos‑containing materials with sealant</li>
-        <li>Cleaning up small pieces of asbestos debris</li>
-        <li>Air monitoring and sampling tasks</li>
-    </ul>
-    <p>Contact us to discuss your project – we can determine whether the work is licensable and ensure it is completed safely.</p>
-</section>
-
-    <section>
-  <h2>Speak to Our Experts</h2>
-  <p>Contact us today for professional asbestos removal services and expert advice.</p>
-  <a href="contact.html" class="cta-button">Contact Us</a>
-</section>
-<footer><p>&copy; 2025 Envirosafe Removal. All rights reserved.</p><p class="nap">Envirosafe Removal, Overglen Court, Liss, Hampshire GU33 7PB · Tel: 07859 970 938</p></footer>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+  var toggleBtn = document.getElementById('menu-toggle');
+  var nav = document.querySelector('header nav');
   function setupDropdowns() {
-    var isMobile = window.innerWidth <= 768;
+    var isMobile = window.innerWidth <= 900;
     document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
-      // Reset any existing onclick handlers
       toggle.onclick = null;
       if (isMobile) {
         toggle.onclick = function(e) {
@@ -157,22 +85,13 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   setupDropdowns();
   window.addEventListener('resize', setupDropdowns);
-});
-</script>
-
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  var btn = document.getElementById('mobile-menu-button');
-  var nav = document.querySelector('header nav');
-  if (btn && nav) {
-    btn.addEventListener('click', function(e) {
+  if (toggleBtn && nav) {
+    toggleBtn.addEventListener('click', function(e) {
       e.preventDefault();
       nav.classList.toggle('nav-open');
     });
   }
 });
 </script>
-
 </body>
 </html>
