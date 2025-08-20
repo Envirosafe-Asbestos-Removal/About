@@ -354,5 +354,14 @@ header {
   }
   header nav {
     display: block;
+    flex: 1 1 auto;
+  }
+  /* Centre the navigation within its flex container on large screens */
+  header nav ul {
+    justify-content: center;
+  }
+  /* Position header items from the left; prevents the nav from hugging the right edge */
+  header {
+    justify-content: flex-start;
   }
 }
