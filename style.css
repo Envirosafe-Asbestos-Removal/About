@@ -1,8 +1,8 @@
 
 /*
- * Updated global styles for Envirosafe Removal Specialists.
+ * Updated global styles for Envirosafe Removal.
  *
- * This stylesheet applies the brand palette of primary navy (#0B2038), safety green (#6BBE44) and white (#FFFFFF).
+ * This stylesheet applies the brand palette of primary navy (#0F1727), safety green (#6BBE44) and white (#FFFFFF).
  * Typography uses Open Sans for a clean, professional look. The layout is mobile responsive using a simple media query.
  */
 
@@ -22,23 +22,30 @@ body {
 
 /* Header */
 header {
+  /*
+   * Use a more compact header to avoid the navigation bar taking up
+   * excessive vertical space. Reduce the overall padding and update
+   * the colours to blend with the logo background. The border
+   * remains for subtle separation from the page body.
+   */
   background-color: #0F1727;
   color: #ffffff;
-  padding: 1.2rem 2rem;
+  padding: 0.6rem 1rem;
   text-align: center;
-  border-bottom: 5px solid #6BBE44;
+  border-bottom: 4px solid #6BBE44;
 }
 
 header img.logo {
-  /* Increase logo size for better visibility */
-  height: 70x;
-  margin-bottom: 0.5rem;
+  /* Fix typo in height and reduce the logo height for a sleeker header */
+  height: 60px;
+  margin-bottom: 0.3rem;
 }
 
 header h1 {
-  font-size: 2rem;
+  /* Reduce font size and margin for a more balanced header */
+  font-size: 1.8rem;
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
 }
 
 /* Navigation */
@@ -63,7 +70,8 @@ nav li {
 nav a {
   color: #ffffff;
   text-decoration: none;
-  padding: 0.8rem 1.2rem;
+  /* Reduce link padding to prevent the menu from appearing overly tall */
+  padding: 0.6rem 1rem;
   font-weight: 600;
   display: inline-block;
   transition: background 0.3s ease;
@@ -79,7 +87,8 @@ nav a:hover {
 .hero {
   background-color: #f2f4f7;
   text-align: center;
-  padding: 3rem 2rem;
+  /* Reduce hero padding to avoid the header and hero together taking up too much of the viewport */
+  padding: 2rem 1.5rem;
 }
 
 .hero h1 {
@@ -179,6 +188,158 @@ footer {
   nav a {
     width: 100%;
     padding: 0.8rem 1rem;
+  }
+}
+
+/*
+ * Mobile hamburger menu implementation
+ *
+ * On narrow screens the standard navigation list is hidden and replaced
+ * by a compact button. When the user taps the button, the nav element
+ * toggles a `nav-open` class which reveals the list in a vertical
+ * orientation. On wider screens the button is hidden and the menu
+ * remains visible as a horizontal bar.
+ */
+@media (max-width: 900px) {
+  nav .main-nav {
+    /* Hide the menu by default on small screens */
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+  nav.nav-open .main-nav {
+    /* Show the menu when nav has the nav-open class */
+    display: flex;
+  }
+  .mobile-menu-button {
+    display: inline-block;
+    background-color: #6BBE44;
+    color: #0F1727;
+    padding: 0.4rem 0.8rem;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 0.5rem;
+  }
+  .mobile-menu-button:hover {
+    background-color: #5AAE39;
+  }
+}
+@media (min-width: 901px) {
+  .mobile-menu-button {
+    display: none;
+  }
+}
+
+/*
+ * Responsive header and navigation redesign
+ *
+ * The header is now a flexible container with the logo and site title on the left,
+ * an optional call button and a menu toggle on the right. On larger screens
+ * the navigation bar is displayed inline next to the logo. On smaller
+ * screens the navigation is hidden by default and displayed as an overlay when
+ * the user taps the menu toggle. The call button appears only on mobile.
+ */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  position: relative;
+}
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.header-left img.logo {
+  height: 50px;
+  margin-bottom: 0;
+}
+.header-left h1 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+/* Call button displayed on small screens */
+.call-button {
+  display: none;
+  background-color: #6BBE44;
+  color: #0F1727;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: auto;
+}
+/* Menu toggle button (hamburger) for mobile */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1.8rem;
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+/* Base nav styling remains for desktop */
+@media (max-width: 900px) {
+  header nav {
+    display: none;
+  }
+  header nav.nav-open {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    color: #0F1727;
+    padding: 1rem;
+    z-index: 1000;
+  }
+  header nav.nav-open .main-nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  header nav.nav-open .main-nav > li {
+    margin: 0.5rem 0;
+  }
+  header nav.nav-open .main-nav a {
+    color: #0F1727;
+    padding: 0.5rem 0;
+  }
+  header nav.nav-open .dropdown-menu {
+    position: static;
+    display: none;
+    background-color: transparent;
+    min-width: 100%;
+    padding: 0;
+  }
+  header nav.nav-open .dropdown.open > .dropdown-menu {
+    display: block;
+  }
+  .call-button {
+    display: inline-block;
+  }
+  .menu-toggle {
+    display: inline-block;
+  }
+  /* hide header title on very small screens to preserve space */
+  .header-left h1 {
+    font-size: 1.2rem;
+  }
+}
+@media (min-width: 901px) {
+  header nav {
+    display: block;
+  }
+  .call-button {
+    display: none;
+  }
+  .menu-toggle {
+    display: none;
   }
 }
 /* Compact header navigation with dropdown menus */
