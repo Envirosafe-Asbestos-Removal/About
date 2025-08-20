@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Envirosafe Removal Specialists provide licensed and non‑licensed asbestos removal, surveys and safe disposal across London and the South East. Get your quote today.">
-    <title>Contact | Envirosafe Removal Specialists</title>
+    <meta name="description" content="Envirosafe Removal provide licensed and non‑licensed asbestos removal, surveys and safe disposal across London and the South East. Get your quote today.">
+    <title>Contact | Envirosafe Removal</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://www.envirosaferemovals.co.uk/style.css">
 
@@ -25,7 +25,7 @@
   .main-nav a {
     color: #ffffff;
     text-decoration: none;
-    padding: 0.8rem 1.2rem;
+    padding: 0.6rem 1rem;
     display: block;
     font-weight: 600;
     border-radius: 4px;
@@ -119,7 +119,7 @@
 {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "name": "Envirosafe Removal Specialists",
+  "name": "Envirosafe Removal",
   "image": "https://www.envirosaferemovals.co.uk/logo.png",
   "@id": "https://www.envirosaferemovals.co.uk",
   "url": "https://www.envirosaferemovals.co.uk",
@@ -137,10 +137,10 @@
 <body>
     
 <header>
-    <img src="https://www.envirosaferemovals.co.uk/logo.png" alt="Envirosafe Removal Specialists logo" class="logo">
-    <h1>Envirosafe Removal Specialists</h1>
+    <img src="https://www.envirosaferemovals.co.uk/logo.png" alt="Envirosafe Removal logo" class="logo">
+    <h1>Envirosafe Removal</h1>
     
-    <nav>
+    <button class="mobile-menu-toggle" id="mobile-menu-toggle">Menu</button><nav>
     <ul class="main-nav">
         <li><a href="https://www.envirosaferemovals.co.uk/index.html">Home</a></li>
         <li class="dropdown"><a href="#" class="dropdown-toggle">Services</a>
@@ -179,15 +179,17 @@
     </div>
     <h2>Contact Form</h2>
     <!-- Use an external form handling service to route submissions to the business email.
-         This form is configured for Web3Forms. Sign up at https://web3forms.com/ to obtain
-         your access key, then update the value below. Submissions will be sent directly
-         to your designated email address. -->
+         Replace `{your-form-id}` with the ID provided by Formspree or a similar provider.
+         Using POST ensures form data is sent to the service. -->
     <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
-        <!-- The access_key identifies your Web3Forms account. Replace this value with your
-             own key. For example: 8117cccb-9c09-4f94-80bd-ae118e6d0a17 -->
-        <input type="hidden" name="access_key" value="8117cccb-9c09-4f94-80bd-ae118e6d0a17">
+        <!-- The access_key identifies your Web3Forms account. Replace YOUR_ACCESS_KEY
+             with the key provided when you sign up at https://web3forms.com/.  Without
+             this key the form will not be processed. -->
+        <!-- Inject the Web3Forms access key provided by the client so form
+             submissions are routed to the correct inbox. -->
+        <input type="hidden" name="access_key" value="0d79cb6f-fd28-4e01-8ba2-1dc88ef66b22">
         <!-- Customise the subject line for your email notifications -->
-        <input type="hidden" name="subject" value="New Enquiry from Envirosafe Removal Specialists">
+        <input type="hidden" name="subject" value="New Enquiry from Envirosafe Removal">
         <!-- Optionally specify the redirect URL to a thank you page -->
         <input type="hidden" name="redirect" value="https://www.envirosaferemovals.co.uk/thank-you.html">
         <label for="name">Name:</label>
@@ -200,8 +202,8 @@
     </form>
     <h2>Map</h2>
     <p>View our location on Google Maps:</p>
-    <!-- Embed map targeting Envirosafe Removal Specialists at Overglen Court. Using a simple maps query string without specifying another business. -->
-    <iframe src="https://www.google.com/maps?q=Envirosafe%20Removal%20Specialists%20Overglen%20Court%20Hill%20Brow%20Liss%20GU33%207PB&output=embed" width="100%" height="300" style="border:0;" allowfullscreen loading="lazy"></iframe>
+    <!-- Embed map targeting Envirosafe Removal at Overglen Court. Using a simple maps query string without specifying another business. -->
+    <iframe src="https://www.google.com/maps?q=Envirosafe%20Removal%20Overglen%20Court%20Hill%20Brow%20Liss%20GU33%207PB&output=embed" width="100%" height="300" style="border:0;" allowfullscreen loading="lazy"></iframe>
 </section>
 
     <section>
@@ -209,7 +211,7 @@
   <p>Contact us today for professional asbestos removal services and expert advice.</p>
   <a href="contact.html" class="cta-button">Contact Us</a>
 </section>
-<footer><p>&copy; 2025 Envirosafe Removal Specialists. All rights reserved.</p><p class="nap">Envirosafe Removal Specialists, Overglen Court, Liss, Hampshire GU33 7PB · Tel: 07859 970 938</p></footer>
+<footer><p>&copy; 2025 Envirosafe Removal. All rights reserved.</p><p class="nap">Envirosafe Removal, Overglen Court, Liss, Hampshire GU33 7PB · Tel: 07859 970 938</p></footer>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -232,6 +234,22 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <!-- The online contact form posts directly to a back‑end service. No client‑side script needed -->
+
+
+<script>
+// Mobile menu toggle script. Toggles the `.open` class on the nav element
+// when the menu button is clicked, enabling a hamburger menu on small screens.
+document.addEventListener('DOMContentLoaded', function() {
+  var menuButton = document.getElementById('mobile-menu-toggle');
+  var nav = document.querySelector('header nav');
+  if (menuButton && nav) {
+    menuButton.addEventListener('click', function(e) {
+      e.preventDefault();
+      nav.classList.toggle('open');
+    });
+  }
+});
+</script>
 
 </body>
 </html>
