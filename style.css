@@ -243,6 +243,14 @@ footer {
 .dropdown.open > .dropdown-menu {
   display: block !important;
 }
+
+/* When a dropdown is open, highlight the trigger link
+   so users know which section is expanded. This applies
+   on both desktop and mobile. */
+.dropdown.open > a {
+  background-color: #6BBE44;
+  color: #ffffff;
+}
 @media (max-width: 768px) {
   .main-nav {
     flex-direction: column;
