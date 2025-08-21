@@ -262,33 +262,38 @@ footer {
 }
 
 /* === Responsive header and mobile navigation overrides === */
+/* Base header styling */
 header {
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: nowrap;
   padding: 0.5rem 1rem;
   background-color: #0F1727;
   color: #ffffff;
   border-bottom: 4px solid #6BBE44;
 }
 
-.header-left {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.header-left img.logo {
+header img.logo {
   height: 50px;
   margin-bottom: 0;
 }
 
-.header-left h1 {
-  font-size: 1.6rem;
+/* Absolutely centre the site title between the left and right edges */
+header .site-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   margin: 0;
+  white-space: nowrap;
+  font-size: 1.6rem;
 }
 
+/* Navigation sits to the right on desktop */
+header nav {
+  margin-left: auto;
+}
+
+/* Call button styling */
 .call-button {
   background-color: #6BBE44;
   color: #0F1727;
@@ -296,26 +301,21 @@ header {
   border-radius: 4px;
   text-decoration: none;
   font-weight: 600;
-  margin-right: 0.5rem;
+  margin-left: 0.5rem;
 }
 
+/* Hamburger button */
 .menu-toggle {
   background: none;
   border: none;
   color: #ffffff;
   font-size: 1.8rem;
   cursor: pointer;
-  display: none;
+  margin-left: 0.5rem;
 }
 
 @media (max-width: 900px) {
-  .call-button {
-    display: inline-block;
-    flex: 0 0 auto;
-  }
-  .menu-toggle {
-    display: inline-block;
-  }
+  /* Hide the navigation bar on small screens until opened */
   header nav {
     display: none;
   }
@@ -342,26 +342,42 @@ header {
     color: #0F1727;
     padding: 0.5rem 1rem;
   }
-  .header-left h1 {
+  /* Show call button and menu toggle on mobile */
+  .call-button,
+  .menu-toggle {
+    display: inline-block;
+  }
+  header .site-title {
     font-size: 1.4rem;
   }
 }
 
 @media (min-width: 901px) {
+  /* Hide call button and menu toggle on larger screens */
   .call-button,
   .menu-toggle {
     display: none;
   }
-  header nav {
-    display: block;
-    flex: 1 1 auto;
-  }
-  /* Centre the navigation within its flex container on large screens */
-  header nav ul {
-    justify-content: center;
-  }
-  /* Position header items from the left; prevents the nav from hugging the right edge */
+  /* Position the navigation flush with the right edge and vertically centre it */
   header {
-    justify-content: flex-start;
+    position: relative;
+  }
+  header nav {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  /* Align navigation items to the right within the nav */
+  header nav ul {
+    justify-content: flex-end;
+  }
+  /* Ensure dropdown on the last top-level item aligns to the right edge */
+  header nav ul > li:last-child .dropdown-menu {
+    right: 0;
+    left: auto;
   }
 }
