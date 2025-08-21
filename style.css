@@ -240,10 +240,8 @@ footer {
   display: block !important;
 }
 /* Show dropdown when .open class added (mobile click) */
-@media (min-width: 901px) {
-  .dropdown:hover > .dropdown-menu {
-    display: block;
-  }
+.dropdown.open > .dropdown-menu {
+  display: block !important;
 }
 
 /* When a dropdown is open, highlight the trigger link
