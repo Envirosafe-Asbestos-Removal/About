@@ -315,40 +315,69 @@ header nav {
 }
 
 @media (max-width: 900px) {
-  /* Hide the navigation bar on small screens until opened */
+  /* On small screens transform the header into a compact bar with a call button and
+     hamburger toggle. Hide the site title to free up horizontal space and
+     reposition the navigation as a vertical overlay when opened. */
+
+  /* Make header content align horizontally and use space between for logo on the left
+     and controls on the right */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0.75rem;
+  }
+
+  /* Hide the site title on mobile to prevent overlap with controls */
+  header .site-title {
+    display: none;
+  }
+
+  /* Hide the navigation bar on small screens until opened via .nav-open */
   header nav {
     display: none;
   }
+  /* When the nav has the nav-open class, show it as an overlay below the header */
   header nav.nav-open {
     display: block;
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
-    background-color: #ffffff;
-    color: #0F1727;
-    padding: 1rem;
+    background-color: #0F1727;
+    color: #ffffff;
+    padding: 1rem 0;
     z-index: 1000;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
   header nav.nav-open ul {
     flex-direction: column;
     align-items: flex-start;
+    padding-left: 0;
   }
   header nav.nav-open li {
-    margin: 0.5rem 0;
+    margin: 0;
+    width: 100%;
   }
   header nav.nav-open a {
-    color: #0F1727;
-    padding: 0.5rem 1rem;
+    width: 100%;
+    color: #ffffff;
+    padding: 0.8rem 1rem;
+    display: block;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
-  /* Show call button and menu toggle on mobile */
+
+  /* Display the call button and menu toggle on mobile */
   .call-button,
   .menu-toggle {
     display: inline-block;
   }
-  header .site-title {
-    font-size: 1.4rem;
+  /* Adjust button spacing on mobile */
+  .call-button {
+    margin-right: 0.5rem;
+  }
+  .menu-toggle {
+    margin-right: 0;
   }
 }
 
