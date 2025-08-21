@@ -367,6 +367,17 @@ header nav {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
+  /* In the mobile nav overlay, ensure dropdown menus are positioned
+     statically and span the full width so they appear directly below
+     their parent item instead of overlaying the page. */
+  header nav.nav-open .dropdown-menu {
+    position: static;
+    width: 100%;
+    background-color: #0F1727;
+    padding-left: 0;
+    margin: 0;
+  }
+
   /* Display the call button and menu toggle on mobile */
   .call-button,
   .menu-toggle {
