@@ -1,7 +1,257 @@
+/*
+ * Updated global styles for Envirosafe Removal Specialists.
+ *
+ * This stylesheet applies the brand palette of primary navy (#0B2038), safety green (#6BBE44) and white (#FFFFFF).
+ * Typography uses Open Sans for a clean, professional look. The layout is mobile responsive using a simple media query.
+ */
 
-/* Add your existing CSS above this line */
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-/* Fix for font visibility in mobile nav */
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #f8f9fa;
+  color: #0B2038;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background-color: #0B2038;
+  color: #ffffff;
+  padding: 1.2rem 2rem;
+  text-align: center;
+  border-bottom: 5px solid #6BBE44;
+}
+
+header img.logo {
+  /* Increase logo size for better visibility */
+  height: 70x;
+  margin-bottom: 0.5rem;
+}
+
+header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+/* Navigation */
+nav {
+  background-color: #0B2038;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+nav li {
+  margin: 0.5rem 0.75rem;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.8rem 1.2rem;
+  font-weight: 600;
+  display: inline-block;
+  transition: background 0.3s ease;
+  border-radius: 4px;
+}
+
+nav a:hover {
+  background-color: #6BBE44;
+  color: #0B2038;
+}
+
+/* Hero section */
+.hero {
+  background-color: #f2f4f7;
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.hero h1 {
+  color: #0B2038;
+  font-size: 2rem;
+  margin-bottom: 0.6rem;
+}
+
+.hero p {
+  color: #333333;
+  font-size: 1.1rem;
+  margin-bottom: 1.2rem;
+}
+
+/* CTA button */
+.cta-button {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  background-color: #6BBE44;
+  color: #0B2038;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #5AAE39;
+}
+
+/* Sections */
+section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Centre images within sections and constrain width */
+section img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 90%;
+  height: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+section h1, section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #0B2038;
+}
+
+/* Footer */
+footer {
+  background-color: #0B2038;
+  color: #ffffff;
+  text-align: center;
+  padding: 1.2rem;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.6rem;
+  }
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+  nav a {
+    display: block;
+    padding: 0.6rem 1rem;
+  }
+  .cta-button {
+    width: 80%;
+    margin: 1rem auto;
+    display: block;
+    text-align: center;
+  }
+  section {
+    padding: 1.5rem;
+  }
+}
+
+/* Enhanced mobile navigation spacing */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  nav li {
+    margin: 0.4rem 0;
+  }
+  nav a {
+    width: 100%;
+    padding: 0.8rem 1rem;
+  }
+}
+/* Compact header navigation with dropdown menus */
+.main-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  background-color: #0B2038;
+  flex-wrap: wrap;
+}
+.main-nav > li {
+  position: relative;
+  margin: 0 1rem;
+}
+.main-nav a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.8rem 1.2rem;
+  display: block;
+  font-weight: 600;
+  border-radius: 4px;
+}
+.main-nav a:hover {
+  background-color: #6BBE44;
+  color: #0B2038;
+}
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #0B2038;
+  list-style: none;
+  padding: 0.5rem 0;
+  min-width: 220px;
+  z-index: 1000;
+  display: none !important;
+}
+.dropdown-menu li a {
+  padding: 0.6rem 1rem;
+  color: #ffffff;
+}
+.dropdown-menu li a:hover {
+  background-color: #6BBE44;
+  color: #0B2038;
+}
+/* Show dropdown on hover for desktop */
+.dropdown:hover > .dropdown-menu {
+  display: block !important;
+}
+/* Show dropdown when .open class added (mobile click) */
+.dropdown.open > .dropdown-menu {
+  display: block !important;
+}
+@media (max-width: 768px) {
+  .main-nav {
+    flex-direction: column;
+    align-items: center;
+  }
+  .main-nav > li {
+    margin: 0.4rem 0;
+  }
+  .main-nav a {
+    width: 100%;
+  }
+  .dropdown-menu {
+    position: static;
+    width: 100%;
+    min-width: 100%;
+  }
+}
+
+/* Font visibility in mobile nav */
 header nav.nav-open .dropdown-btn {
   color: #0F1727 !important;
   background-color: #ffffff;
@@ -15,9 +265,6 @@ header nav.nav-open .dropdown-btn {
   }
   header img.logo {
     height: 40px;
-  }
-  .menu-toggle {
-    font-size: 1.4rem;
   }
   .call-button {
     padding: 0.3rem 0.6rem;
