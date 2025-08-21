@@ -285,3 +285,41 @@ header nav.nav-open .dropdown-btn {
     transform: translateY(-50%);
   }
 }
+
+@media (min-width: 901px) {
+  nav .main-nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  nav .main-nav > li {
+    position: relative;
+    display: inline-block;
+  }
+
+  nav .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 1000;
+  }
+
+  nav .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+}
+
+/* Mobile toggle override */
+header nav.nav-open .main-nav {
+  display: block;
+}
+
+header nav.nav-open .main-nav > li {
+  display: block;
+  margin-bottom: 0.75rem;
+}
