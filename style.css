@@ -316,3 +316,34 @@ header nav.nav-open .dropdown-btn {
     transform: translateY(-50%);
   }
 }
+/* Mobile toggled nav layout */
+header nav.nav-open .main-nav {
+  display: block;
+}
+
+header nav.nav-open .main-nav > li {
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+header nav.nav-open .dropdown-btn {
+  color: #0F1727 !important;
+  background-color: #ffffff;
+  font-weight: bold;
+}
+
+/* Reduce header size on mobile */
+@media (max-width: 768px) {
+  header {
+    padding: 0.3rem 0.5rem;
+  }
+
+  header img.logo {
+    height: 40px;
+  }
+
+  .call-button {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.85rem;
+  }
+}
