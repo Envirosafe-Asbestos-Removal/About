@@ -389,6 +389,18 @@ header nav {
     margin: 0;
   }
 
+  /* Ensure submenu links are visible against the light background */
+  header nav.nav-open .dropdown-menu li a {
+    color: #0F1727;
+    padding: 0.8rem 1rem;
+  }
+
+  /* Highlight submenu items on hover */
+  header nav.nav-open .dropdown-menu li a:hover {
+    background-color: #6BBE44;
+    color: #ffffff;
+  }
+
   /* Display the call button and menu toggle on mobile */
   .call-button,
   .menu-toggle {
