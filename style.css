@@ -377,6 +377,13 @@ header nav {
     border-bottom: 1px solid #eeeeee;
   }
 
+  /* Override any earlier styles to ensure top-level links inside the
+     mobile menu are dark before they are opened. Without this, some
+     inherited rules may leave them white on a white background. */
+  header nav.nav-open .main-nav > li > a {
+    color: #0F1727 !important;
+  }
+
   /* In the mobile nav overlay, ensure dropdown menus are positioned
      statically and span the full width so they appear directly below
      their parent item instead of overlaying the page. */
