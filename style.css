@@ -251,14 +251,23 @@ footer {
   }
 }
 
-/* Font visibility in mobile nav */
+/* Fix: Toggle visibility and dropdowns on mobile */
+header nav.nav-open .main-nav {
+  display: block;
+}
+
+header nav.nav-open .main-nav > li {
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
 header nav.nav-open .dropdown-btn {
   color: #0F1727 !important;
   background-color: #ffffff;
   font-weight: bold;
 }
 
-/* Reduce header size on mobile */
+/* Mobile header size */
 @media (max-width: 768px) {
   header {
     padding: 0.3rem 0.5rem;
@@ -272,20 +281,7 @@ header nav.nav-open .dropdown-btn {
   }
 }
 
-/* Proper nav alignment on desktop */
-@media (min-width: 901px) {
-  .dropdown:hover > .dropdown-menu {
-    display: block;
-  }
-
-  header nav {
-    position: absolute;
-    top: 50%;
-    right: 1rem;
-    transform: translateY(-50%);
-  }
-}
-
+/* Desktop layout */
 @media (min-width: 901px) {
   nav .main-nav {
     display: flex;
@@ -312,14 +308,11 @@ header nav.nav-open .dropdown-btn {
   nav .dropdown:hover .dropdown-menu {
     display: block;
   }
-}
 
-/* Mobile toggle override */
-header nav.nav-open .main-nav {
-  display: block;
-}
-
-header nav.nav-open .main-nav > li {
-  display: block;
-  margin-bottom: 0.75rem;
+  header nav {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+  }
 }
