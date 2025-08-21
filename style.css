@@ -345,21 +345,19 @@ header nav {
   header nav {
     display: none;
   }
-  /* When the nav has the nav-open class on mobile, show it as part of the
-     normal document flow instead of overlaying content. This pushes the page
-     content down and allows the user to scroll past the menu. */
+  /* When the nav has the nav-open class, show it as an overlay below the header */
   header nav.nav-open {
     display: block;
-    position: static;
+    position: absolute;
+    top: 100%;
+    left: 0;
     width: 100%;
-    /* Light background for the mobile menu */
+    /* Use a light background on mobile menus for better contrast */
     background-color: #ffffff;
     color: #0F1727;
-    padding: 0.5rem 0;
-    /* Restrict height and make the menu scroll if necessary */
-    max-height: 70vh;
-    overflow-y: auto;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   header nav.nav-open ul {
     flex-direction: column;
