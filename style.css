@@ -251,37 +251,23 @@ footer {
   }
 }
 
-/* Fix: Toggle visibility and dropdowns on mobile */
+/* --- Functional Fixes --- */
+
+/* Toggle functionality for mobile menu */
 header nav.nav-open .main-nav {
   display: block;
 }
-
 header nav.nav-open .main-nav > li {
   display: block;
   margin-bottom: 0.75rem;
 }
-
 header nav.nav-open .dropdown-btn {
   color: #0F1727 !important;
   background-color: #ffffff;
   font-weight: bold;
 }
 
-/* Mobile header size */
-@media (max-width: 768px) {
-  header {
-    padding: 0.3rem 0.5rem;
-  }
-  header img.logo {
-    height: 40px;
-  }
-  .call-button {
-    padding: 0.3rem 0.6rem;
-    font-size: 0.85rem;
-  }
-}
-
-/* Desktop layout */
+/* Horizontal nav layout on desktop */
 @media (min-width: 901px) {
   nav .main-nav {
     display: flex;
@@ -289,12 +275,10 @@ header nav.nav-open .dropdown-btn {
     gap: 2rem;
     align-items: center;
   }
-
   nav .main-nav > li {
-    position: relative;
     display: inline-block;
+    position: relative;
   }
-
   nav .dropdown-menu {
     position: absolute;
     top: 100%;
@@ -304,11 +288,9 @@ header nav.nav-open .dropdown-btn {
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     z-index: 1000;
   }
-
   nav .dropdown:hover .dropdown-menu {
     display: block;
   }
-
   header nav {
     position: absolute;
     top: 50%;
@@ -316,32 +298,15 @@ header nav.nav-open .dropdown-btn {
     transform: translateY(-50%);
   }
 }
-/* Mobile toggled nav layout */
-header nav.nav-open .main-nav {
-  display: block;
-}
 
-header nav.nav-open .main-nav > li {
-  display: block;
-  margin-bottom: 0.75rem;
-}
-
-header nav.nav-open .dropdown-btn {
-  color: #0F1727 !important;
-  background-color: #ffffff;
-  font-weight: bold;
-}
-
-/* Reduce header size on mobile */
+/* Reduced header on mobile */
 @media (max-width: 768px) {
   header {
     padding: 0.3rem 0.5rem;
   }
-
   header img.logo {
     height: 40px;
   }
-
   .call-button {
     padding: 0.3rem 0.6rem;
     font-size: 0.85rem;
