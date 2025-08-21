@@ -1,7 +1,8 @@
+
 /*
- * Updated global styles for Envirosafe Removal Specialists.
+ * Updated global styles for Envirosafe Removal.
  *
- * This stylesheet applies the brand palette of primary navy (#0B2038), safety green (#6BBE44) and white (#FFFFFF).
+ * This stylesheet applies the brand palette of primary navy (#0F1727), safety green (#6BBE44) and white (#FFFFFF).
  * Typography uses Open Sans for a clean, professional look. The layout is mobile responsive using a simple media query.
  */
 
@@ -21,28 +22,35 @@ body {
 
 /* Header */
 header {
-  background-color: #0B2038;
+  /*
+   * Use a more compact header to avoid the navigation bar taking up
+   * excessive vertical space. Reduce the overall padding and update
+   * the colours to blend with the logo background. The border
+   * remains for subtle separation from the page body.
+   */
+  background-color: #0F1727;
   color: #ffffff;
-  padding: 1.2rem 2rem;
+  padding: 0.6rem 1rem;
   text-align: center;
-  border-bottom: 5px solid #6BBE44;
+  border-bottom: 4px solid #6BBE44;
 }
 
 header img.logo {
-  /* Increase logo size for better visibility */
-  height: 70x;
-  margin-bottom: 0.5rem;
+  /* Fix typo in height and reduce the logo height for a sleeker header */
+  height: 60px;
+  margin-bottom: 0.3rem;
 }
 
 header h1 {
-  font-size: 2rem;
+  /* Reduce font size and margin for a more balanced header */
+  font-size: 1.8rem;
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
 }
 
 /* Navigation */
 nav {
-  background-color: #0B2038;
+  background-color: #0F1727;
   text-align: center;
 }
 
@@ -62,7 +70,8 @@ nav li {
 nav a {
   color: #ffffff;
   text-decoration: none;
-  padding: 0.8rem 1.2rem;
+  /* Reduce link padding to prevent the menu from appearing overly tall */
+  padding: 0.6rem 1rem;
   font-weight: 600;
   display: inline-block;
   transition: background 0.3s ease;
@@ -71,14 +80,15 @@ nav a {
 
 nav a:hover {
   background-color: #6BBE44;
-  color: #0B2038;
+  color: #0F1727;
 }
 
 /* Hero section */
 .hero {
   background-color: #f2f4f7;
   text-align: center;
-  padding: 3rem 2rem;
+  /* Reduce hero padding to avoid the header and hero together taking up too much of the viewport */
+  padding: 2rem 1.5rem;
 }
 
 .hero h1 {
@@ -187,7 +197,7 @@ footer {
   padding: 0;
   display: flex;
   justify-content: center;
-  background-color: #0B2038;
+  background-color: #0F1727;
   flex-wrap: wrap;
 }
 .main-nav > li {
@@ -204,13 +214,13 @@ footer {
 }
 .main-nav a:hover {
   background-color: #6BBE44;
-  color: #0B2038;
+  color: #0F1727;
 }
 .dropdown-menu {
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: #0B2038;
+  background-color: #0F1727;
   list-style: none;
   padding: 0.5rem 0;
   min-width: 220px;
@@ -223,15 +233,25 @@ footer {
 }
 .dropdown-menu li a:hover {
   background-color: #6BBE44;
-  color: #0B2038;
+  color: #0F1727;
 }
 /* Show dropdown on hover for desktop */
 .dropdown:hover > .dropdown-menu {
   display: block !important;
 }
 /* Show dropdown when .open class added (mobile click) */
-.dropdown.open > .dropdown-menu {
-  display: block !important;
+@media (min-width: 901px) {
+  .dropdown:hover > .dropdown-menu {
+    display: block;
+  }
+}
+
+/* When a dropdown is open, highlight the trigger link
+   so users know which section is expanded. This applies
+   on both desktop and mobile. */
+.dropdown.open > a {
+  background-color: #6BBE44;
+  color: #ffffff;
 }
 @media (max-width: 768px) {
   .main-nav {
@@ -251,64 +271,187 @@ footer {
   }
 }
 
-/* --- Functional Fixes --- */
-
-/* Toggle functionality for mobile menu */
-header nav.nav-open .main-nav {
-  display: block;
-}
-header nav.nav-open .main-nav > li {
-  display: block;
-  margin-bottom: 0.75rem;
-}
-header nav.nav-open .dropdown-btn {
-  color: #0F1727 !important;
-  background-color: #ffffff;
-  font-weight: bold;
+/* === Responsive header and mobile navigation overrides === */
+/* Base header styling */
+header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: #0F1727;
+  color: #ffffff;
+  border-bottom: 4px solid #6BBE44;
 }
 
-/* Horizontal nav layout on desktop */
-@media (min-width: 901px) {
-  nav .main-nav {
+header img.logo {
+  height: 50px;
+  margin-bottom: 0;
+}
+
+/* Absolutely centre the site title between the left and right edges */
+header .site-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  white-space: nowrap;
+  font-size: 1.6rem;
+}
+
+/* Navigation sits to the right on desktop */
+header nav {
+  margin-left: auto;
+}
+
+/* Call button styling */
+.call-button {
+  background-color: #6BBE44;
+  color: #0F1727;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
+
+/* Hamburger button */
+.menu-toggle {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1.8rem;
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+
+@media (max-width: 900px) {
+  /* On small screens transform the header into a compact bar with a call button and
+     hamburger toggle. Hide the site title to free up horizontal space and
+     reposition the navigation as a vertical overlay when opened. */
+
+  /* Make header content align horizontally and use space between for logo on the left
+     and controls on the right */
+  header {
     display: flex;
-    justify-content: flex-end;
-    gap: 2rem;
     align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0.75rem;
   }
-  nav .main-nav > li {
-    display: inline-block;
-    position: relative;
-  }
-  nav .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
+
+  /* Hide the site title on mobile to prevent overlap with controls */
+  header .site-title {
     display: none;
-    background-color: white;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    z-index: 1000;
   }
-  nav .dropdown:hover .dropdown-menu {
+
+  /* Hide the navigation bar on small screens until opened via .nav-open */
+  header nav {
+    display: none;
+  }
+  /* When the nav has the nav-open class on mobile, show it as part of the
+     normal document flow instead of overlaying content. This pushes the page
+     content down and allows the user to scroll past the menu. */
+  header nav.nav-open {
     display: block;
+    position: static;
+    width: 100%;
+    /* Light background for the mobile menu */
+    background-color: #ffffff;
+    color: #0F1727;
+    padding: 0.5rem 0;
+    /* Restrict height and make the menu scroll if necessary */
+    max-height: 70vh;
+    overflow-y: auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  header nav.nav-open ul {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 0;
+  }
+  header nav.nav-open li {
+    margin: 0;
+    width: 100%;
+  }
+  header nav.nav-open a {
+    width: 100%;
+    color: #0F1727;
+    padding: 0.8rem 1rem;
+    display: block;
+    /* Use a subtle divider for each link */
+    border-bottom: 1px solid #eeeeee;
+  }
+
+  /* Override any earlier styles to ensure top-level links inside the
+     mobile menu are dark before they are opened. Without this, some
+     inherited rules may leave them white on a white background. */
+  header nav.nav-open .main-nav > li > a {
+    color: #0F1727 !important;
+  }
+
+  /* In the mobile nav overlay, ensure dropdown menus are positioned
+     statically and span the full width so they appear directly below
+     their parent item instead of overlaying the page. */
+  header nav.nav-open .dropdown-menu {
+    position: static;
+    width: 100%;
+    /* Light background for dropdown submenus */
+    background-color: #f9f9f9;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  /* Ensure submenu links are visible against the light background */
+  header nav.nav-open .dropdown-menu li a {
+    color: #0F1727;
+    padding: 0.8rem 1rem;
+  }
+
+  /* Highlight submenu items on hover */
+  header nav.nav-open .dropdown-menu li a:hover {
+    background-color: #6BBE44;
+    color: #ffffff;
+  }
+
+  /* Display the call button and menu toggle on mobile */
+  .call-button,
+  .menu-toggle {
+    display: inline-block;
+  }
+  /* Adjust button spacing on mobile */
+  .call-button {
+    margin-right: 0.5rem;
+  }
+  .menu-toggle {
+    margin-right: 0;
+  }
+}
+
+@media (min-width: 901px) {
+  /* Hide call button and menu toggle on larger screens */
+  .call-button,
+  .menu-toggle {
+    display: none;
+  }
+  /* Position the navigation flush with the right edge and vertically centre it */
+  header {
+    position: relative;
   }
   header nav {
     position: absolute;
     top: 50%;
-    right: 1rem;
+    right: 0;
     transform: translateY(-50%);
+    display: flex;
+    margin-left: 0;
+    margin-right: 0;
   }
-}
-
-/* Reduced header on mobile */
-@media (max-width: 768px) {
-  header {
-    padding: 0.3rem 0.5rem;
+  /* Align navigation items to the right within the nav */
+  header nav ul {
+    justify-content: flex-end;
   }
-  header img.logo {
-    height: 40px;
-  }
-  .call-button {
-    padding: 0.3rem 0.6rem;
-    font-size: 0.85rem;
+  /* Ensure dropdown on the last top-level item aligns to the right edge */
+  header nav ul > li:last-child .dropdown-menu {
+    right: 0;
+    left: auto;
   }
 }
