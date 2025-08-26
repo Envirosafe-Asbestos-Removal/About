@@ -8,61 +8,9 @@
 <title>About Us | Envirosafe Removal</title>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&amp;display=swap" rel="stylesheet"/>
 <link href="style.css" rel="stylesheet"/>
-<style id="dropdown-nav-style">
-  .main-nav {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    background-color: #161B2F;
-    flex-wrap: wrap;
-  }
-  .main-nav > li {
-    position: relative;
-    margin: 0 1rem;
-  }
-  .main-nav a {
-    color: #ffffff;
-    text-decoration: none;
-    padding: 0.8rem 1.2rem;
-    display: block;
-    font-weight: 600;
-    border-radius: 4px;
-  }
-  .main-nav a:hover {
-    background-color: #6BBE44;
-    color: #161B2F;
-  }
-  .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #161B2F;
-    list-style: none;
-    padding: 0.5rem 0;
-    min-width: 220px;
-    z-index: 1000;
-    display: none !important;
-  }
-  .dropdown-menu li a {
-    padding: 0.6rem 1rem;
-    font-size: 0.9rem;
-    color: #6BBE44;
-  }
-  .dropdown-menu li a:hover {
-    background-color: #6BBE44;
-    color: #161B2F;
-  }
-  /* Show submenu on hover for desktop */
-  .dropdown:hover > .dropdown-menu {
-    display: block !important;
-  }
-  /* Show submenu when opened via script */
-  .dropdown.open > .dropdown-menu {
-    display: block !important;
-  }
-</style>
+<!-- The dropdown-nav-style inline block has been removed to avoid conflicting
+     styles on mobile. All navigation styling now lives in the shared
+     style.css file. -->
 <link href="about.html" rel="canonical"/>
 <script type="application/ld+json">
 {
@@ -116,6 +64,8 @@
 </header>
 <section>
 <h1>About Us</h1>
+<!-- Project photo illustrating a typical asbestos roof prior to removal -->
+<img src="IMG-20250806-WA0019.jpg" alt="Old asbestos cement roof on a garden shed before removal"/>
 <p>Envirosafe Removal is a trusted asbestos removal company serving London and South East England. With over 15 years of experience, we specialise in both licensed and non‑licensed removal, surveys, encapsulation and disposal. Our team is HSE‑licensed, BOHS‑accredited and fully trained in safe working practices.</p>
 <p>We pride ourselves on fast turnaround times, competitive rates and a personal approach. From small domestic projects to major commercial contracts, we treat every job with the same dedication to safety and quality.</p>
 <h2>Our Certifications &amp; Accreditations</h2>
@@ -152,12 +102,34 @@
       if (isMobile) {
         toggle.onclick = function(e) {
           e.preventDefault();
-          this.parentElement.classList.toggle('open');
+          var parentLi = this.parentElement;
+          // Close any other open dropdowns before toggling this one
+          document.querySelectorAll('.dropdown.open').forEach(function(openLi) {
+            if (openLi !== parentLi) {
+              openLi.classList.remove('open');
+            }
+          });
+          parentLi.classList.toggle('open');
         };
       }
     });
   }
   setupDropdowns();
   window.addEventListener('resize', setupDropdowns);
+
+  // Close the mobile menu when a navigation or submenu link is clicked.
+  document.querySelectorAll('#primary-navigation a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      // Only collapse the menu on small screens when it's open
+      if (window.innerWidth <= 900 && nav.classList.contains('nav-open')) {
+        nav.classList.remove('nav-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        // Also close any open dropdowns
+        document.querySelectorAll('.dropdown.open').forEach(function(openLi) {
+          openLi.classList.remove('open');
+        });
+      }
+    });
+  });
 });</script></body>
 </html>

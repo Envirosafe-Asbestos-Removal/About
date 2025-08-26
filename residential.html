@@ -8,61 +8,7 @@
 <title>Residential Asbestos Services | Envirosafe Removal</title>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&amp;display=swap" rel="stylesheet"/>
 <link href="style.css" rel="stylesheet"/>
-<style id="dropdown-nav-style">
-  .main-nav {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    background-color: #0F1727;
-    flex-wrap: wrap;
-  }
-  .main-nav > li {
-    position: relative;
-    margin: 0 1rem;
-  }
-  .main-nav a {
-    color: #ffffff;
-    text-decoration: none;
-    padding: 0.8rem 1.2rem;
-    display: block;
-    font-weight: 600;
-    border-radius: 4px;
-  }
-  .main-nav a:hover {
-    background-color: #6BBE44;
-    color: #0F1727;
-  }
-  .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #0F1727;
-    list-style: none;
-    padding: 0.5rem 0;
-    min-width: 220px;
-    z-index: 1000;
-    display: none !important;
-  }
-  .dropdown-menu li a {
-    padding: 0.6rem 1rem;
-    font-size: 0.9rem;
-    color: #6BBE44;
-  }
-  .dropdown-menu li a:hover {
-    background-color: #6BBE44;
-    color: #0F1727;
-  }
-  /* Show submenu on hover for desktop */
-  .dropdown:hover > .dropdown-menu {
-    display: block !important;
-  }
-  /* Show submenu when opened via script */
-  .dropdown.open > .dropdown-menu {
-    display: block !important;
-  }
-</style>
+<!-- The inline dropdown navigation styles have been removed. All navigation styling now comes from the shared stylesheet. -->
 <link href="residential.html" rel="canonical"/>
 <script type="application/ld+json">
 {
@@ -114,6 +60,8 @@
 </header>
 <section>
 <h1>Residential Asbestos Services</h1>
+<!-- Photo showing a residential room prepared with protective sheeting ready for asbestos removal -->
+<img src="IMG-20250813-WA0036.jpg" alt="Residential asbestos removal – room prepared with protective sheeting"/>
 <p>Asbestos is commonly found in domestic settings such as loft insulation, artex ceilings, garage roofs and floor tiles. Residential projects typically involve smaller areas but still require careful handling to keep your family safe. Our team uses methods tailored to home environments, ensuring minimal disturbance and thorough clean‑up.</p>
 <p>Services include asbestos surveys for homebuyers, licensed and non‑licensed removal, encapsulation and waste collection. We offer clear guidance throughout the process and work efficiently to restore your property.</p>
 <h2>Typical Residential ACMs</h2>
@@ -149,12 +97,32 @@
       if (isMobile) {
         toggle.onclick = function(e) {
           e.preventDefault();
-          this.parentElement.classList.toggle('open');
+          var parentLi = this.parentElement;
+          // Close any other open dropdowns before toggling this one
+          document.querySelectorAll('.dropdown.open').forEach(function(openLi) {
+            if (openLi !== parentLi) {
+              openLi.classList.remove('open');
+            }
+          });
+          parentLi.classList.toggle('open');
         };
       }
     });
   }
   setupDropdowns();
   window.addEventListener('resize', setupDropdowns);
+
+  // Close the mobile menu and any open dropdowns when a navigation link is clicked.
+  document.querySelectorAll('#primary-navigation a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      if (window.innerWidth <= 900 && nav.classList.contains('nav-open')) {
+        nav.classList.remove('nav-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        document.querySelectorAll('.dropdown.open').forEach(function(openLi) {
+          openLi.classList.remove('open');
+        });
+      }
+    });
+  });
 });</script></body>
 </html>

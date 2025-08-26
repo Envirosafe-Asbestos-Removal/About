@@ -8,61 +8,7 @@
 <title>Commercial Asbestos Services | Envirosafe Removal</title>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&amp;display=swap" rel="stylesheet"/>
 <link href="style.css" rel="stylesheet"/>
-<style id="dropdown-nav-style">
-  .main-nav {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    background-color: #0F1727;
-    flex-wrap: wrap;
-  }
-  .main-nav > li {
-    position: relative;
-    margin: 0 1rem;
-  }
-  .main-nav a {
-    color: #ffffff;
-    text-decoration: none;
-    padding: 0.8rem 1.2rem;
-    display: block;
-    font-weight: 600;
-    border-radius: 4px;
-  }
-  .main-nav a:hover {
-    background-color: #6BBE44;
-    color: #0F1727;
-  }
-  .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #0F1727;
-    list-style: none;
-    padding: 0.5rem 0;
-    min-width: 220px;
-    z-index: 1000;
-    display: none !important;
-  }
-  .dropdown-menu li a {
-    padding: 0.6rem 1rem;
-    font-size: 0.9rem;
-    color: #6BBE44;
-  }
-  .dropdown-menu li a:hover {
-    background-color: #6BBE44;
-    color: #0F1727;
-  }
-  /* Show submenu on hover for desktop */
-  .dropdown:hover > .dropdown-menu {
-    display: block !important;
-  }
-  /* Show submenu when opened via script */
-  .dropdown.open > .dropdown-menu {
-    display: block !important;
-  }
-</style>
+<!-- The inline dropdown navigation styles have been removed. All navigation styling now comes from the shared stylesheet. -->
 <link href="commercial.html" rel="canonical"/>
 <script type="application/ld+json">
 {
@@ -114,6 +60,8 @@
 </header>
 <section>
 <h1>Commercial Asbestos Services</h1>
+<!-- Photo of a newly installed commercial roof following asbestos removal -->
+<img src="IMG-20250806-WA0026.jpg" alt="Completed metal roof after asbestos removal on a commercial property"/>
 <p>Commercial buildings such as offices, industrial sites and schools often contain large quantities of asbestos. Removing it safely requires detailed planning, specialist equipment and experienced teams. Compared to residential projects, commercial abatement must address larger areas, more complex building systems and strict regulations.</p>
 <p>We provide end‑to‑end solutions for commercial clients, including surveys, licensed and non‑licensed removal, encapsulation and waste disposal. Our project managers liaise with regulators and ensure minimal disruption to your operations.</p>
 <h2>Why Choose Us for Commercial Projects?</h2>
@@ -149,12 +97,32 @@
       if (isMobile) {
         toggle.onclick = function(e) {
           e.preventDefault();
-          this.parentElement.classList.toggle('open');
+          var parentLi = this.parentElement;
+          // Close other open dropdowns before toggling this one
+          document.querySelectorAll('.dropdown.open').forEach(function(openLi) {
+            if (openLi !== parentLi) {
+              openLi.classList.remove('open');
+            }
+          });
+          parentLi.classList.toggle('open');
         };
       }
     });
   }
   setupDropdowns();
   window.addEventListener('resize', setupDropdowns);
+
+  // Close the mobile menu and any open dropdowns when a navigation link is clicked
+  document.querySelectorAll('#primary-navigation a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      if (window.innerWidth <= 900 && nav.classList.contains('nav-open')) {
+        nav.classList.remove('nav-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        document.querySelectorAll('.dropdown.open').forEach(function(openLi) {
+          openLi.classList.remove('open');
+        });
+      }
+    });
+  });
 });</script></body>
 </html>

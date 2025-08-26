@@ -250,6 +250,8 @@ footer {
    so users know which section is expanded. This applies
    on both desktop and mobile. */
 .dropdown.open > a {
+  /* When a dropdown is open, use the brand green background with dark text on desktop.
+     On mobile the nav-open overrides will enforce a dark text colour on white backgrounds. */
   background-color: #6BBE44;
   color: #ffffff;
 }
