@@ -61,7 +61,9 @@ document.addEventListener('DOMContentLoaded', function () {
   // Close the menu when any link inside it is clicked.
   if (nav) {
     nav.addEventListener('click', function (e) {
-      if (e.target.tagName === 'A') {
+      // Identify the closest anchor element in case a nested element inside a link is clicked.
+      var link = e.target.closest ? e.target.closest('a') : null;
+      if (link && nav.contains(link)) {
         nav.classList.remove('nav-open');
         document.body.classList.remove('menu-open');
         menuToggle.setAttribute('aria-expanded', 'false');

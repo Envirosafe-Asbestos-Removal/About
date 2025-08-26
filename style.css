@@ -337,6 +337,13 @@ header {
     color: #0F1727 !important;
     border-bottom: 1px solid #eee;
   }
+  /* Ensure non-dropdown top-level links (e.g. Home) have a light background
+     when the mobile menu is open. Without this rule they inherit the dark
+     header colour, which makes them hard to see. */
+  header nav.nav-open .main-nav > li:not(.dropdown) > a {
+    background: #f9f9f9;
+    color: #0F1727 !important;
+  }
   /* Section headers (top-level dropdown links) as green bars */
   header nav.nav-open .dropdown > a {
     background: #6BBE44;
