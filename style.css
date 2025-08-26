@@ -240,8 +240,10 @@ footer {
   display: block !important;
 }
 /* Show dropdown when .open class added (mobile click) */
-.dropdown.open > .dropdown-menu {
-  display: block !important;
+@media (min-width: 901px) {
+  .dropdown:hover > .dropdown-menu {
+    display: block;
+  }
 }
 
 /* When a dropdown is open, highlight the trigger link
@@ -345,19 +347,21 @@ header nav {
   header nav {
     display: none;
   }
-  /* When the nav has the nav-open class, show it as an overlay below the header */
+  /* When the nav has the nav-open class on mobile, show it as part of the
+     normal document flow instead of overlaying content. This pushes the page
+     content down and allows the user to scroll past the menu. */
   header nav.nav-open {
     display: block;
-    position: absolute;
-    top: 100%;
-    left: 0;
+    position: static;
     width: 100%;
-    /* Use a light background on mobile menus for better contrast */
+    /* Light background for the mobile menu */
     background-color: #ffffff;
     color: #0F1727;
-    padding: 1rem 0;
-    z-index: 1000;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0;
+    /* Restrict height and make the menu scroll if necessary */
+    max-height: 70vh;
+    overflow-y: auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   header nav.nav-open ul {
     flex-direction: column;
@@ -449,5 +453,58 @@ header nav {
   header nav ul > li:last-child .dropdown-menu {
     right: 0;
     left: auto;
+  }
+}
+
+/* =============================================================
+   Additional mobile and accessibility improvements
+   These rules are appended to improve the site's responsiveness
+   on smaller screens and enhance usability for touch and keyboard
+   users without altering the existing design drastically.
+===============================================================*/
+
+/* Responsive typography using clamp to scale smoothly between
+   small and large viewports */
+h1 {
+  font-size: clamp(1.6rem, 3vw + 1rem, 2.4rem);
+}
+h2 {
+  font-size: clamp(1.3rem, 2.5vw + 0.9rem, 1.8rem);
+}
+p, li {
+  font-size: clamp(1rem, 1vw + 0.85rem, 1.1rem);
+}
+
+/* Increase tap target size for interactive controls on mobile */
+nav a,
+.call-button,
+.cta-button,
+.menu-toggle {
+  min-height: 44px;
+  min-width: 44px;
+  line-height: 1.2;
+}
+
+/* Ensure focus outlines are visible for keyboard users */
+a:focus,
+button:focus {
+  outline: 2px solid #6BBE44;
+  outline-offset: 3px;
+}
+
+/* Fine‑tune extremely small screen layouts */
+@media (max-width: 576px) {
+  header img.logo {
+    height: 40px;
+  }
+  .site-title {
+    font-size: 1.4rem;
+  }
+  section {
+    padding: 1rem;
+  }
+  .cta-button {
+    width: 100%;
+    padding: 0.8rem 1rem;
   }
 }

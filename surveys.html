@@ -84,7 +84,10 @@
     </script>
 </head>
 <body>
-<header><img alt="Envirosafe Removal logo" class="logo" src="logo.png"/><h1 class="site-title">Envirosafe Removal</h1><nav>
+<header><img alt="Envirosafe Removal logo" class="logo" src="logo.png"/>
+  <!-- Convert heading tag to span to avoid multiple h1s and aid SEO semantics -->
+  <span class="site-title">Envirosafe Removal</span>
+  <nav id="primary-navigation" aria-label="Primary">
 <ul class="main-nav">
 <li><a href="index.html">Home</a></li>
 <li class="dropdown"><a class="dropdown-toggle" href="#">Services</a>
@@ -105,7 +108,10 @@
 </ul>
 </li>
 </ul>
-</nav><a class="call-button" href="tel:07859970938">Call Us</a><button aria-label="Menu" class="menu-toggle" id="menu-toggle">☰</button></header>
+  </nav>
+  <a class="call-button" href="tel:07859970938">Call Us</a>
+  <button aria-label="Menu" aria-controls="primary-navigation" aria-expanded="false" class="menu-toggle" id="menu-toggle">☰</button>
+</header>
 <section>
 <h1>Asbestos Surveys &amp; Testing</h1>
 <p>If your property was built before the year 2000, it may contain asbestos. Our professional surveys identify the type, location and condition of any asbestos‑containing materials (ACMs) so you can manage them safely.</p>
@@ -128,9 +134,11 @@
 
 <script>document.addEventListener('DOMContentLoaded', function() {
   var menuToggle = document.getElementById('menu-toggle');
-  var nav = document.querySelector('header nav');
+  var nav = document.getElementById('primary-navigation');
   if (menuToggle && nav) {
     menuToggle.addEventListener('click', function() {
+      var expanded = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', (!expanded).toString());
       nav.classList.toggle('nav-open');
     });
   }

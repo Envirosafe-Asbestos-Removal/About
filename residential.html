@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="Expert residential asbestos services services in London and the South East. HSE licensed and BOHS‑accredited. Contact us today for a free quote." name="description"/>
+<meta name="description" content="Expert residential asbestos services in London and the South East. HSE‑licensed and BOHS‑accredited – surveys, removal, encapsulation and disposal for homes. Contact us today for a free quote."/>
 <title>Residential Asbestos Services | Envirosafe Removal</title>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&amp;display=swap" rel="stylesheet"/>
 <link href="style.css" rel="stylesheet"/>
@@ -84,7 +84,10 @@
     </script>
 </head>
 <body>
-<header><img alt="Envirosafe Removal logo" class="logo" src="logo.png"/><h1 class="site-title">Envirosafe Removal</h1><nav>
+<header><img alt="Envirosafe Removal logo" class="logo" src="logo.png"/>
+  <!-- Use span for the brand name instead of a heading to allow a single h1 per page -->
+  <span class="site-title">Envirosafe Removal</span>
+  <nav id="primary-navigation" aria-label="Primary">
 <ul class="main-nav">
 <li><a href="index.html">Home</a></li>
 <li class="dropdown"><a class="dropdown-toggle" href="#">Services</a>
@@ -105,7 +108,10 @@
 </ul>
 </li>
 </ul>
-</nav><a class="call-button" href="tel:07859970938">Call Us</a><button aria-label="Menu" class="menu-toggle" id="menu-toggle">☰</button></header>
+  </nav>
+  <a class="call-button" href="tel:07859970938">Call Us</a>
+  <button aria-label="Menu" aria-controls="primary-navigation" aria-expanded="false" class="menu-toggle" id="menu-toggle">☰</button>
+</header>
 <section>
 <h1>Residential Asbestos Services</h1>
 <p>Asbestos is commonly found in domestic settings such as loft insulation, artex ceilings, garage roofs and floor tiles. Residential projects typically involve smaller areas but still require careful handling to keep your family safe. Our team uses methods tailored to home environments, ensuring minimal disturbance and thorough clean‑up.</p>
@@ -128,9 +134,11 @@
 
 <script>document.addEventListener('DOMContentLoaded', function() {
   var menuToggle = document.getElementById('menu-toggle');
-  var nav = document.querySelector('header nav');
+  var nav = document.getElementById('primary-navigation');
   if (menuToggle && nav) {
     menuToggle.addEventListener('click', function() {
+      var expanded = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', (!expanded).toString());
       nav.classList.toggle('nav-open');
     });
   }

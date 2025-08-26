@@ -84,7 +84,10 @@
     </script>
 </head>
 <body>
-<header><img alt="Envirosafe Removal logo" class="logo" src="logo.png"/><h1 class="site-title">Envirosafe Removal</h1><nav>
+<header><img alt="Envirosafe Removal logo" class="logo" src="logo.png"/>
+  <!-- Replace heading tag for brand with span to avoid duplicate h1s -->
+  <span class="site-title">Envirosafe Removal</span>
+  <nav id="primary-navigation" aria-label="Primary">
 <ul class="main-nav">
 <li><a href="index.html">Home</a></li>
 <li class="dropdown"><a class="dropdown-toggle" href="#">Services</a>
@@ -105,7 +108,10 @@
 </ul>
 </li>
 </ul>
-</nav><a class="call-button" href="tel:07859970938">Call Us</a><button aria-label="Menu" class="menu-toggle" id="menu-toggle">☰</button></header>
+  </nav>
+  <a class="call-button" href="tel:07859970938">Call Us</a>
+  <button aria-label="Menu" aria-controls="primary-navigation" aria-expanded="false" class="menu-toggle" id="menu-toggle">☰</button>
+</header>
 <section>
 <h1>Licensed Asbestos Removal</h1>
 <p>High-risk asbestos materials require a contractor with a full licence from the Health and Safety Executive (HSE). Examples of licensed work include removing sprayed asbestos coatings, lagging on pipes and boilers, asbestos insulation board (AIB) and loose-fill insulation. These materials tend to produce large amounts of asbestos fibres when disturbed and therefore must be handled by trained, licensed professionals.</p>
@@ -129,9 +135,11 @@
 
 <script>document.addEventListener('DOMContentLoaded', function() {
   var menuToggle = document.getElementById('menu-toggle');
-  var nav = document.querySelector('header nav');
+  var nav = document.getElementById('primary-navigation');
   if (menuToggle && nav) {
     menuToggle.addEventListener('click', function() {
+      var expanded = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', (!expanded).toString());
       nav.classList.toggle('nav-open');
     });
   }
