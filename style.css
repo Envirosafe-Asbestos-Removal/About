@@ -341,7 +341,8 @@ header {
      when the mobile menu is open. Without this rule they inherit the dark
      header colour, which makes them hard to see. */
   header nav.nav-open .main-nav > li:not(.dropdown) > a {
-    background: #f9f9f9;
+    /* Match the green section headers so the Home link stands out consistently */
+    background: #6BBE44;
     color: #0F1727 !important;
   }
   /* Section headers (top-level dropdown links) as green bars */
@@ -586,5 +587,42 @@ button:focus {
   .cta-button {
     width: 100%;
     padding: 0.8rem 1rem;
+  }
+}
+
+/* =============================================================
+   Mobile menu enhancements to better mirror the Goodbye Asbestos
+   design. These rules introduce a visible “Menu” label, wrap
+   header contents to allow the call button to span full width,
+   and adjust call button styling on mobile devices.
+=============================================================== */
+
+/* Base styling for the menu label: hidden by default and shown on mobile */
+.menu-label {
+  display: none;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-right: 0.25rem;
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  /* Show the menu label next to the hamburger icon on small screens */
+  .menu-label {
+    display: inline-block;
+    color: #ffffff;
+  }
+  /* Wrap header content so items can flow onto new lines when needed */
+  header {
+    flex-wrap: wrap;
+  }
+  /* Make the call button stretch across the available width on mobile
+     and add vertical spacing. The button remains hidden when the
+     navigation is open via existing nav-open rules. */
+  .call-button {
+    display: block;
+    width: 100%;
+    margin: 0.5rem 0 0;
+    text-align: center;
   }
 }
