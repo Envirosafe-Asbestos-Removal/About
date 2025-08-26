@@ -108,12 +108,13 @@
 </ul>
   </nav>
   <a class="call-button" href="tel:07859970938">Call Us</a>
-  <button aria-label="Menu" aria-controls="primary-navigation" aria-expanded="false" class="menu-toggle" id="menu-toggle">☰</button>
+  <!-- Use an empty button for the menu toggle; icon drawn via CSS -->
+  <button id="menu-toggle" class="menu-toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Menu"></button>
 </header>
 <section>
 <h1>Contact Us</h1>
 <!-- Photo showing a completed asbestos removal project with a new roof installation -->
-<img src="WhatsApp%20Image%202025-08-20%20at%2020.16.07_7f783670.jpg" alt="New roof installation after asbestos removal on a garage"/>
+<img src="roof-after-2025-08-20-7f783670.jpg" alt="New roof installation after asbestos removal on a garage" loading="lazy"/>
 <p>Have a question or need a quote? Get in touch with our friendly team.</p>
 <h2>Address</h2>
 <p>Overglen Court, Liss, Hampshire, GU33 7PB</p>
@@ -133,7 +134,7 @@
              this key the form will not be processed. -->
 <!-- Inject the Web3Forms access key provided by the client so form
              submissions are routed to the correct inbox. -->
-<input name="access_key" type="hidden" value="8117cccb-9c09-4f94-80bd-ae118e6d0a17"/>
+<input name="access_key" type="hidden" value="0d79cb6f-fd28-4e01-8ba2-1dc88ef66b22"/>
 <!-- Customise the subject line for your email notifications -->
 <input name="subject" type="hidden" value="New Enquiry from Envirosafe Removal"/>
 <!-- Optionally specify the redirect URL to a thank you page -->
@@ -162,28 +163,33 @@
 <script>document.addEventListener('DOMContentLoaded', function() {
   var menuToggle = document.getElementById('menu-toggle');
   var nav = document.getElementById('primary-navigation');
+  // Helper to close all dropdowns except an optional one
+  function closeAllDropdowns(except) {
+    document.querySelectorAll('.dropdown').forEach(function (li) {
+      if (li !== except) {
+        li.classList.remove('open');
+      }
+    });
+  }
   if (menuToggle && nav) {
-    menuToggle.addEventListener('click', function() {
+    menuToggle.addEventListener('click', function () {
       var expanded = this.getAttribute('aria-expanded') === 'true';
       this.setAttribute('aria-expanded', (!expanded).toString());
-      nav.classList.toggle('nav-open');
+      nav.classList.toggle('nav-open', !expanded);
+      document.body.classList.toggle('menu-open', !expanded);
     });
   }
   function setupDropdowns() {
     var isMobile = window.innerWidth <= 900;
-    document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
+    document.querySelectorAll('.dropdown > .dropdown-toggle').forEach(function (toggle) {
       toggle.onclick = null;
       if (isMobile) {
-        toggle.onclick = function(e) {
+        toggle.onclick = function (e) {
           e.preventDefault();
-          var parentLi = this.parentElement;
-          // Close any other open dropdowns before toggling this one
-          document.querySelectorAll('.dropdown.open').forEach(function(openLi) {
-            if (openLi !== parentLi) {
-              openLi.classList.remove('open');
-            }
-          });
-          parentLi.classList.toggle('open');
+          var parent = this.parentElement;
+          var wasOpen = parent.classList.contains('open');
+          closeAllDropdowns(parent);
+          parent.classList.toggle('open', !wasOpen);
         };
       }
     });
@@ -191,17 +197,27 @@
   setupDropdowns();
   window.addEventListener('resize', setupDropdowns);
 
-  // Close the mobile menu and any open dropdowns when a navigation link is clicked.
-  document.querySelectorAll('#primary-navigation a').forEach(function(link) {
-    link.addEventListener('click', function() {
-      if (window.innerWidth <= 900 && nav.classList.contains('nav-open')) {
+  // Close the menu when any link inside it is clicked.
+  nav.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') {
+      nav.classList.remove('nav-open');
+      document.body.classList.remove('menu-open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      closeAllDropdowns();
+    }
+  });
+
+  // Close the menu when tapping outside of it on mobile.
+  document.addEventListener('click', function (e) {
+    if (window.innerWidth <= 900 && nav.classList.contains('nav-open')) {
+      var inside = nav.contains(e.target) || e.target === menuToggle;
+      if (!inside) {
         nav.classList.remove('nav-open');
+        document.body.classList.remove('menu-open');
         menuToggle.setAttribute('aria-expanded', 'false');
-        document.querySelectorAll('.dropdown.open').forEach(function(openLi) {
-          openLi.classList.remove('open');
-        });
+        closeAllDropdowns();
       }
-    });
+    }
   });
 });</script></body>
 </html>

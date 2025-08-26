@@ -290,6 +290,77 @@ header img.logo {
   margin-bottom: 0;
 }
 
+/* ===== Sticky header and enhanced mobile navigation ===== */
+
+/* Make the header stick to the top and ensure it sits above other content */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+@media (max-width: 900px) {
+  /* Lock page scroll when the mobile menu is open */
+  body.menu-open {
+    overflow: hidden;
+  }
+  /* Hide the call button when the mobile menu is open */
+  body.menu-open .call-button {
+    display: none;
+  }
+  /* Default menu toggle icons: inject the hamburger or cross via CSS pseudo-elements */
+  .menu-toggle::after {
+    content: "☰";
+  }
+  .menu-toggle[aria-expanded="true"]::after {
+    content: "✕";
+  }
+  /* Ensure the navigation is hidden until opened and then displayed full width */
+  header nav {
+    display: none;
+  }
+  header nav.nav-open {
+    display: block;
+    position: static;
+    width: 100%;
+    background: #ffffff;
+    color: #0F1727;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+  /* Stack nav items vertically when menu is open */
+  header nav.nav-open .main-nav {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  header nav.nav-open .main-nav > li > a {
+    color: #0F1727 !important;
+    border-bottom: 1px solid #eee;
+  }
+  /* Section headers (top-level dropdown links) as green bars */
+  header nav.nav-open .dropdown > a {
+    background: #6BBE44;
+    color: #0F1727;
+    font-weight: 700;
+  }
+  /* Submenus flush below their parent with light background */
+  header nav.nav-open .dropdown-menu {
+    position: static;
+    width: 100%;
+    background: #f9f9f9;
+    margin: 0;
+    padding: 0;
+  }
+  header nav.nav-open .dropdown-menu li a {
+    color: #0F1727;
+    padding: 0.9rem 1rem;
+  }
+  header nav.nav-open .dropdown-menu li a:hover {
+    background: #6BBE44;
+    color: #ffffff;
+  }
+}
+
 /* Absolutely centre the site title between the left and right edges */
 header .site-title {
   position: absolute;
