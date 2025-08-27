@@ -19,45 +19,42 @@ body {
   line-height: 1.6;
 }
 
-/* When mobile menu is open, lock body scroll */
 body.menu-open {
-  overflow: hidden;
+  /* No longer need to lock scroll as the page content is pushed down */
 }
 
 /* Header */
 header {
   background-color: #0F1727;
   color: #ffffff;
-  padding: 0.75rem 1rem; /* Increased padding for bigger logo */
+  padding: 1rem 1.5rem; /* More padding for the huge logo */
   border-bottom: 4px solid #6BBE44;
-  /* Make the header stick to the top and ensure it sits above the menu overlay */
   position: sticky;
   top: 0;
-  z-index: 1001; /* Must be higher than the nav menu */
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 header img.logo {
-  height: 65px; /* Made the logo bigger and bolder */
+  height: 80px; /* Made the logo way bigger */
   margin-bottom: 0;
 }
 
-/* Absolutely centre the site title between the logo and navigation */
-header .site-title {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  margin: 0;
-  white-space: nowrap;
-  font-size: 1.6rem;
-  font-weight: 700;
+/* Mobile Controls Wrapper */
+.header-controls {
+  display: flex;
+  align-items: center;
 }
 
 /* Desktop Navigation (styles for > 900px) */
+/* The main <nav> element for the push-down menu */
 nav {
   background-color: #0F1727;
+  /* Animate the slide-down effect */
+  transition: max-height 0.4s ease-in-out;
+  overflow: hidden;
 }
 
 .main-nav {
@@ -65,213 +62,156 @@ nav {
   margin: 0;
   padding: 0;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
+  flex-wrap: wrap; /* Allow wrapping on medium screens */
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .main-nav > li {
   position: relative;
-  margin: 0 0.5rem;
 }
 
 .main-nav a {
   color: #ffffff;
   text-decoration: none;
-  padding: 0.8rem 1.2rem;
+  padding: 1rem 1.5rem;
   display: block;
   font-weight: 600;
-  border-radius: 4px;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.main-nav a:hover,
-.main-nav .dropdown.open > a {
-  background-color: #6BBE44;
-  color: #0F1727;
-}
-
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #0F1727;
-  list-style: none;
-  padding: 0.5rem 0;
-  min-width: 220px;
-  z-index: 1000;
-  display: none;
-  border-radius: 0 0 4px 4px;
-}
-
-.dropdown:hover > .dropdown-menu {
-  display: block;
-}
-
-.dropdown-menu li a {
-  padding: 0.6rem 1rem;
-  color: #ffffff;
-}
-
-.dropdown-menu li a:hover {
+.main-nav a:hover {
   background-color: #6BBE44;
   color: #0F1727;
 }
 
 
-/* Hero section & Page Content */
-.hero {
-  background-color: #f2f4f7;
-  text-align: center;
-  padding: 2rem 1.5rem;
-}
-section {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 2rem;
-}
-/* Other page styles here... */
-
-
-/* Call button and Menu toggle base styles */
-.call-button {
-  background-color: #6BBE44;
-  color: #0F1727;
-  padding: 0.6rem 1rem;
-  border-radius: 4px;
-  text-decoration: none;
-  font-weight: 600;
-  display: none; /* Hidden by default, shown on mobile */
-  text-align: center;
-}
-
+/* Menu toggle and label styles */
 .menu-toggle {
   background: none;
   border: none;
   color: #ffffff;
-  font-size: 1.8rem;
+  font-size: 2rem;
   cursor: pointer;
-  display: none; /* Hidden by default, shown on mobile */
+  display: none; /* Hidden on desktop */
   padding: 0.5rem;
   line-height: 1;
 }
 
 .menu-label {
-  display: none;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 700;
-  margin-right: 0.25rem;
   text-transform: uppercase;
+  display: none; /* Hidden on desktop */
+  margin-right: 0.5rem;
 }
+
 
 /* =============================================================
    Mobile Navigation & Responsive Overrides (≤ 900px)
 ===============================================================*/
-
 @media (max-width: 900px) {
-  /* Hide the desktop-centric site title */
-  header .site-title {
+  /* Hide the desktop nav by default */
+  .main-nav {
     display: none;
   }
   
   /* Show mobile controls */
-  .call-button,
   .menu-toggle,
   .menu-label {
-    display: inline-block;
-  }
-  
-  /* Style hamburger/close icons */
-  .menu-toggle::after {
-    content: "☰"; /* Hamburger icon */
-  }
-
-  .menu-toggle[aria-expanded="true"]::after {
-    content: "✕"; /* Close icon */
-  }
-  
-  /* --- The Mobile Menu Overlay --- */
-  header nav {
-    /* Position the nav as a fixed overlay */
-    position: fixed;
-    top: 0; /* Align to the top of the viewport */
-    left: 0;
-    width: 100%;
-    height: 100vh; /* Cover the full screen height */
-    background-color: #ffffff;
-    z-index: 1000; /* Sit below the header but above page content */
-    
-    /* Hide off-screen by default */
-    transform: translateY(-100%);
-    visibility: hidden;
-    transition: transform 0.4s ease-in-out, visibility 0s 0.4s;
-    
-    /* Allow scrolling within the menu if it's very long */
-    overflow-y: auto;
-    padding-top: 85px; /* Add padding to clear the sticky header */
-  }
-
-  /* When open, slide the menu into view */
-  header nav.nav-open {
-    transform: translateY(0);
-    visibility: visible;
-    transition: transform 0.4s ease-in-out, visibility 0s 0s;
-  }
-  
-  /* Reset flexbox styles for vertical mobile menu */
-  header nav .main-nav {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 0;
-  }
-  
-  /* Consistent styling for all top-level links */
-  header nav.nav-open .main-nav > li > a {
-    background-color: #6BBE44;
-    color: #0F1727 !important;
-    font-weight: 700;
-    padding: 1rem;
-    border-bottom: 1px solid #5AAE39;
-  }
-  
-  /* Submenu is hidden by default */
-  header nav.nav-open .dropdown-menu {
-    display: none;
-    position: static;
-    width: 100%;
-    background-color: #f4f4f4;
-    padding: 0;
-  }
-  
-  /* Show submenu when parent is open */
-  header nav.nav-open .dropdown.open .dropdown-menu {
     display: block;
   }
   
-  /* Submenu link styling */
-  header nav.nav-open .dropdown-menu li a {
-    color: #0F1727;
-    padding: 1rem 1.5rem;
-    font-weight: normal;
-    border-bottom: 1px solid #e9e9e9;
+  /* Hamburger/close icons */
+  .menu-toggle::after {
+    content: "☰";
+  }
+  .menu-toggle[aria-expanded="true"]::after {
+    content: "✕";
   }
   
-  header nav.nav-open .dropdown-menu li a:hover {
-    background-color: #5AAE39;
+  /* The nav container is hidden by default with max-height: 0 */
+  nav {
+    max-height: 0;
+  }
+  
+  /* When open, expand the nav to reveal the menu */
+  nav.nav-open {
+    max-height: 100vh; /* Large value to ensure it fits all content */
+    display: block !important; /* Ensure it's visible */
+  }
+  
+  nav.nav-open .main-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0.5rem 0;
+  }
+
+  /* Style all mobile menu links */
+  nav.nav-open .main-nav a {
     color: #ffffff;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #0b2038;
+    text-align: center;
+  }
+
+  /* Highlight on hover */
+  nav.nav-open .main-nav a:hover {
+    background-color: #6BBE44;
+    color: #0F1727;
+  }
+
+  /* Submenus are part of the main list */
+  nav.nav-open .dropdown-menu {
+    display: block;
+    position: static;
+    background-color: #0b2038; /* Darker background for sub-items */
+    padding-left: 0;
+  }
+
+  nav.nav-open .dropdown-menu a {
+    padding-left: 2.5rem; /* Indent sub-items */
+    text-align: center;
+    border-color: #0F1727;
   }
 }
 
 /* =============================================================
    Desktop Navigation Overrides (> 900px)
 ===============================================================*/
-
 @media (min-width: 901px) {
-  header nav {
-    margin-left: auto;
+  /* On desktop, the nav is always visible */
+  nav {
+    max-height: 500px; /* A large enough value to show the nav bar */
   }
 
-  header nav ul > li:last-child .dropdown-menu {
-    right: 0;
-    left: auto;
+  /* Hide mobile controls on desktop */
+  .header-controls {
+    display: none;
+  }
+  
+  .main-nav {
+    display: flex;
+  }
+
+  /* Desktop dropdown functionality */
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #0F1727;
+    list-style: none;
+    padding: 0.5rem 0;
+    min-width: 220px;
+    z-index: 1000;
+    display: none;
+    border-radius: 0 0 4px 4px;
+  }
+
+  .dropdown:hover > .dropdown-menu {
+    display: block;
   }
 }
