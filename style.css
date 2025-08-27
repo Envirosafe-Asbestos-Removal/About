@@ -736,6 +736,53 @@ body.menu-open .call-button {
   display: none;
 }
 
+/* Always push header controls (call button, menu label and toggle) to the right on desktop */
+header .header-controls {
+  margin-left: auto;
+}
+
+@media (max-width: 900px) {
+  /* On small screens, restructure the header controls into two rows: the
+     first contains the menu label and hamburger aligned to the right, and
+     the second contains the call button occupying the full width. Using
+     flex-direction: column and the order property ensures consistent
+     placement across all pages, preventing the hamburger from drifting to
+     the left. */
+  header .header-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+    margin-left: 0;
+  }
+  /* Place the call button on its own row and make it full width */
+  header .header-controls .call-button {
+    order: 2;
+    width: 100%;
+    margin: 0.5rem 0 0;
+    text-align: center;
+  }
+  /* Keep the menu label and toggle together on the top row and align them
+     to the right. The order ensures they appear before the call button. */
+  header .header-controls .menu-label,
+  header .header-controls .menu-toggle {
+    order: 1;
+    align-self: flex-end;
+  }
+}
+
+/* Make the logo more prominent by increasing its height. Placed near the end of the
+   stylesheet so it overrides earlier definitions. */
+header img.logo {
+  height: 70px;
+  margin-bottom: 0;
+}
+@media (max-width: 576px) {
+  header img.logo {
+    height: 60px;
+  }
+}
+
 @media (max-width: 900px) {
   /* Show the menu label next to the hamburger icon on small screens */
   .menu-label {
