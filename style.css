@@ -37,7 +37,7 @@ header {
 
 header img.logo {
   /* Fix typo in height and reduce the logo height for a sleeker header */
-  height: 120px;
+  height: 60px;
   margin-bottom: 0.3rem;
 }
 
@@ -811,5 +811,227 @@ header img.logo {
     width: 100%;
     margin: 0.5rem 0 0;
     text-align: center;
+  }
+}
+
+/* =============================================================
+   Final overrides to unify the header and navigation across all pages
+   These rules supersede earlier declarations to ensure consistent
+   behaviour on both desktop and mobile. The header will use a
+   single-row layout on mobile and desktop, with the call button
+   remaining visible at all times, and the menu controls aligned
+   consistently. The navigation pushes page content down when opened
+   instead of overlaying it, and submenus are indented and styled
+   appropriately.
+=============================================================== */
+
+/* Base header layout: logo on the left, controls on the right */
+header {
+  /* Use a flex layout to position the logo on the left and the
+     controls (call button, menu label and hamburger) on the right.
+     These properties are marked as important to override any
+     earlier conflicting declarations. */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 1rem 1.5rem !important;
+}
+
+/* Enlarged logo with high precedence */
+header img.logo {
+  /* Increase the logo size to make it more prominent across all
+     pages. The !important flag ensures this height takes precedence
+     over earlier rules. */
+  /* Increase height further for a bolder logo on all devices */
+  height: 90px !important;
+  margin-bottom: 0 !important;
+}
+
+/* Control group: call button, menu label and toggle */
+header .header-controls {
+  /* Group the call button, menu label and hamburger. Align them
+     horizontally by default and push them to the right. */
+  display: flex !important;
+  align-items: center !important;
+  margin-left: auto !important;
+}
+
+/* Call button styling: visible on all screen sizes */
+.call-button {
+  /* Style the call button consistently and prominently using the
+     brand palette. Ensure it remains inline on larger screens
+     and can expand on small screens. */
+  display: inline-block !important;
+  background-color: #6BBE44 !important;
+  color: #0F1727 !important;
+  padding: 0.6rem 1rem !important;
+  border-radius: 4px !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  margin-left: 0.5rem !important;
+}
+
+/* Menu label styling; hidden by default and shown only on small screens */
+.menu-label {
+  /* Base styling for the menu label. Hide on desktop, show on mobile. */
+  font-size: 1.2rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  margin-right: 0.5rem !important;
+  display: none !important;
+}
+
+/* Menu toggle (hamburger) styling; hidden by default and shown on small screens */
+.menu-toggle {
+  /* Base styling for the hamburger toggle. Hidden on desktop,
+     visible on mobile. */
+  background: none !important;
+  border: none !important;
+  color: #ffffff !important;
+  font-size: 2rem !important;
+  cursor: pointer !important;
+  display: none !important;
+  padding: 0.5rem !important;
+  line-height: 1 !important;
+}
+
+/* Mobile navigation styles (≤ 900px) */
+@media (max-width: 900px) {
+  /* Show the mobile menu controls */
+  .menu-label,
+  .menu-toggle {
+    display: block;
+  }
+  /* Collapse the nav by default and animate its expansion */
+  nav {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+  }
+  nav.nav-open {
+    /* Limit the expanded height of the mobile menu to 70% of the viewport
+       height so that some page content remains visible when the menu is
+       open. */
+    max-height: 70vh;
+  }
+  /* Stack menu items vertically when nav is open */
+  nav.nav-open .main-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    background-color: #0F1727;
+    padding: 0.5rem 0;
+  }
+  /* Top-level links (Home, Services, About): use the safety green
+     background with dark text to match the brand. Add a dark divider
+     between items. */
+  nav.nav-open .main-nav > li > a {
+    background-color: #6BBE44 !important;
+    color: #0F1727 !important;
+    font-weight: 700 !important;
+    padding: 0.9rem 1rem !important;
+    border-bottom: 1px solid #0F1727 !important;
+    text-align: center !important;
+  }
+  nav.nav-open .main-nav > li > a:hover {
+    background-color: #5AAE39 !important;
+    color: #ffffff !important;
+  }
+  /* Submenu styling on mobile: submenus are hidden by default and
+     shown only when their parent <li> has the 'open' class. They
+     appear directly below the parent item with a light background. */
+  nav.nav-open .dropdown > .dropdown-menu {
+    display: none !important;
+    position: static !important;
+    background-color: #f9f9f9 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+  /* Show the submenu when the parent li has the 'open' class */
+  nav.nav-open .dropdown.open > .dropdown-menu {
+    display: block !important;
+  }
+  nav.nav-open .dropdown-menu li a {
+    color: #0F1727 !important;
+    padding: 0.9rem 1rem !important;
+    border-bottom: 1px solid #eeeeee !important;
+    text-align: left !important;
+  }
+  nav.nav-open .dropdown-menu li a:hover {
+    background-color: #6BBE44 !important;
+    color: #ffffff !important;
+  }
+}
+
+/* Desktop navigation styles (> 900px) */
+@media (min-width: 901px) {
+  /* Always show the nav and allow it to expand as needed */
+  nav {
+    max-height: none;
+    overflow: visible;
+  }
+  nav .main-nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  /* Hide the mobile-specific controls on desktop */
+  .menu-label,
+  .menu-toggle {
+    display: none;
+  }
+  /* Keep the call button visible */
+  .call-button {
+    display: inline-block;
+  }
+}
+
+/* =============================================================
+   Responsive header layout overrides
+   These rules further refine the header controls placement on
+   small screens and ensure the call button and menu controls are
+   consistently positioned across all pages. They hide the site
+   title on mobile to free up space and stack the call button
+   below the menu label and hamburger.
+=============================================================== */
+
+@media (max-width: 900px) {
+  /* Stack the header controls vertically on mobile */
+  header .header-controls {
+    flex-direction: column !important;
+    align-items: flex-end !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+  /* Call button occupies full width on its own row */
+  header .header-controls .call-button {
+    order: 2 !important;
+    width: 100% !important;
+    margin: 0.5rem 0 0 !important;
+    text-align: center !important;
+  }
+  /* Menu label and toggle on the first row aligned to the right */
+  header .header-controls .menu-label,
+  header .header-controls .menu-toggle {
+    order: 1 !important;
+    align-self: flex-end !important;
+    display: block !important;
+  }
+  /* Hide the site title on small screens */
+  header .site-title {
+    display: none !important;
+  }
+}
+
+@media (min-width: 901px) {
+  /* Hide the mobile-specific controls on large screens */
+  .menu-label,
+  .menu-toggle {
+    display: none !important;
+  }
+  /* Call button remains visible inline on desktop */
+  .call-button {
+    display: inline-block !important;
   }
 }
