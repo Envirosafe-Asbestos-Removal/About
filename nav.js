@@ -13,7 +13,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const nav = document.getElementById('primary-navigation');
 
   if (!menuToggle || !nav) {
-    return; // Exit if essential elements are not found
+    console.error('Essential navigation elements not found.');
+    return;
   }
 
   /**
@@ -33,9 +34,9 @@ document.addEventListener('DOMContentLoaded', function () {
    */
   function toggleMenu() {
     const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-    menuToggle.setAttribute('aria-expanded', !isExpanded);
-    nav.classList.toggle('nav-open', !isExpanded);
-    document.body.classList.toggle('menu-open', !isExpanded);
+    menuToggle.setAttribute('aria-expanded', String(!isExpanded));
+    nav.classList.toggle('nav-open');
+    document.body.classList.toggle('menu-open');
 
     // If we are closing the menu, also close any open dropdowns
     if (isExpanded) {
@@ -57,15 +58,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /**
    * Sets up dropdown click handlers for mobile viewports.
-   * On small screens (≤900px), top-level dropdown links toggle their submenus.
    */
   function setupDropdowns() {
     const isMobile = window.innerWidth <= 900;
-    // Target the anchor tag directly within the dropdown list item.
+    
     document.querySelectorAll('.dropdown > a').forEach(function (toggle) {
       // Clear any previously attached event listener to avoid duplicates
       if (toggle.mobileClickHandler) {
         toggle.removeEventListener('click', toggle.mobileClickHandler);
+        delete toggle.mobileClickHandler;
       }
       
       if (isMobile) {
@@ -88,15 +89,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Close the menu when any link inside it is clicked.
   nav.addEventListener('click', function (e) {
-    // Only close if an actual link (not a dropdown toggle) is clicked on mobile
     const link = e.target.closest('a');
     if (!link) return;
 
-    const isDropdownToggle = link.parentElement.classList.contains('dropdown');
-    const isMobile = window.innerWidth <= 900;
+    const isDropdownToggleOnMobile = window.innerWidth <= 900 && link.parentElement.classList.contains('dropdown');
 
     // On mobile, dropdown toggles should not close the entire menu.
-    if (isMobile && isDropdownToggle) {
+    if (isDropdownToggleOnMobile) {
       return;
     }
     
@@ -106,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Close the menu when tapping outside of it on small screens.
   document.addEventListener('click', function (e) {
-    if (window.innerWidth <= 900 && nav.classList.contains('nav-open')) {
+    if (nav.classList.contains('nav-open')) {
       const isClickInsideNav = nav.contains(e.target);
       const isClickOnToggle = menuToggle.contains(e.target);
       
