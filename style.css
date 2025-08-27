@@ -1,8 +1,7 @@
 /*
- * Updated global styles for Envirosafe Removal.
- *
- * This stylesheet applies the brand palette of primary navy (#0F1727), safety green (#6BBE44) and white (#FFFFFF).
- * Typography uses Open Sans for a clean, professional look. The layout is mobile responsive using a simple media query.
+ * ===================================================================
+ * Base & Global Styles (Largely Unchanged)
+ * ===================================================================
  */
 
 /* Reset and base styles */
@@ -19,30 +18,14 @@ body {
   line-height: 1.6;
 }
 
-/* Header - Note: Base header styles are now defined in the replacement section below */
-header {
-  /* The primary header styling is now handled in the dedicated section for mobile/desktop layouts */
-}
-
 /* Hero section */
 .hero {
   background-color: #f2f4f7;
   text-align: center;
-  /* Reduce hero padding to avoid the header and hero together taking up too much of the viewport */
   padding: 2rem 1.5rem;
 }
-
-.hero h1 {
-  color: #0B2038;
-  font-size: 2rem;
-  margin-bottom: 0.6rem;
-}
-
-.hero p {
-  color: #333333;
-  font-size: 1.1rem;
-  margin-bottom: 1.2rem;
-}
+.hero h1 { color: #0B2038; font-size: 2rem; margin-bottom: 0.6rem; }
+.hero p { color: #333333; font-size: 1.1rem; margin-bottom: 1.2rem; }
 
 /* CTA button */
 .cta-button {
@@ -55,132 +38,89 @@ header {
   border-radius: 4px;
   transition: background-color 0.3s ease;
 }
+.cta-button:hover { background-color: #5AAE39; }
 
-/* Style the service links on the home page as buttons */
-.service-buttons {
-  list-style: none;
-  padding: 0;
-  margin: 1rem 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-.service-buttons li {
-  margin: 0;
-}
-.service-buttons a {
-  /* Preserve anchor styles in case anchors are used. */
-  display: inline-block;
-  padding: 0.75rem 1.25rem;
-  background-color: #6BBE44;
-  color: #0F1727;
-  text-decoration: none;
-  font-weight: 600;
-  border-radius: 4px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-.service-buttons a:hover {
-  background-color: #5AAE39;
-  color: #ffffff;
-}
-
-/* Buttons used for service navigation on the home page */
-.service-buttons button {
-  display: inline-block;
-  padding: 0.75rem 1.25rem;
-  background-color: #6BBE44;
-  color: #0F1727;
-  font-weight: 600;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-.service-buttons button:hover {
-  background-color: #5AAE39;
-  color: #ffffff;
-}
-
-.cta-button:hover {
-  background-color: #5AAE39;
-}
+/* Service Buttons on Homepage */
+.service-buttons { list-style: none; padding: 0; margin: 1rem 0; display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.service-buttons li { margin: 0; }
+.service-buttons a, .service-buttons button { display: inline-block; padding: 0.75rem 1.25rem; background-color: #6BBE44; color: #0F1727; text-decoration: none; font-weight: 600; border-radius: 4px; transition: background-color 0.3s ease, color 0.3s ease; border: none; cursor: pointer; }
+.service-buttons a:hover, .service-buttons button:hover { background-color: #5AAE39; color: #ffffff; }
 
 /* Sections */
-section {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 2rem;
-}
-
-/* Centre images within sections and constrain width */
-section img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 90%;
-  height: auto;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
-section h1, section h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-  color: #0B2038;
-}
+section { max-width: 1100px; margin: 0 auto; padding: 2rem; }
+section img { display: block; margin: 1rem auto; max-width: 90%; height: auto; }
+section h1, section h2 { font-size: 1.8rem; margin-bottom: 1rem; color: #0B2038; }
 
 /* Footer */
-footer {
-  background-color: #0B2038;
-  color: #ffffff;
-  text-align: center;
-  padding: 1.2rem;
-  margin-top: 2rem;
-  font-size: 0.9rem;
-}
+footer { background-color: #0B2038; color: #ffffff; text-align: center; padding: 1.2rem; margin-top: 2rem; font-size: 0.9rem; }
 
-/* =============================================================
-   REPLACEMENT: Mobile Header & Push-Down Menu
-   This section replaces previous mobile navigation styles to match
-   the requested "Goodbye Asbestos" behavior.
-===============================================================*/
+/* Accessibility */
+a:focus, button:focus { outline: 2px solid #6BBE44; outline-offset: 3px; }
 
-/* --- Base Header Layout --- */
+
+/* ===================================================================
+ * CORRECTED HEADER & NAVIGATION STYLES (Mobile First: <= 900px)
+ * ===================================================================
+ */
+
+/* --- 1. Sticky Header Layout --- */
 header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap; /* Allows Call Us button to wrap to a new line on mobile */
+  justify-content: space-between; /* Logo left, controls right */
+  flex-wrap: wrap; /* Allows Call Us button to wrap */
   padding: 0.5rem 1rem;
   background-color: #0F1727;
-  color: #ffffff;
   border-bottom: 4px solid #6BBE44;
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 1001; /* Ensure header is above other content */
 }
 
+/* --- 2. Logo Styling --- */
 header img.logo {
-  height: 90px !important; /* Larger logo on mobile as requested */
-  margin-bottom: 0;
+  height: 90px !important;
+  width: auto;
 }
 
-.header-controls {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-/* Hide the decorative site title to achieve the desired layout */
+/* Hide decorative site title to achieve the desired layout */
 .site-title {
   display: none;
 }
 
-/* --- Mobile-First Controls (Visible by default, hidden on desktop) --- */
+/* --- 3. Header Controls (Menu + Hamburger) --- */
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto; /* Pushes it to the right */
+}
+
+.menu-label {
+  display: block;
+  color: #ffffff;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.menu-toggle {
+  display: block;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1.8rem;
+  cursor: pointer;
+  padding: 0 .5rem;
+}
+.menu-toggle::after { content: "☰"; }
+.menu-toggle[aria-expanded="true"]::after { content: "✕"; }
+
+/* --- 4. "Call Us" Button (Full-width row) --- */
 .call-button {
   display: block;
   width: 100%;
-  margin: 0.5rem 0 0;
+  order: 3; /* Forces it to the next line */
+  margin-top: 0.5rem;
   text-align: center;
   background-color: #6BBE44;
   color: #0F1727;
@@ -188,221 +128,162 @@ header img.logo {
   border-radius: 4px;
   text-decoration: none;
   font-weight: 600;
-  order: 3; /* Ensure it appears below the logo and menu controls */
-  min-height: 44px; /* Accessibility */
 }
 
-.menu-label {
-  display: inline-block;
-  color: #ffffff;
-  font-size: 1rem;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-.menu-toggle {
-  background: none;
-  border: none;
-  color: #ffffff;
-  font-size: 1.8rem;
-  cursor: pointer;
-  padding: 0 .5rem;
-  min-height: 44px; /* Accessibility */
-}
-
-/* Hamburger/Cross Icons */
-.menu-toggle::after {
-  content: "☰";
-}
-.menu-toggle[aria-expanded="true"]::after {
-  content: "✕";
-}
-
-/* Lock page scroll and hide Call Us button when menu is open */
-body.menu-open {
-  overflow: hidden;
-}
-body.menu-open .call-button {
-  display: none;
-}
-
-/* --- Push-Down Navigation Container --- */
+/* --- 5. Push-Down Navigation Container --- */
 nav#primary-navigation {
+  /* Sits below the header in the DOM */
   background-color: #ffffff;
-  transition: max-height 0.4s ease-in-out;
+  max-height: 0; /* Collapsed by default */
   overflow: hidden;
-  max-height: 0; /* Collapsed by default on mobile */
+  transition: max-height 0.3s ease;
+  width: 100%;
+  position: sticky; /* Sticks below the header */
+  top: 106px; /* Adjust based on header height, may need tweaking */
+  z-index: 1000;
 }
 
-/* Expanded state for mobile menu */
+/* When menu is open, expand it and allow vertical scrolling if needed */
 nav#primary-navigation.nav-open {
-  max-height: 70vh; /* Pushes content down, allows scrolling */
+  max-height: 70vh; /* Pushes content down, not an overlay */
   overflow-y: auto;
 }
 
-/* --- Mobile Menu List Styling (when open) --- */
-nav#primary-navigation .main-nav {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  padding: 0.5rem 0;
+/* --- 6. Body Scroll Lock & Hiding "Call Us" --- */
+body.menu-open {
+  overflow: hidden; /* Locks main page scroll */
+}
+body.menu-open .call-button {
+  display: none; /* Hide button when menu is open */
 }
 
-/* Top-level menu items (e.g., Home, Services) */
-nav#primary-navigation .main-nav > li > a {
+/* --- 7. Mobile Menu & Accordion Styling --- */
+.main-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Top-level menu items (Green Bars) */
+.main-nav > li > a {
+  display: block;
   background-color: #6BBE44;
   color: #0F1727;
   font-weight: 700;
   padding: 0.9rem 1.5rem;
   border-bottom: 1px solid #0F1727;
-  display: block;
-}
-nav#primary-navigation .main-nav > li > a:hover {
-  background-color: #5AAE39;
-  color: #0F1727;
+  text-decoration: none;
 }
 
-/* Sub-menu container */
-nav#primary-navigation .dropdown-menu {
-  display: none; /* Hidden by default */
+/* Sub-menu container (hidden by default) */
+.dropdown .dropdown-menu {
+  display: none;
   position: static;
-  background-color: #f9f9f9;
   width: 100%;
-  margin: 0;
+  background: #f9f9f9;
   padding: 0;
 }
 
-/* Show sub-menu when parent has .open class */
-nav#primary-navigation .dropdown.open > .dropdown-menu {
+/* When parent has .open, show the sub-menu */
+.dropdown.open > .dropdown-menu {
   display: block;
 }
 
 /* Sub-menu links */
-nav#primary-navigation .dropdown-menu li a {
+.dropdown-menu li a {
+  display: block;
   color: #0F1727;
+  background: #f9f9f9;
   padding: 0.9rem 1.5rem;
   padding-left: 2.5rem; /* Indent sub-items */
   border-bottom: 1px solid #eeeeee;
-  display: block;
+  text-decoration: none;
 }
-
-nav#primary-navigation .dropdown-menu li a:hover {
+.dropdown-menu li a:hover {
   background-color: #6BBE44;
   color: #ffffff;
 }
 
-/* --- Desktop Navigation (≥ 901px) --- */
-@media (min-width: 901px) {
-  header {
-    flex-wrap: nowrap; /* Prevent wrapping on desktop */
-  }
-
-  header img.logo {
-      height: 60px !important; /* Revert to a more compact logo for desktop header */
-  }
-
-  .header-controls {
-    display: none; /* Hide all mobile controls on desktop */
-  }
-
-  /* Make nav container visible and remove height constraints */
-  nav#primary-navigation,
-  nav#primary-navigation.nav-open {
-    max-height: none;
-    overflow: visible; /* IMPORTANT: Allows dropdowns to show */
-    margin-left: auto; /* Position nav to the right */
-    background-color: #0F1727; /* Match header background */
-  }
-
-  .main-nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 0;
-  }
-
-  .main-nav > li {
-    position: relative;
-    margin: 0 0.5rem;
-  }
-
-  .main-nav a {
-    color: #ffffff;
-    padding: 0.8rem 1.2rem;
-    font-weight: 600;
-    border-radius: 4px;
-    display: block;
-    transition: background 0.3s ease;
-    border-bottom: none;
-  }
-
-  .main-nav a:hover {
-    background-color: #6BBE44;
-    color: #0F1727;
-  }
-
-  /* Desktop dropdowns */
-  .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #0F1727;
-    list-style: none;
-    padding: 0.5rem 0;
-    min-width: 220px;
-    z-index: 1000;
-    display: none !important; /* Hide by default */
-  }
-
-  .dropdown-menu li a {
-    padding: 0.6rem 1rem;
-    padding-left: 1rem;
-    color: #ffffff;
-    border-bottom: none;
-  }
-
-  .dropdown:hover > .dropdown-menu {
-    display: block !important; /* Show on hover */
-  }
-
-  /* Right-align last dropdown */
-  .main-nav > li:last-child .dropdown-menu {
-    right: 0;
-    left: auto;
-  }
-}
-
-/* --- Accessibility & Fine-Tuning --- */
-/* Responsive typography */
-h1 {
-  font-size: clamp(1.6rem, 3vw + 1rem, 2.4rem);
-}
-h2 {
-  font-size: clamp(1.3rem, 2.5vw + 0.9rem, 1.8rem);
-}
-p, li {
-  font-size: clamp(1rem, 1vw + 0.85rem, 1.1rem);
-}
-
-/* Ensure focus outlines are visible for keyboard users */
-a:focus,
-button:focus {
-  outline: 2px solid #6BBE44;
-  outline-offset: 3px;
-}
-
-/* Fine‑tune very small screen layouts */
+/* --- 8. Screen Size Adjustments --- */
 @media (max-width: 576px) {
   header img.logo {
     height: 70px !important;
   }
-  section {
-    padding: 1rem;
+  nav#primary-navigation {
+    top: 86px; /* Adjust for smaller logo */
   }
-  .cta-button {
-    width: 100%;
-    padding: 0.8rem 1rem;
+}
+
+
+/* ===================================================================
+ * DESKTOP OVERRIDES (>= 901px)
+ * ===================================================================
+ */
+@media (min-width: 901px) {
+  /* --- 1. Restore Header Layout --- */
+  header {
+    flex-wrap: nowrap; /* Prevent wrapping */
+  }
+  header img.logo {
+    height: 60px !important; /* Smaller logo on desktop */
+  }
+  .header-controls, .call-button {
+    display: none; /* Hide all mobile controls */
+  }
+
+  /* --- 2. Restore Desktop Navigation Bar --- */
+  nav#primary-navigation {
+    display: block;
+    position: static; /* No longer sticky */
+    max-height: none; /* Always visible */
+    overflow: visible; /* CRITICAL for dropdowns */
+    background-color: #0F1727;
+    width: auto;
+    margin-left: auto;
+  }
+
+  .main-nav {
+    flex-direction: row;
+    justify-content: center;
+  }
+  .main-nav > li {
+    position: relative; /* Context for absolute dropdown */
+    margin: 0 0.5rem;
+  }
+  .main-nav > li > a {
+    background-color: transparent;
+    color: #ffffff;
+    border: none;
+  }
+  .main-nav > li > a:hover {
+    background-color: #6BBE44;
+    color: #0F1727;
+  }
+
+  /* --- 3. Restore Hover Dropdowns --- */
+  .dropdown .dropdown-menu {
+    display: none !important; /* Overrides .open class if present */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 220px;
+    background-color: #0F1727;
+    padding: 0.5rem 0;
+    z-index: 1000;
+  }
+  .dropdown:hover > .dropdown-menu {
+    display: block !important; /* Show on hover */
+  }
+  .dropdown-menu li a {
+    background: transparent;
+    color: #ffffff;
+    padding: 0.6rem 1rem;
+    border: none;
+  }
+  .dropdown-menu li a:hover {
+    background-color: #6BBE44;
+    color: #0F1727;
   }
 }
