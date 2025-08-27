@@ -1,8 +1,8 @@
 /*
  * Mobile navigation behaviour for Envirosafe Removal.
  *
- * This script controls the responsive navigation menu. It toggles the main
- * menu and also handles sub-menu dropdowns.
+ * This script controls the responsive navigation menu. It toggles the menu
+ * open and closed, and also handles the sub-menu dropdowns.
  */
 document.addEventListener('DOMContentLoaded', function () {
   const menuToggle = document.getElementById('menu-toggle');
@@ -21,22 +21,37 @@ document.addEventListener('DOMContentLoaded', function () {
     menuToggle.setAttribute('aria-expanded', String(!isExpanded));
     nav.classList.toggle('nav-open');
   }
-
+  
   menuToggle.addEventListener('click', toggleMenu);
 
   /**
-   * Handles dropdown menu toggles.
+   * Closes the main menu completely.
    */
-  const dropdownToggles = document.querySelectorAll('.nav-toggle-button');
+  function closeMenu() {
+    menuToggle.setAttribute('aria-expanded', 'false');
+    nav.classList.remove('nav-open');
+  }
+
+  // Handle dropdown toggles on mobile
+  const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
   dropdownToggles.forEach(button => {
     button.addEventListener('click', function (e) {
-      e.preventDefault();
-      const dropdown = document.getElementById(this.getAttribute('aria-controls'));
-      if (dropdown) {
-        const isExpanded = this.getAttribute('aria-expanded') === 'true';
-        this.setAttribute('aria-expanded', String(!isExpanded));
-        dropdown.classList.toggle('visible');
+      if (window.innerWidth <= 900) {
+        e.preventDefault();
+        const dropdown = this.nextElementSibling;
+        if (dropdown && dropdown.classList.contains('dropdown-menu')) {
+          dropdown.classList.toggle('visible');
+        }
       }
     });
+  });
+
+  // Close the main menu when any link inside it is clicked on mobile
+  nav.addEventListener('click', function (e) {
+    if (e.target.closest('a')) {
+      if (window.innerWidth <= 900) {
+        closeMenu();
+      }
+    }
   });
 });

@@ -19,10 +19,6 @@ body {
   line-height: 1.6;
 }
 
-body.menu-open {
-  /* No longer need to lock scroll as the page content is pushed down */
-}
-
 /* Header */
 header {
   background-color: #0F1727;
@@ -38,98 +34,120 @@ header {
 }
 
 header img.logo {
-  height: 80px; /* Made the logo way bigger */
+  height: 100px; /* Made the logo bigger */
   margin-bottom: 0;
 }
 
-/* Mobile Controls Wrapper */
-.header-controls {
-  display: none; /* Hide on desktop by default */
+/* Desktop Navigation */
+nav {
+  background-color: #0F1727;
+  transition: max-height 0.4s ease-in-out;
+  overflow: hidden;
 }
 
-/* Desktop Navigation (styles for > 900px) */
 .main-nav {
   list-style: none;
-  display: flex;
   margin: 0;
   padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .main-nav > li {
   position: relative;
 }
 
-.main-nav > li > a {
-  display: block;
+.main-nav a {
+  color: #ffffff;
+  text-decoration: none;
   padding: 1rem 1.5rem;
-  text-decoration: none;
-  color: #ffffff;
-  font-weight: bold;
-  white-space: nowrap;
-}
-
-.main-nav > li > a:hover {
-  color: #6BBE44;
-}
-
-.main-nav > li:hover .dropdown-menu {
   display: block;
+  font-weight: 600;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Dropdown menu */
-.dropdown-menu {
-  list-style: none;
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #0B2038;
-  border-top: 4px solid #6BBE44;
-  padding: 0.5rem 0;
-  min-width: 200px;
-}
-
-.dropdown-menu.visible {
-  display: block;
-}
-
-.dropdown-menu li a {
-  display: block;
-  padding: 0.75rem 1.5rem;
-  text-decoration: none;
-  color: #ffffff;
-  white-space: nowrap;
-}
-
-.dropdown-menu li a:hover {
+.main-nav a:hover {
   background-color: #6BBE44;
   color: #0F1727;
 }
 
-/* New Button Styling */
-.hero-button {
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #0F1727;
+  list-style: none;
+  padding: 0.5rem 0;
+  min-width: 220px;
+  z-index: 1000;
+  display: none;
+  border-radius: 0 0 4px 4px;
+}
+
+.dropdown:hover > .dropdown-menu {
+  display: block;
+}
+
+/* New professional button styling for services */
+.cta-button {
   display: inline-block;
   padding: 12px 24px;
-  background-color: #6BBE44; /* Your brand's green */
+  background-color: #6BBE44;
   color: #0F1727;
   text-decoration: none;
   font-weight: bold;
   border-radius: 5px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  border: none;
+  cursor: pointer;
 }
 
-.hero-button:hover {
-  background-color: #5aa63c; /* A slightly darker green for hover effect */
+.cta-button:hover {
+  background-color: #5aa63c;
+  box-shadow: 0 6px 8px rgba(0,0,0,0.3);
 }
+
 
 /* =============================================================
-   Mobile Navigation Overrides (< 900px)
+   Mobile Navigation & Responsive Overrides (≤ 900px)
 ===============================================================*/
 @media (max-width: 900px) {
-  /* On mobile, the nav is a collapsing menu */
-  nav {
+  /* Hide the desktop nav by default */
+  .main-nav {
+    display: none;
+  }
+  
+  /* Show mobile controls */
+  .header-controls {
     display: flex;
+    align-items: center;
+  }
+  
+  .menu-toggle,
+  .menu-label {
+    display: block;
+  }
+
+  header img.logo {
+    height: 80px;
+  }
+  
+  /* Hamburger/close icons */
+  .menu-toggle::after {
+    content: "☰";
+  }
+  .menu-toggle[aria-expanded="true"]::after {
+    content: "✕";
+  }
+  
+  /* The nav container is hidden by default with max-height: 0 */
+  nav {
+    max-height: 0;
     position: absolute;
     top: 100%;
     left: 0;
@@ -137,41 +155,23 @@ header img.logo {
     background-color: #0F1727;
     flex-direction: column;
     overflow: hidden;
-    max-height: 0; /* Hide the menu by default */
-    transition: max-height 0.5s ease-in-out;
   }
-
+  
+  /* When open, expand the nav to reveal the menu */
   nav.nav-open {
-    max-height: 500px; /* Show the menu when open */
+    max-height: 100vh;
+    display: block;
   }
-
-  /* Show mobile controls on mobile */
-  .header-controls {
+  
+  nav.nav-open .main-nav {
     display: flex;
-  }
-
-  /* Make logo smaller on mobile */
-  header img.logo {
-    height: 60px;
-  }
-
-  /* Mobile hamburger button */
-  .header-controls button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem;
-  }
-
-  /* Mobile navigation links */
-  nav .main-nav {
     flex-direction: column;
     align-items: stretch;
     padding: 0.5rem 0;
   }
 
   /* Style all mobile menu links */
-  nav .main-nav a {
+  nav.nav-open .main-nav a {
     color: #ffffff;
     padding: 1rem 1.5rem;
     border-bottom: 1px solid #0b2038;
@@ -179,37 +179,30 @@ header img.logo {
   }
 
   /* Highlight on hover */
-  nav .main-nav a:hover {
+  nav.nav-open .main-nav a:hover {
     background-color: #6BBE44;
     color: #0F1727;
   }
 
   /* Submenus are part of the main list */
   nav .dropdown-menu {
+    display: none;
     position: static;
-    background-color: #0b2038; /* Darker background for sub-items */
+    background-color: #0b2038;
     padding-left: 0;
-    display: none; /* Hide by default on mobile */
-    overflow: hidden; /* Collapse sub-menus when parent is closed */
+    transition: max-height 0.4s ease-in-out;
+    max-height: 0;
+    overflow: hidden;
   }
 
   nav .dropdown-menu.visible {
-    display: block; /* Show when parent is clicked */
+    display: block;
+    max-height: 500px;
   }
-
+  
   nav .dropdown-menu a {
-    padding-left: 2.5rem; /* Indent sub-items */
+    padding-left: 2.5rem;
     text-align: center;
     border-color: #0F1727;
-  }
-}
-
-/* =============================================================
-   Desktop Navigation Overrides (> 900px)
-===============================================================*/
-@media (min-width: 901px) {
-  /* On desktop, the nav is always visible */
-  nav {
-    max-height: 500px; /* A large enough value to show the nav bar */
   }
 }
