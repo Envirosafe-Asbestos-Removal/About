@@ -550,10 +550,14 @@ header nav {
 }
 
 @media (min-width: 901px) {
-  /* Hide call button and menu toggle on larger screens */
-  .call-button,
+  /* Hide mobile-specific menu controls on larger screens. Keep the call button
+     visible so users can still see a phone CTA on desktop. */
+  .menu-label,
   .menu-toggle {
     display: none;
+  }
+  .call-button {
+    display: inline-block;
   }
   /* Position the navigation flush with the right edge and vertically centre it */
   header {
@@ -779,12 +783,13 @@ header .header-controls {
    stylesheet so it overrides earlier definitions. Use !important to ensure this
    value wins over any previous declarations. */
 header img.logo {
-  height: 80px !important;
+  /* Increase logo size further for better prominence on mobile and desktop */
+  height: 90px !important;
   margin-bottom: 0;
 }
 @media (max-width: 576px) {
   header img.logo {
-    height: 60px !important;
+    height: 70px !important;
   }
 }
 
