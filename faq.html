@@ -1,75 +1,20 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Envirosafe Removal Specialists provide licensed and non‑licensed asbestos removal, surveys and safe disposal across London and the South East. Get your quote today.">
-    <title>FAQ | Envirosafe Removal Specialists</title>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://www.envirosaferemovals.co.uk/style.css">
-
-<style id="dropdown-nav-style">
-  .main-nav {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    background-color: #0F1727;
-    flex-wrap: wrap;
-  }
-  .main-nav > li {
-    position: relative;
-    margin: 0 1rem;
-  }
-  .main-nav a {
-    color: #ffffff;
-    text-decoration: none;
-    padding: 0.8rem 1.2rem;
-    display: block;
-    font-weight: 600;
-    border-radius: 4px;
-  }
-  .main-nav a:hover {
-    background-color: #6BBE44;
-    color: #0F1727;
-  }
-  .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #0F1727;
-    list-style: none;
-    padding: 0.5rem 0;
-    min-width: 220px;
-    z-index: 1000;
-    display: none !important;
-  }
-  .dropdown-menu li a {
-    padding: 0.6rem 1rem;
-    font-size: 0.9rem;
-    color: #6BBE44;
-  }
-  .dropdown-menu li a:hover {
-    background-color: #6BBE44;
-    color: #0F1727;
-  }
-  /* Show submenu on hover for desktop */
-  .dropdown:hover > .dropdown-menu {
-    display: block !important;
-  }
-  /* Show submenu when opened via script */
-  .dropdown.open > .dropdown-menu {
-    display: block !important;
-  }
-</style>
-
-    <link rel="canonical" href="https://www.envirosaferemovals.co.uk/faq.html">
-    <script type="application/ld+json">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Envirosafe Removal provide licensed and non‑licensed asbestos removal, surveys and safe disposal across London and the South East. Get your quote today." name="description"/>
+<title>FAQ | Envirosafe Removal</title>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<!-- Removed inline navigation styles. Navigation styles live in shared stylesheet (style.css). -->
+<link href="faq.html" rel="canonical"/>
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "name": "Envirosafe Removal Specialists",
+  "name": "Envirosafe Removal",
   "image": "https://www.envirosaferemovals.co.uk/logo.png",
   "@id": "https://www.envirosaferemovals.co.uk",
   "url": "https://www.envirosaferemovals.co.uk",
@@ -85,81 +30,62 @@
     </script>
 </head>
 <body>
-    
+<!-- Unified header: logo on the left, site title as a span, and header-controls with call button and mobile menu controls on the right -->
 <header>
-    <img src="https://www.envirosaferemovals.co.uk/logo.png" alt="Envirosafe Removal Specialists logo" class="logo">
-    <h1>Envirosafe Removal Specialists</h1>
-    
-    <nav>
-    <ul class="main-nav">
-        <li><a href="https://www.envirosaferemovals.co.uk/index.html">Home</a></li>
-        <li class="dropdown"><a href="#" class="dropdown-toggle">Services</a>
-            <ul class="dropdown-menu">
-                <li><a href="https://www.envirosaferemovals.co.uk/licensed.html">Licensed Removal</a></li>
-                <li><a href="https://www.envirosaferemovals.co.uk/non-licensed.html">Non-Licensed Removal</a></li>
-                <li><a href="https://www.envirosaferemovals.co.uk/surveys.html">Asbestos Surveys</a></li>
-                <li><a href="https://www.envirosaferemovals.co.uk/commercial.html">Commercial</a></li>
-                <li><a href="https://www.envirosaferemovals.co.uk/residential.html">Residential</a></li>
-            </ul>
-        </li>
-        <li class="dropdown"><a href="#" class="dropdown-toggle">About</a>
-            <ul class="dropdown-menu">
-                <li><a href="https://www.envirosaferemovals.co.uk/about.html">About Us</a></li>
-                <li><a href="https://www.envirosaferemovals.co.uk/contact.html">Contact Us</a></li>
-                <li><a href="https://www.envirosaferemovals.co.uk/faq.html">FAQ</a></li>
-                <li><a href="https://www.envirosaferemovals.co.uk/testimonials.html">Testimonials</a></li>
-            </ul>
-        </li>
-    </ul>
-    </nav>
-
+  <img alt="Envirosafe Removal logo" class="logo" src="logo.png"/>
+  <span class="site-title">Envirosafe Removal</span>
+  <div class="header-controls">
+    <a class="call-button" href="tel:07859970938">Call Us</a>
+    <span class="menu-label">Menu</span>
+    <button id="menu-toggle" class="menu-toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Menu"></button>
+  </div>
 </header>
-
-    
+<!-- Primary navigation moved outside the header -->
+<nav id="primary-navigation" aria-label="Primary">
+  <ul class="main-nav">
+    <li><a href="index.html">Home</a></li>
+    <li class="dropdown">
+      <a class="dropdown-toggle" href="#">Services</a>
+      <ul class="dropdown-menu">
+        <li><a href="licensed.html">Licensed Removal</a></li>
+        <li><a href="non-licensed.html">Non-Licensed Removal</a></li>
+        <li><a href="surveys.html">Asbestos Surveys &amp; Testing</a></li>
+        <li><a href="commercial.html">Commercial Asbestos Services</a></li>
+        <li><a href="residential.html">Residential Asbestos Services</a></li>
+      </ul>
+    </li>
+    <li class="dropdown">
+      <a class="dropdown-toggle" href="#">About</a>
+      <ul class="dropdown-menu">
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 <section>
-    <h1>Frequently Asked Questions</h1>
-    <h2>What is asbestos?</h2>
-    <p>Asbestos is a group of naturally occurring fibrous minerals that were widely used in building materials for their heat resistance and strength. Inhalation of asbestos fibres can cause serious lung diseases, which is why its use is now banned in the UK.</p>
-
-    <h2>How do I know if I have asbestos?</h2>
-    <p>Properties built before 2000 may contain asbestos in materials such as insulation board, textured coatings, cement sheets and floor tiles. An asbestos survey by qualified professionals is the best way to identify ACMs.</p>
-
-    <h2>Do I always need to remove asbestos?</h2>
-    <p>Not necessarily. If asbestos‑containing materials are in good condition and unlikely to be disturbed, they can often remain in place under a management plan. Removal is recommended when materials are damaged, friable or will be affected by refurbishment or demolition.</p>
-
-    <h2>What is the difference between licensed and non‑licensed removal?</h2>
-    <p>Licensed removal is required for high‑risk ACMs that release large quantities of fibres when disturbed, such as sprayed coatings and insulation board. Non‑licensed removal covers lower‑risk tasks where exposure is sporadic and low intensity.</p>
-
-    <h2>How much does asbestos removal cost?</h2>
-    <p>Costs depend on the type and amount of asbestos, accessibility, and whether the work is licensed. Contact us for a site visit and free quotation.</p>
+<h1>Frequently Asked Questions</h1>
+<h2>What is asbestos?</h2>
+<p>Asbestos is a group of naturally occurring fibrous minerals that were widely used in building materials for their heat resistance and strength. Inhalation of asbestos fibres can cause serious lung diseases, which is why its use is now banned in the UK.</p>
+<h2>How do I know if I have asbestos?</h2>
+<p>Properties built before 2000 may contain asbestos in materials such as insulation board, textured coatings, cement sheets and floor tiles. An asbestos survey by qualified professionals is the best way to identify ACMs.</p>
+<h2>Do I always need to remove asbestos?</h2>
+<p>Not necessarily. If asbestos‑containing materials are in good condition and unlikely to be disturbed, they can often remain in place under a management plan. Removal is recommended when materials are damaged, friable or will be affected by refurbishment or demolition.</p>
+<h2>What is the difference between licensed and non‑licensed removal?</h2>
+<p>Licensed removal is required for high‑risk ACMs that release large quantities of fibres when disturbed, such as sprayed coatings and insulation board. Non‑licensed removal covers lower‑risk tasks where exposure is sporadic and low intensity.</p>
+<h2>How much does asbestos removal cost?</h2>
+<p>Costs depend on the type and amount of asbestos, accessibility, and whether the work is licensed. Contact us for a site visit and free quotation.</p>
 </section>
-
-    <section>
-  <h2>Speak to Our Experts</h2>
-  <p>Contact us today for professional asbestos removal services and expert advice.</p>
-  <a href="contact.html" class="cta-button">Contact Us</a>
+<section>
+<h2>Speak to Our Experts</h2>
+<p>Contact us today for professional asbestos removal services and expert advice.</p>
+<a class="cta-button" href="contact.html">Contact Us</a>
 </section>
-<footer><p>&copy; 2025 Envirosafe Removal Specialists. All rights reserved.</p><p class="nap">Envirosafe Removal Specialists, Overglen Court, Liss, Hampshire GU33 7PB · Tel: 07859 970 938</p></footer>
+<footer><p>© 2025 Envirosafe Removal. All rights reserved.</p><p class="nap">Envirosafe Removal, Overglen Court, Liss, Hampshire GU33 7PB · Tel: 07859 970 938</p></footer>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  function setupDropdowns() {
-    var isMobile = window.innerWidth <= 768;
-    document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
-      // Reset any existing onclick handlers
-      toggle.onclick = null;
-      if (isMobile) {
-        toggle.onclick = function(e) {
-          e.preventDefault();
-          this.parentElement.classList.toggle('open');
-        };
-      }
-    });
-  }
-  setupDropdowns();
-  window.addEventListener('resize', setupDropdowns);
-});
-</script>
-
+<!-- Use shared navigation script to handle mobile menu and dropdowns consistently -->
+<script src="nav.js"></script>
 </body>
 </html>
