@@ -41,8 +41,6 @@ header img.logo {
 /* Desktop Navigation */
 nav {
   background-color: #0F1727;
-  transition: max-height 0.4s ease-in-out;
-  overflow: hidden;
 }
 
 .main-nav {
@@ -112,6 +110,14 @@ nav {
   box-shadow: 0 6px 8px rgba(0,0,0,0.3);
 }
 
+.service-buttons {
+  list-style: none;
+  padding: 0;
+}
+
+.service-buttons li {
+  margin: 10px 0;
+}
 
 /* =============================================================
    Mobile Navigation & Responsive Overrides (≤ 900px)
