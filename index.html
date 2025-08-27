@@ -30,120 +30,70 @@
       }
       #slider-prev { left: 1rem; }
       #slider-next { right: 1rem; }
-      @media (max-width: 768px) {
-        .slider-arrow { font-size: 1.5rem; }
+      @media (max-width: 900px) {
+        .hero {
+          padding: 2rem 1rem;
+        }
+        .slider-arrow {
+          font-size: 1.5rem;
+        }
       }
     </style>
-<link href="index.html" rel="canonical"/>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "Envirosafe Removal",
-  "image": "https://www.envirosaferemovals.co.uk/logo.png",
-  "@id": "https://www.envirosaferemovals.co.uk",
-  "url": "https://www.envirosaferemovals.co.uk",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Overglen Court",
-    "addressLocality": "Liss",
-    "addressRegion": "Hampshire",
-    "postalCode": "GU33 7PB",
-    "addressCountry": "GB"
-  }
-}
-    </script>
 </head>
 <body>
-
 <header>
-  <img alt="Envirosafe Removal logo" class="logo" src="logo.png"/>
-  <span class="site-title">Envirosafe Removal</span>
-  <div class="header-controls">
-    <a class="call-button" href="tel:07859970938">Call Us</a>
-    <span class="menu-label">Menu</span>
-    <button id="menu-toggle" class="menu-toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Menu"></button>
-  </div>
-</header>
-
-<nav id="primary-navigation" aria-label="Primary">
-  <ul class="main-nav">
-    <li><a href="index.html">Home</a></li>
-    <li class="dropdown">
-      <a class="dropdown-toggle" href="services.html">Services</a>
-      <ul class="dropdown-menu">
-        <li><a href="licensed.html">Licensed Removal</a></li>
-        <li><a href="non-licensed.html">Non-Licensed Removal</a></li>
-        <li><a href="surveys.html">Asbestos Surveys</a></li>
-        <li><a href="commercial.html">Commercial</a></li>
-        <li><a href="residential.html">Residential</a></li>
-      </ul>
-    </li>
-    <li class="dropdown">
-      <a class="dropdown-toggle" href="about.html">About</a>
-      <ul class="dropdown-menu">
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-        <li><a href="testimonials.html">Testimonials</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-
-<div class="hero">
-  <h1 id="service-title">Licensed Asbestos Removal</h1>
-  <p>Committed to Your Safety</p>
-  <p>Specialists in licensed &amp; non-licensed asbestos removal, surveys, disposal and encapsulation across London and South East England.</p>
-  <a class="cta-button" href="licensed.html" id="service-button">More &gt;</a>
-  <button class="slider-arrow" id="slider-prev">‹</button>
-  <button class="slider-arrow" id="slider-next">›</button>
+<a href="index.html">
+<img alt="Envirosafe Removal Logo" class="logo" src="images/logo.png"/>
+</a>
+<div class="header-controls">
+<button aria-controls="primary-navigation" aria-expanded="false" id="menu-toggle">
+<svg fill="#ffffff" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 18h16V16H4v2zm0-5h16v-2H4v2zm0-7v2h16V6H4z"/>
+</svg>
+</button>
 </div>
-
-<section>
-  <h2>Our Services</h2>
-  <ul class="service-buttons">
-    <li><button onclick="window.location.href='licensed.html'">Licensed Asbestos Removal</button></li>
-    <li><button onclick="window.location.href='non-licensed.html'">Non-Licensed Asbestos Removal</button></li>
-    <li><button onclick="window.location.href='surveys.html'">Asbestos Surveys &amp; Testing</button></li>
-    <li><button onclick="window.location.href='commercial.html'">Commercial Asbestos Services</button></li>
-    <li><button onclick="window.location.href='residential.html'">Residential Asbestos Services</button></li>
-  </ul>
+<nav id="primary-navigation">
+<ul class="main-nav">
+<li>
+<a href="about-us.html">About Us</a>
+</li>
+<li>
+<a href="asbestos.html">What Is Asbestos</a>
+</li>
+<li>
+<a href="#">Services</a>
+<ul class="dropdown-menu">
+<li>
+<a href="residential.html">Residential</a>
+</li>
+<li>
+<a href="commercial.html">Commercial</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="contact-us.html">Contact Us</a>
+</li>
+<li>
+<a href="blog.html">Blog</a>
+</li>
+</ul>
+</nav>
+</header>
+<main>
+<section class="hero">
+<h1 id="service-title"></h1>
+<a class="hero-button" href="#" id="service-button">Our Services</a>
+<button class="slider-arrow" id="slider-prev">‹</button>
+<button class="slider-arrow" id="slider-next">›</button>
 </section>
-
-<section>
-  <h2>Why Choose Us?</h2>
-  <p>We are HSE licensed and BOHS-accredited with years of experience. Our team ensures safe, compliant removal of asbestos from residential, commercial and industrial premises. We offer quick turnaround, competitive rates and fully trained operatives.</p>
-</section>
-
-<section>
-  <h2>Service Areas</h2>
-  <p>We serve London, South East England and surrounding areas. From major boroughs like Camden, Westminster and Croydon to towns across Surrey, Kent, Sussex and Essex.</p>
-</section>
-
-<section>
-  <h2>Testimonials</h2>
-  <blockquote>"Envirosafe Removal delivered an exceptional service when we discovered asbestos in our renovation project. They were prompt, professional and left our home spotless." – A satisfied homeowner</blockquote>
-  <blockquote>"Their knowledge of current UK regulations and dedication to safety gave us peace of mind during a complex commercial removal." – Facilities Manager</blockquote>
-</section>
-
-<section>
-  <h2>Speak to Our Experts</h2>
-  <p>Contact us today for professional asbestos removal services and expert advice.</p>
-  <a class="cta-button" href="contact.html">Contact Us</a>
-</section>
-
-<footer>
-  <p>© 2025 Envirosafe Removal. All rights reserved.</p>
-  <p class="nap">Envirosafe Removal, Overglen Court, Liss, Hampshire GU33 7PB · Tel: 07859 970 938</p>
-</footer>
-
+</main>
+<script src="nav.js"></script>
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
     var slides = [
-      { title: 'Licensed Asbestos Removal', link: 'licensed.html', image: 'images/slide1.png' },
-      { title: 'Non-Licensed Asbestos Removal', link: 'non-licensed.html', image: 'images/slide2.png' },
-      { title: 'Asbestos Surveys & Testing', link: 'surveys.html', image: 'images/slide3.png' },
+      { title: 'Asbestos Removal', link: 'asbestos-removal.html', image: 'images/slide1.png' },
+      { title: 'Asbestos Surveys', link: 'asbestos-surveys.html', image: 'images/slide2.png' },
+      { title: 'Asbestos Waste Disposal', link: 'asbestos-disposal.html', image: 'images/slide3.png' },
       { title: 'Commercial Asbestos Services', link: 'commercial.html', image: 'images/slide4.png' },
       { title: 'Residential Asbestos Services', link: 'residential.html', image: 'images/slide5.png' }
     ];
@@ -186,11 +136,6 @@
 
     // initialise first slide
     showSlide(0);
-    // auto rotate every 6 seconds
-    setInterval(nextSlide, 6000);
-  });
-  </script>
-<script src="nav.js"></script>
-
+</script>
 </body>
 </html>

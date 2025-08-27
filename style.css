@@ -49,102 +49,119 @@ header img.logo {
 }
 
 /* Desktop Navigation (styles for > 900px) */
-/* The main <nav> element for the push-down menu */
-nav {
-  background-color: #0F1727;
-  /* Animate the slide-down effect */
-  transition: max-height 0.4s ease-in-out;
-  overflow: hidden;
-}
-
 .main-nav {
   list-style: none;
+  display: flex;
   margin: 0;
   padding: 0;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap; /* Allow wrapping on medium screens */
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .main-nav > li {
   position: relative;
 }
 
-.main-nav a {
-  color: #ffffff;
-  text-decoration: none;
-  padding: 1rem 1.5rem;
+.main-nav > li > a {
   display: block;
-  font-weight: 600;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  padding: 1rem 1.5rem;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+  white-space: nowrap;
 }
 
-.main-nav a:hover {
+.main-nav > li > a:hover {
+  color: #6BBE44;
+}
+
+.main-nav > li:hover .dropdown-menu {
+  display: block;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+  list-style: none;
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #0B2038;
+  border-top: 4px solid #6BBE44;
+  padding: 0.5rem 0;
+  min-width: 200px;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.dropdown-menu li a:hover {
   background-color: #6BBE44;
   color: #0F1727;
 }
 
-
-/* Menu toggle and label styles */
-.menu-toggle {
-  background: none;
-  border: none;
-  color: #ffffff;
-  font-size: 2rem;
-  cursor: pointer;
-  display: none; /* Hidden on desktop */
-  padding: 0.5rem;
-  line-height: 1;
+/* New Button Styling */
+.hero-button {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #6BBE44; /* Your brand's green */
+  color: #0F1727;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 }
 
-.menu-label {
-  font-size: 1.2rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  display: none; /* Hidden on desktop */
-  margin-right: 0.5rem;
+.hero-button:hover {
+  background-color: #5aa63c; /* A slightly darker green for hover effect */
 }
-
 
 /* =============================================================
-   Mobile Navigation & Responsive Overrides (≤ 900px)
+   Mobile Navigation Overrides (< 900px)
 ===============================================================*/
 @media (max-width: 900px) {
-  /* Hide the desktop nav by default */
-  .main-nav {
-    display: none;
-  }
-  
-  /* Show mobile controls */
-  .menu-toggle,
-  .menu-label {
-    display: block;
-  }
-  
-  /* Hamburger/close icons */
-  .menu-toggle::after {
-    content: "☰";
-  }
-  .menu-toggle[aria-expanded="true"]::after {
-    content: "✕";
-  }
-  
-  /* The nav container is hidden by default with max-height: 0 */
+  /* On mobile, the nav is a collapsing menu */
   nav {
-    max-height: 0;
-  }
-  
-  /* When open, expand the nav to reveal the menu */
-  nav.nav-open {
-    max-height: 100vh; /* Large value to ensure it fits all content */
-    display: block !important; /* Ensure it's visible */
-  }
-  
-  nav.nav-open .main-nav {
     display: flex;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #0F1727;
+    flex-direction: column;
+    overflow: hidden;
+    max-height: 0; /* Hide the menu by default */
+    transition: max-height 0.5s ease-in-out;
+  }
+
+  nav.nav-open {
+    max-height: 500px; /* Show the menu when open */
+  }
+
+  /* Adjust header padding for mobile */
+  header {
+    padding: 0.5rem 1.5rem;
+  }
+
+  /* Make logo smaller on mobile */
+  header img.logo {
+    height: 60px;
+  }
+
+  /* Mobile hamburger button */
+  .header-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+
+  /* Mobile navigation links */
+  nav .main-nav {
     flex-direction: column;
     align-items: stretch;
     padding: 0.5rem 0;
@@ -191,27 +208,5 @@ nav {
   /* Hide mobile controls on desktop */
   .header-controls {
     display: none;
-  }
-  
-  .main-nav {
-    display: flex;
-  }
-
-  /* Desktop dropdown functionality */
-  .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #0F1727;
-    list-style: none;
-    padding: 0.5rem 0;
-    min-width: 220px;
-    z-index: 1000;
-    display: none;
-    border-radius: 0 0 4px 4px;
-  }
-
-  .dropdown:hover > .dropdown-menu {
-    display: block;
   }
 }
