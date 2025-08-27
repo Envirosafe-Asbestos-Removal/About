@@ -1,13 +1,8 @@
 /*
- * CORRECTED: Mobile navigation script for Envirosafe Removal.
+ * FINAL CORRECTED: Mobile navigation script for Envirosafe Removal.
  *
- * This script provides a complete and working implementation for:
- * - Toggling the main push-down menu.
- * - Locking body scroll when the menu is active.
- * - Accordion submenus (only one can be open at a time).
- * - Closing the menu when a navigation link is clicked.
- * - Closing the menu when clicking outside of it.
- * - Resetting the menu state when resizing to a desktop view.
+ * This version specifically fixes the issue where dropdowns would not open on mobile.
+ * The conflict between the accordion-toggle and the menu-close scripts has been resolved.
  */
 document.addEventListener('DOMContentLoaded', function () {
   const menuToggle = document.getElementById('menu-toggle');
@@ -23,13 +18,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /**
    * Closes any currently open accordion submenus.
-   * @param {HTMLElement} [except] - An optional element to ignore, preventing it from being closed.
    */
-  const closeAllSubmenus = (except = null) => {
+  const closeAllSubmenus = () => {
     nav.querySelectorAll('.dropdown.open').forEach(openDropdown => {
-      if (openDropdown !== except) {
-        openDropdown.classList.remove('open');
-      }
+      openDropdown.classList.remove('open');
     });
   };
 
@@ -74,11 +66,12 @@ document.addEventListener('DOMContentLoaded', function () {
         e.preventDefault(); // Prevent the link from navigating
         const parentLi = toggle.parentElement;
         const wasOpen = parentLi.classList.contains('open');
+        
+        // First, close all dropdowns to ensure only one is ever open
+        closeAllSubmenus();
 
-        // Always close other submenus
-        closeAllSubmenus(parentLi);
-
-        // Toggle the current submenu
+        // If the clicked one wasn't already open, open it now.
+        // This also handles closing a dropdown if it's clicked again.
         if (!wasOpen) {
           parentLi.classList.add('open');
         }
@@ -86,22 +79,18 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // 3. Add listener to the whole nav element to close on any link click
+  // 3. Add listener to the whole nav element to close on SUB-MENU link clicks
   nav.addEventListener('click', (e) => {
-    // If the clicked element is a link, close the menu.
-    if (e.target.tagName === 'A') {
+    // Only close the menu if a link that IS NOT a dropdown toggle is clicked.
+    if (e.target.tagName === 'A' && !e.target.classList.contains('dropdown-toggle')) {
       closeMenu();
     }
   });
 
   // 4. Add listener to the document to close the menu on an outside click
   document.addEventListener('click', (e) => {
-    // Only run if the menu is open
-    if (!nav.classList.contains('nav-open')) {
-      return;
-    }
+    if (!nav.classList.contains('nav-open')) return;
 
-    // Check if the click was inside the nav or on the toggle button itself
     const isClickInsideNav = nav.contains(e.target);
     const isClickOnToggle = menuToggle.contains(e.target);
 
