@@ -1,9 +1,8 @@
 /*
  * Mobile navigation behaviour for Envirosafe Removal.
  *
- * This script controls the responsive navigation menu. It toggles the menu
- * open and closed, pushing content down. It also closes the menu
- * when any navigation link is selected.
+ * This script controls the responsive navigation menu. It toggles the main
+ * menu and also handles sub-menu dropdowns.
  */
 document.addEventListener('DOMContentLoaded', function () {
   const menuToggle = document.getElementById('menu-toggle');
@@ -21,27 +20,23 @@ document.addEventListener('DOMContentLoaded', function () {
     const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
     menuToggle.setAttribute('aria-expanded', String(!isExpanded));
     nav.classList.toggle('nav-open');
-    // The menu-open class on the body is no longer needed for this effect
   }
-  
+
   menuToggle.addEventListener('click', toggleMenu);
 
   /**
-   * Closes the menu completely.
+   * Handles dropdown menu toggles.
    */
-  function closeMenu() {
-    menuToggle.setAttribute('aria-expanded', 'false');
-    nav.classList.remove('nav-open');
-  }
-
-  // Close the menu when any link inside it is clicked.
-  // This is now simplified: ANY link click will close the menu on mobile.
-  nav.addEventListener('click', function (e) {
-    // Check if the click was on an anchor tag
-    if (e.target.closest('a')) {
-      if (window.innerWidth <= 900) {
-        closeMenu();
+  const dropdownToggles = document.querySelectorAll('.nav-toggle-button');
+  dropdownToggles.forEach(button => {
+    button.addEventListener('click', function (e) {
+      e.preventDefault();
+      const dropdown = document.getElementById(this.getAttribute('aria-controls'));
+      if (dropdown) {
+        const isExpanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', String(!isExpanded));
+        dropdown.classList.toggle('visible');
       }
-    }
+    });
   });
 });

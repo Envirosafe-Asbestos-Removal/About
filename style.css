@@ -27,7 +27,7 @@ body.menu-open {
 header {
   background-color: #0F1727;
   color: #ffffff;
-  padding: 1rem 1.5rem; /* More padding for the huge logo */
+  padding: 1rem 1.5rem;
   border-bottom: 4px solid #6BBE44;
   position: sticky;
   top: 0;
@@ -44,8 +44,7 @@ header img.logo {
 
 /* Mobile Controls Wrapper */
 .header-controls {
-  display: flex;
-  align-items: center;
+  display: none; /* Hide on desktop by default */
 }
 
 /* Desktop Navigation (styles for > 900px) */
@@ -88,6 +87,10 @@ header img.logo {
   border-top: 4px solid #6BBE44;
   padding: 0.5rem 0;
   min-width: 200px;
+}
+
+.dropdown-menu.visible {
+  display: block;
 }
 
 .dropdown-menu li a {
@@ -142,9 +145,9 @@ header img.logo {
     max-height: 500px; /* Show the menu when open */
   }
 
-  /* Adjust header padding for mobile */
-  header {
-    padding: 0.5rem 1.5rem;
+  /* Show mobile controls on mobile */
+  .header-controls {
+    display: flex;
   }
 
   /* Make logo smaller on mobile */
@@ -168,7 +171,7 @@ header img.logo {
   }
 
   /* Style all mobile menu links */
-  nav.nav-open .main-nav a {
+  nav .main-nav a {
     color: #ffffff;
     padding: 1rem 1.5rem;
     border-bottom: 1px solid #0b2038;
@@ -176,20 +179,25 @@ header img.logo {
   }
 
   /* Highlight on hover */
-  nav.nav-open .main-nav a:hover {
+  nav .main-nav a:hover {
     background-color: #6BBE44;
     color: #0F1727;
   }
 
   /* Submenus are part of the main list */
-  nav.nav-open .dropdown-menu {
-    display: block;
+  nav .dropdown-menu {
     position: static;
     background-color: #0b2038; /* Darker background for sub-items */
     padding-left: 0;
+    display: none; /* Hide by default on mobile */
+    overflow: hidden; /* Collapse sub-menus when parent is closed */
   }
 
-  nav.nav-open .dropdown-menu a {
+  nav .dropdown-menu.visible {
+    display: block; /* Show when parent is clicked */
+  }
+
+  nav .dropdown-menu a {
     padding-left: 2.5rem; /* Indent sub-items */
     text-align: center;
     border-color: #0F1727;
@@ -203,10 +211,5 @@ header img.logo {
   /* On desktop, the nav is always visible */
   nav {
     max-height: 500px; /* A large enough value to show the nav bar */
-  }
-
-  /* Hide mobile controls on desktop */
-  .header-controls {
-    display: none;
   }
 }
