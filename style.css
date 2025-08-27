@@ -115,6 +115,33 @@ nav a:hover {
   transition: background-color 0.3s ease;
 }
 
+/* Style the service links on the home page as buttons */
+.service-buttons {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.service-buttons li {
+  margin: 0;
+}
+.service-buttons a {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  background-color: #6BBE44;
+  color: #0F1727;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.service-buttons a:hover {
+  background-color: #5AAE39;
+  color: #ffffff;
+}
+
 .cta-button:hover {
   background-color: #5AAE39;
 }
@@ -337,19 +364,22 @@ header {
     color: #0F1727 !important;
     border-bottom: 1px solid #eee;
   }
-  /* Ensure non-dropdown top-level links (e.g. Home) have a light background
-     when the mobile menu is open. Without this rule they inherit the dark
-     header colour, which makes them hard to see. */
+  /* Ensure non-dropdown top-level links (e.g. Home) have a coloured background
+     matching the brand palette. Without this rule they inherit the dark
+     header colour, which makes them hard to see. These links use the
+     same colourways as the section headers for consistency. */
   header nav.nav-open .main-nav > li:not(.dropdown) > a {
-    /* Match the green section headers so the Home link stands out consistently */
     background: #6BBE44;
     color: #0F1727 !important;
+    font-weight: 700;
+    padding: 0.9rem 1rem;
   }
   /* Section headers (top-level dropdown links) as green bars */
   header nav.nav-open .dropdown > a {
     background: #6BBE44;
     color: #0F1727;
     font-weight: 700;
+    padding: 0.9rem 1rem;
   }
   /* Submenus flush below their parent with light background */
   header nav.nav-open .dropdown-menu {
@@ -424,24 +454,28 @@ header nav {
     display: none;
   }
 
-  /* Hide the navigation bar on small screens until opened via .nav-open */
+  /* Hide the navigation bar on small screens using max-height and overflow
+     rather than display:none so we can animate its opening. The nav will
+     slide down smoothly when the nav-open class is added. */
   header nav {
-    display: none;
+    max-height: 0;
+    overflow: hidden;
+    width: 100%;
+    transition: max-height 0.3s ease;
+    /* Light background for the collapsed state is irrelevant because
+       the nav is hidden. */
   }
-  /* When the nav has the nav-open class on mobile, show it as part of the
-     normal document flow instead of overlaying content. This pushes the page
-     content down and allows the user to scroll past the menu. */
+  /* When the nav has the nav-open class on mobile, expand it to show
+     the full menu. The max-height matches the design to prevent
+     excessive height and enables scrolling when necessary. */
   header nav.nav-open {
-    display: block;
+    max-height: 70vh;
+    overflow-y: auto;
     position: static;
     width: 100%;
-    /* Light background for the mobile menu */
     background-color: #ffffff;
     color: #0F1727;
     padding: 0.5rem 0;
-    /* Restrict height and make the menu scroll if necessary */
-    max-height: 70vh;
-    overflow-y: auto;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   header nav.nav-open ul {
