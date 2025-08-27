@@ -9,78 +9,109 @@
  * the user taps outside the menu on a small screen.
  */
 document.addEventListener('DOMContentLoaded', function () {
-  var menuToggle = document.getElementById('menu-toggle');
-  var nav = document.getElementById('primary-navigation');
+  const menuToggle = document.getElementById('menu-toggle');
+  const nav = document.getElementById('primary-navigation');
+
+  if (!menuToggle || !nav) {
+    return; // Exit if essential elements are not found
+  }
 
   /**
    * Close all dropdowns except for an optional one to remain open.
-   * @param {HTMLElement} except Optional list item to remain open.
+   * @param {HTMLElement} except - Optional list item to keep open.
    */
   function closeAllDropdowns(except) {
-    document.querySelectorAll('.dropdown').forEach(function (li) {
+    document.querySelectorAll('.dropdown.open').forEach(function (li) {
       if (li !== except) {
         li.classList.remove('open');
       }
     });
   }
 
-  // Toggle the navigation open or closed and lock/unlock page scroll.
-  if (menuToggle && nav) {
-    menuToggle.addEventListener('click', function () {
-      var expanded = this.getAttribute('aria-expanded') === 'true';
-      this.setAttribute('aria-expanded', (!expanded).toString());
-      nav.classList.toggle('nav-open', !expanded);
-      document.body.classList.toggle('menu-open', !expanded);
-    });
+  /**
+   * Toggles the main navigation menu open or closed.
+   */
+  function toggleMenu() {
+    const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+    menuToggle.setAttribute('aria-expanded', !isExpanded);
+    nav.classList.toggle('nav-open', !isExpanded);
+    document.body.classList.toggle('menu-open', !isExpanded);
+
+    // If we are closing the menu, also close any open dropdowns
+    if (isExpanded) {
+      closeAllDropdowns();
+    }
+  }
+  
+  menuToggle.addEventListener('click', toggleMenu);
+
+  /**
+   * Closes the menu completely.
+   */
+  function closeMenu() {
+    menuToggle.setAttribute('aria-expanded', 'false');
+    nav.classList.remove('nav-open');
+    document.body.classList.remove('menu-open');
+    closeAllDropdowns();
   }
 
   /**
-   * Set up or tear down dropdown click handlers based on viewport width.
-   * On small screens (≤900px) the dropdown toggles open their submenus.
+   * Sets up dropdown click handlers for mobile viewports.
+   * On small screens (≤900px), top-level dropdown links toggle their submenus.
    */
   function setupDropdowns() {
-    var isMobile = window.innerWidth <= 900;
-    document.querySelectorAll('.dropdown > .dropdown-toggle').forEach(function (toggle) {
-      // Remove any existing click handler
-      toggle.onclick = null;
+    const isMobile = window.innerWidth <= 900;
+    // Target the anchor tag directly within the dropdown list item.
+    document.querySelectorAll('.dropdown > a').forEach(function (toggle) {
+      // Clear any previously attached event listener to avoid duplicates
+      if (toggle.mobileClickHandler) {
+        toggle.removeEventListener('click', toggle.mobileClickHandler);
+      }
+      
       if (isMobile) {
-        toggle.onclick = function (e) {
-          e.preventDefault();
-          var parent = this.parentElement;
-          var wasOpen = parent.classList.contains('open');
-          closeAllDropdowns(parent);
-          parent.classList.toggle('open', !wasOpen);
+        toggle.mobileClickHandler = function (e) {
+          e.preventDefault(); // Prevent navigation on tap
+          const parent = this.parentElement;
+          const wasOpen = parent.classList.contains('open');
+          
+          closeAllDropdowns(parent); // Close other dropdowns
+          parent.classList.toggle('open', !wasOpen); // Toggle current dropdown
         };
+        toggle.addEventListener('click', toggle.mobileClickHandler);
       }
     });
   }
-  // Initialise dropdowns on page load and adjust on resize.
+
+  // Initialise dropdowns on page load and update on resize.
   setupDropdowns();
   window.addEventListener('resize', setupDropdowns);
 
   // Close the menu when any link inside it is clicked.
-  if (nav) {
-    nav.addEventListener('click', function (e) {
-      // Identify the closest anchor element in case a nested element inside a link is clicked.
-      var link = e.target.closest ? e.target.closest('a') : null;
-      if (link && nav.contains(link)) {
-        nav.classList.remove('nav-open');
-        document.body.classList.remove('menu-open');
-        menuToggle.setAttribute('aria-expanded', 'false');
-        closeAllDropdowns();
-      }
-    });
-  }
+  nav.addEventListener('click', function (e) {
+    // Only close if an actual link (not a dropdown toggle) is clicked on mobile
+    const link = e.target.closest('a');
+    if (!link) return;
+
+    const isDropdownToggle = link.parentElement.classList.contains('dropdown');
+    const isMobile = window.innerWidth <= 900;
+
+    // On mobile, dropdown toggles should not close the entire menu.
+    if (isMobile && isDropdownToggle) {
+      return;
+    }
+    
+    // For any other link, close the menu.
+    closeMenu();
+  });
 
   // Close the menu when tapping outside of it on small screens.
   document.addEventListener('click', function (e) {
-    if (window.innerWidth <= 900 && nav && nav.classList.contains('nav-open')) {
-      var insideNav = nav.contains(e.target) || e.target === menuToggle;
-      if (!insideNav) {
-        nav.classList.remove('nav-open');
-        document.body.classList.remove('menu-open');
-        menuToggle.setAttribute('aria-expanded', 'false');
-        closeAllDropdowns();
+    if (window.innerWidth <= 900 && nav.classList.contains('nav-open')) {
+      const isClickInsideNav = nav.contains(e.target);
+      const isClickOnToggle = menuToggle.contains(e.target);
+      
+      if (!isClickInsideNav && !isClickOnToggle) {
+        closeMenu();
       }
     }
   });
