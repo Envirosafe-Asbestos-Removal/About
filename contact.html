@@ -134,7 +134,7 @@
 <!-- Use an external form handling service to route submissions to the business email.
          Replace `{your-form-id}` with the ID provided by Formspree or a similar provider.
          Using POST ensures form data is sent to the service. -->
-<form action="https://api.web3forms.com/submit" class="contact-form" method="POST">
+<form action="https://api.web3forms.com/submit" class="contact-form" method="POST" enctype="multipart/form-data">
 <!-- The access_key identifies your Web3Forms account. Replace YOUR_ACCESS_KEY
              with the key provided when you sign up at https://web3forms.com/.  Without
              this key the form will not be processed. -->
@@ -149,8 +149,20 @@
 <input id="name" name="name" required="" type="text"/>
 <label for="email">Email:</label>
 <input id="email" name="email" required="" type="email"/>
+
+  <!-- Added postcode field to collect the user's postcode -->
+  <label for="postcode">Postcode:</label>
+  <input id="postcode" name="postcode" type="text" required="" />
+
+  <!-- Added contact number field to collect the user's phone number -->
+  <label for="phone">Contact number:</label>
+  <input id="phone" name="phone" type="tel" required="" />
 <label for="message">Message:</label>
 <textarea id="message" name="message" required="" rows="5"></textarea>
+
+  <!-- Optional file upload field for users to attach a file (e.g. plans or photos) -->
+  <label for="attachment">Attachment (optional):</label>
+  <input id="attachment" name="attachment" type="file" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" />
 <button type="submit">Send</button>
 </form>
 <h2>Map</h2>
