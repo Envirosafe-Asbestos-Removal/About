@@ -1,87 +1,108 @@
 /*
- * Mobile navigation behaviour for Envirosafe Removal.
+ * REPLACEMENT: Mobile navigation script for Envirosafe Removal.
  *
- * This script controls the responsive navigation menu, replicating the
- * behaviour seen on the Goodbye Asbestos website. It toggles the menu
- * open and closed, locks page scrolling while the menu is open,
- * manages dropdown submenus so only one is open at a time, and
- * closes the menu when a navigation link is selected or when
- * the user taps outside the menu on a small screen.
+ * Implements "Goodbye Asbestos" style behavior:
+ * - Toggles a push-down menu.
+ * - Locks body scroll when the menu is open.
+ * - Handles mobile accordion submenus (one open at a time).
+ * - Closes the menu on link clicks or when clicking outside.
+ * - Resets state on resize to desktop view.
  */
 document.addEventListener('DOMContentLoaded', function () {
-  var menuToggle = document.getElementById('menu-toggle');
-  var nav = document.getElementById('primary-navigation');
+  const menuToggle = document.getElementById('menu-toggle');
+  const nav = document.getElementById('primary-navigation');
+  const body = document.body;
+  const dropdowns = document.querySelectorAll('#primary-navigation .dropdown');
 
-  /**
-   * Close all dropdowns except for an optional one to remain open.
-   * @param {HTMLElement} except Optional list item to remain open.
-   */
-  function closeAllDropdowns(except) {
-    document.querySelectorAll('.dropdown').forEach(function (li) {
-      if (li !== except) {
-        li.classList.remove('open');
-      }
-    });
+  if (!menuToggle || !nav) {
+    console.error('Essential navigation elements not found.');
+    return; // Exit if elements are missing
   }
 
-  // Toggle the navigation open or closed and lock/unlock page scroll.
-  if (menuToggle && nav) {
-    menuToggle.addEventListener('click', function () {
-      var expanded = this.getAttribute('aria-expanded') === 'true';
-      this.setAttribute('aria-expanded', (!expanded).toString());
-      nav.classList.toggle('nav-open', !expanded);
-      document.body.classList.toggle('menu-open', !expanded);
+  /**
+   * Closes all open dropdown submenus.
+   * @param {HTMLElement} except - An optional dropdown element to exclude from closing.
+   */
+  function closeAllDropdowns(except = null) {
+    dropdowns.forEach(dropdown => {
+      if (dropdown !== except) {
+        dropdown.classList.remove('open');
+      }
     });
   }
 
   /**
-   * Set up or tear down dropdown click handlers based on viewport width.
-   * On small screens (≤900px) the dropdown toggles open their submenus.
+   * Closes the main navigation menu and resets associated states.
    */
-  function setupDropdowns() {
-    var isMobile = window.innerWidth <= 900;
-    document.querySelectorAll('.dropdown > .dropdown-toggle').forEach(function (toggle) {
-      // Remove any existing click handler
-      toggle.onclick = null;
-      if (isMobile) {
-        toggle.onclick = function (e) {
-          e.preventDefault();
-          var parent = this.parentElement;
-          var wasOpen = parent.classList.contains('open');
-          closeAllDropdowns(parent);
-          parent.classList.toggle('open', !wasOpen);
-        };
-      }
-    });
-  }
-  // Initialise dropdowns on page load and adjust on resize.
-  setupDropdowns();
-  window.addEventListener('resize', setupDropdowns);
-
-  // Close the menu when any link inside it is clicked.
-  if (nav) {
-    nav.addEventListener('click', function (e) {
-      // Identify the closest anchor element in case a nested element inside a link is clicked.
-      var link = e.target.closest ? e.target.closest('a') : null;
-      if (link && nav.contains(link)) {
-        nav.classList.remove('nav-open');
-        document.body.classList.remove('menu-open');
-        menuToggle.setAttribute('aria-expanded', 'false');
-        closeAllDropdowns();
-      }
-    });
+  function closeMenu() {
+    if (nav.classList.contains('nav-open')) {
+      nav.classList.remove('nav-open');
+      body.classList.remove('menu-open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      closeAllDropdowns();
+    }
   }
 
-  // Close the menu when tapping outside of it on small screens.
+  // --- Event Listeners ---
+
+  // 1. Toggle the main menu on hamburger click.
+  menuToggle.addEventListener('click', function () {
+    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+    if (isExpanded) {
+      closeMenu();
+    } else {
+      nav.classList.add('nav-open');
+      body.classList.add('menu-open');
+      this.setAttribute('aria-expanded', 'true');
+    }
+  });
+
+  // 2. Handle accordion behavior for dropdowns on mobile.
+  dropdowns.forEach(dropdown => {
+    const toggle = dropdown.querySelector('.dropdown-toggle');
+    if (toggle) {
+      toggle.addEventListener('click', function (e) {
+        // This logic should only apply in the mobile view.
+        if (window.innerWidth <= 900) {
+          e.preventDefault(); // Prevent navigation on top-level link click
+          const parentLi = this.parentElement;
+          const wasOpen = parentLi.classList.contains('open');
+
+          // Close all other dropdowns first.
+          closeAllDropdowns();
+
+          // If the clicked dropdown was not already open, open it.
+          if (!wasOpen) {
+            parentLi.classList.add('open');
+          }
+        }
+      });
+    }
+  });
+
+  // 3. Close the menu when any navigation link is clicked.
+  nav.addEventListener('click', function (e) {
+    if (e.target.closest('a')) {
+      closeMenu();
+    }
+  });
+
+  // 4. Close the menu if a click occurs outside of it.
   document.addEventListener('click', function (e) {
-    if (window.innerWidth <= 900 && nav && nav.classList.contains('nav-open')) {
-      var insideNav = nav.contains(e.target) || e.target === menuToggle;
-      if (!insideNav) {
-        nav.classList.remove('nav-open');
-        document.body.classList.remove('menu-open');
-        menuToggle.setAttribute('aria-expanded', 'false');
-        closeAllDropdowns();
+    if (nav.classList.contains('nav-open')) {
+      const isClickInsideNav = nav.contains(e.target);
+      const isClickOnToggle = menuToggle.contains(e.target);
+
+      if (!isClickInsideNav && !isClickOnToggle) {
+        closeMenu();
       }
+    }
+  });
+
+  // 5. Reset menu state when resizing the window to desktop view.
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 900) {
+      closeMenu();
     }
   });
 });
