@@ -9,59 +9,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&amp;display=swap" rel="stylesheet"/>
 <link href="style.css" rel="stylesheet"/>
 <style id="dropdown-nav-style">
-  .main-nav {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    background-color: #0F1727;
-    flex-wrap: wrap;
-  }
-  .main-nav > li {
-    position: relative;
-    margin: 0 1rem;
-  }
-  .main-nav a {
-    color: #ffffff;
-    text-decoration: none;
-    padding: 0.8rem 1.2rem;
-    display: block;
-    font-weight: 600;
-    border-radius: 4px;
-  }
-  .main-nav a:hover {
-    background-color: #6BBE44;
-    color: #0F1727;
-  }
-  .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #0F1727;
-    list-style: none;
-    padding: 0.5rem 0;
-    min-width: 220px;
-    z-index: 1000;
-    display: none !important;
-  }
-  .dropdown-menu li a {
-    padding: 0.6rem 1rem;
-    font-size: 0.9rem;
-    color: #6BBE44;
-  }
-  .dropdown-menu li a:hover {
-    background-color: #6BBE44;
-    color: #0F1727;
-  }
-  /* Show submenu on hover for desktop */
-  .dropdown:hover > .dropdown-menu {
-    display: block !important;
-  }
-  /* Show submenu when opened via script */
-  .dropdown.open > .dropdown-menu {
-    display: block !important;
-  }
 </style>
 <link href="non-licensed.html" rel="canonical"/>
 <script type="application/ld+json">
@@ -84,7 +31,20 @@
     </script>
 </head>
 <body>
-<header><img alt="Envirosafe Removal logo" class="logo" src="logo.png"/><h1 class="site-title">Envirosafe Removal</h1><nav>
+<header>
+  <img alt="Envirosafe Removal logo" class="logo" src="logo.png"/>
+  <!-- Replace heading tag for brand with span to avoid duplicate h1s -->
+  <span class="site-title">Envirosafe Removal</span>
+  <!-- Group controls for mobile: call button, menu label and toggle -->
+  <div class="header-controls">
+    <a class="call-button" href="tel:07859970938">Call Us</a>
+    <span class="menu-label">Menu</span>
+    <button id="menu-toggle" class="menu-toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Menu"></button>
+  </div>
+</header>
+
+<!-- Primary navigation moved outside the header to allow push‑down effect on mobile -->
+<nav id="primary-navigation" aria-label="Primary">
 <ul class="main-nav">
 <li><a href="index.html">Home</a></li>
 <li class="dropdown"><a class="dropdown-toggle" href="#">Services</a>
@@ -100,12 +60,13 @@
 <ul class="dropdown-menu">
 <li><a href="about.html">About Us</a></li>
 <li><a href="contact.html">Contact Us</a></li>
+<li><a href="coverage.html">Areas We Cover</a></li>
 <li><a href="faq.html">FAQ</a></li>
 <li><a href="testimonials.html">Testimonials</a></li>
 </ul>
 </li>
 </ul>
-</nav><a class="call-button" href="tel:07859970938">Call Us</a><button aria-label="Menu" class="menu-toggle" id="menu-toggle">☰</button></header>
+</nav>
 <section>
 <h1>Non-Licensed Asbestos Removal</h1>
 <p>Certain asbestos work can be carried out without an HSE licence because the risk of fibre release is lower. To qualify, the work must be sporadic and of low intensity, with exposure less than 0.6 fibres per cubic centimetre of air over a 10‑minute period and not exceed 0.1 fibres per cubic centimetre averaged over a 4‑hour period. Examples include removing asbestos cement sheets, drilling small holes in textured coatings or encapsulating asbestos.</p>
