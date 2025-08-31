@@ -23,33 +23,6 @@ body {
   background-color: #f2f4f7;
   text-align: center;
   padding: 2rem 1.5rem;
-  /* Make hero a positioned container so that the overlay can be layered underneath the text */
-  position: relative;
-}
-
-/*
- * Hero overlay: add a semi‑transparent layer over the background image to improve
- * readability of headings and text. The pseudo‑element sits on top of the
- * background image but below the content. Adjust the rgba() opacity to
- * fine‑tune contrast – higher values darken the image more.
- */
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 0;
-}
-/* Ensure hero content appears above the overlay */
-.hero h1,
-.hero p,
-.hero a,
-.hero button {
-  position: relative;
-  z-index: 1;
 }
 .hero h1 { color: #0B2038; font-size: 2rem; margin-bottom: 0.6rem; }
 .hero p { color: #333333; font-size: 1.1rem; margin-bottom: 1.2rem; }
@@ -313,4 +286,50 @@ body.menu-open .call-button {
     background-color: #6BBE44;
     color: #0F1727;
   }
+}
+
+/* ===================================================================
+ * HERO READABILITY & SLIDER OVERLAY
+ *
+ * The default hero styles set heading and paragraph colours that work
+ * well on a light background. However, on the home page the hero
+ * section uses photographic images which can vary in brightness and
+ * contrast. To ensure the text and call‑to‑action remain legible
+ * regardless of the underlying image, we apply a dark overlay and
+ * force the text colour to white. The overlay sits behind the content
+ * thanks to positioning and z‑index rules. The slider arrows are also
+ * brought above the overlay so they don't disappear beneath it.
+ */
+
+/* Ensure the hero is relative so the pseudo‑element can cover it */
+.hero {
+  position: relative;
+}
+
+/* Dark overlay across the entire hero section */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 0;
+}
+
+/* Ensure hero text and buttons sit above the overlay and remain white */
+.hero h1,
+.hero p,
+.hero a.cta-button {
+  position: relative;
+  z-index: 1;
+  color: #ffffff !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Bring slider arrows above the overlay */
+.hero .slider-arrow {
+  position: absolute;
+  z-index: 1;
 }

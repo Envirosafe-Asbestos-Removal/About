@@ -59,6 +59,63 @@
         border-bottom: 5px solid #6BBE44;
       }
     </style>
+
+    <!-- Navigation styles copied from contact page to match header design on other pages -->
+    <style id="dropdown-nav-style">
+      .main-nav {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        background-color: #0B2038;
+        flex-wrap: wrap;
+      }
+      .main-nav > li {
+        position: relative;
+        margin: 0 1rem;
+      }
+      .main-nav a {
+        color: #ffffff;
+        text-decoration: none;
+        padding: 0.8rem 1.2rem;
+        display: block;
+        font-weight: 600;
+        border-radius: 4px;
+      }
+      .main-nav a:hover {
+        background-color: #6BBE44;
+        color: #0B2038;
+      }
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #0B2038;
+        list-style: none;
+        padding: 0.5rem 0;
+        min-width: 220px;
+        z-index: 1000;
+        display: none !important;
+      }
+      .dropdown-menu li a {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+        color: #6BBE44;
+      }
+      .dropdown-menu li a:hover {
+        background-color: #6BBE44;
+        color: #0B2038;
+      }
+      /* Show submenu on hover for desktop */
+      .dropdown:hover > .dropdown-menu {
+        display: block !important;
+      }
+      /* Show submenu when opened via script */
+      .dropdown.open > .dropdown-menu {
+        display: block !important;
+      }
+    </style>
 </head>
 <body>
     <!-- Site header with logo and navigation -->
