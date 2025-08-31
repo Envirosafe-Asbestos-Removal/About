@@ -92,36 +92,41 @@
 
     </head>
     <body>
-
 <header>
-    <!-- Use hosted logo for consistent branding across all pages -->
-    <img src="https://www.envirosaferemovals.co.uk/logo.png" alt="Envirosafe Removal logo" class="logo">
-    <nav>
-    <ul class="main-nav">
-        <li><a href="index.html">Home</a></li>
-        <li class="dropdown"><a href="#" class="dropdown-toggle">Services</a>
-            <ul class="dropdown-menu">
-                <li><a href="licensed.html">Licensed Removal</a></li>
-                <li><a href="non-licensed.html">Non-Licensed Removal</a></li>
-                <li><a href="surveys.html">Asbestos Surveys</a></li>
-                <li><a href="commercial.html">Commercial</a></li>
-                <li><a href="residential.html">Residential</a></li>
-            </ul>
-        </li>
-        <li class="dropdown"><a href="#" class="dropdown-toggle">About</a>
-            <ul class="dropdown-menu">
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-                <li><a href="testimonials.html">Testimonials</a></li>
-                <li><a href="coverage.html">Coverage</a></li>
-            </ul>
-        </li>
-    </ul>
-    </nav>
+  <img alt="Envirosafe Removal logo" class="logo" src="https://www.envirosaferemovals.co.uk/logo.png"/>
+  <span class="site-title">Envirosafe Removal</span>
+  <div class="header-controls">
+    <a class="call-button" href="tel:07859970938">Call Us</a>
+    <span class="menu-label">Menu</span>
+    <button id="menu-toggle" class="menu-toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Menu"></button>
+  </div>
 </header>
 
-        <section>
+<!-- Primary navigation moved outside the header to allow push-down effect on mobile -->
+<nav id="primary-navigation" aria-label="Primary">
+<ul class="main-nav">
+<li><a href="index.html">Home</a></li>
+<li class="dropdown"><a class="dropdown-toggle" href="#">Services</a>
+<ul class="dropdown-menu">
+<li><a href="licensed.html">Licensed Removal</a></li>
+<li><a href="non-licensed.html">Non-Licensed Removal</a></li>
+<li><a href="surveys.html">Asbestos Surveys</a></li>
+<li><a href="commercial.html">Commercial</a></li>
+<li><a href="residential.html">Residential</a></li>
+</ul>
+</li>
+<li class="dropdown"><a class="dropdown-toggle" href="#">About</a>
+<ul class="dropdown-menu">
+<li><a href="about.html">About Us</a></li>
+<li><a href="contact.html">Contact Us</a></li>
+<li><a href="coverage.html">Areas We Cover</a></li>
+<li><a href="faq.html">FAQ</a></li>
+<li><a href="testimonials.html">Testimonials</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section>
             <h1>Abingdon Asbestos Removal</h1>
             <p>Residents and business owners in Abingdon trust our experienced team for fast, efficient and compliant removal of hazardous materials. We’re known for our friendly service, meticulous workmanship and unwavering commitment to health and safety.</p>
 <p>The rural outskirts around Abingdon contain numerous agricultural buildings and agricultural buildings with asbestos roofs and insulation. Our team excels at dismantling corrugated asbestos roofs, removing water tanks and bitumen sheeting, and clearing barns with minimal disruption to farm operations.</p>
@@ -151,6 +156,17 @@
         <script>
         // Dropdown toggle script for mobile
         document.addEventListener('DOMContentLoaded', function() {
+  // Handle mobile menu toggle
+  var menuToggle = document.getElementById('menu-toggle');
+  var primaryNav = document.getElementById('primary-navigation');
+  if (menuToggle && primaryNav) {
+    menuToggle.addEventListener('click', function() {
+      var expanded = this.getAttribute('aria-expanded') === 'true' || false;
+      this.setAttribute('aria-expanded', !expanded);
+      primaryNav.classList.toggle('nav-open');
+    });
+  }
+
           function setupDropdowns() {
             var isMobile = window.innerWidth <= 768;
             document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
