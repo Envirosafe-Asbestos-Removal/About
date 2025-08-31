@@ -10,7 +10,8 @@
 <link href="style.css" rel="stylesheet"/>
 <!-- Removed inline dropdown navigation styles.
      Navigation rules now live exclusively in the shared stylesheet (style.css). -->
-<!-- Styles specific to the home page hero slider -->
+<!-- Styles specific to the home page hero slider.  
+     Updated to increase the hero section height by roughly 1.5× for a stronger impact on desktop.  -->
 <style id="hero-slider-style">
       .hero {
         position: relative;
@@ -18,7 +19,10 @@
         background-position: center;
         color: #ffffff;
         text-shadow: 0 2px 4px rgba(0,0,0,0.6);
-        padding: 3rem 2rem;
+        /* Increase the height of the hero to roughly 1.5× the original */
+        min-height: 65vh;
+        /* Increase padding to balance the taller section (top/bottom, left/right) */
+        padding: 4.5rem 3rem;
       }
       .slider-arrow {
         position: absolute;
@@ -36,6 +40,11 @@
       #slider-next { right: 1rem; }
       @media (max-width: 768px) {
         .slider-arrow { font-size: 1.5rem; }
+        /* Reduce hero height and padding on small screens to prevent overwhelming the viewport */
+        .hero {
+          min-height: 45vh;
+          padding: 3rem 1.5rem;
+        }
       }
     </style>
 <link href="index.html" rel="canonical"/>
