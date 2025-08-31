@@ -61,30 +61,39 @@
     </style>
 </head>
 <body>
-    <!-- Site header with logo and navigation -->
-    <header>
-        <!-- Use the transparent logo so it blends with the dark header -->
-        <img src="logo_transparent.png" alt="Envirosafe Removal logo" class="logo">
-        <h1>Envirosafe Removal</h1>
-        <nav>
-        <ul class="main-nav">
-            <li><a href="index.html">Home</a></li>
-            <li class="dropdown"><a href="#" class="dropdown-toggle">Services</a>
-                <ul class="dropdown-menu">
-                    <li><a href="licensed.html">Licensed Removal</a></li>
-                    <li><a href="non-licensed.html">Non-Licensed Removal</a></li>
-                    <li><a href="surveys.html">Asbestos Surveys</a></li>
-                    <li><a href="commercial.html">Commercial</a></li>
-                    <li><a href="residential.html">Residential</a></li>
-                </ul>
-            </li>
-            <li class="dropdown"><a href="#" class="dropdown-toggle">About</a>
-                <ul class="dropdown-menu">
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
-                    <li><a href="testimonials.html">Testimonials</a></li>
-                </ul>
+<header>
+  <img alt="Envirosafe Removal logo" class="logo" src="logotransparent.png"/>
+  <!-- Replace heading tag for brand with span to avoid duplicate h1s -->
+  <span class="site-title">Envirosafe Removal</span>
+  <!-- Group controls for mobile: call button, menu label and toggle -->
+  <div class="header-controls">
+    <a class="call-button" href="tel:07859970938">Call Us</a>
+    <span class="menu-label">Menu</span>
+    <button id="menu-toggle" class="menu-toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Menu"></button>
+  </div>
+</header>
+
+<!-- Primary navigation moved outside the header to allow push‑down effect on mobile -->
+<nav id="primary-navigation" aria-label="Primary">
+<ul class="main-nav">
+<li><a href="index.html">Home</a></li>
+<li class="dropdown"><a class="dropdown-toggle" href="#">Services</a>
+<ul class="dropdown-menu">
+<li><a href="licensed.html">Licensed Removal</a></li>
+<li><a href="non-licensed.html">Non-Licensed Removal</a></li>
+<li><a href="surveys.html">Asbestos Surveys</a></li>
+<li><a href="commercial.html">Commercial</a></li>
+<li><a href="residential.html">Residential</a></li>
+</ul>
+</li>
+<li class="dropdown"><a class="dropdown-toggle" href="#">About</a>
+<ul class="dropdown-menu">
+<li><a href="about.html">About Us</a></li>
+<li><a href="contact.html">Contact Us</a></li>
+<li><a href="coverage.html">Areas We Cover</a></li>
+<li><a href="faq.html">FAQ</a></li>
+<li><a href="testimonials.html">Testimonials</a></li>
+</ul>
             </li>
         </ul>
         </nav>
