@@ -31,6 +31,34 @@
       }
     }
     </script>
+    <!-- Additional styles specific to coverage page -->
+    <style>
+      /* Layout for the grid of area buttons */
+      .coverage-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        justify-content: flex-start;
+        margin-top: 1rem;
+      }
+      .coverage-buttons .cta-button {
+        flex: 1 1 calc(33.333% - 1rem);
+        text-align: center;
+      }
+      @media (max-width: 768px) {
+        .coverage-buttons .cta-button {
+          flex: 1 1 100%;
+          width: 100%;
+        }
+      }
+      /* Style the hero section on the coverage page to blend with the site design */
+      .hero-coverage {
+        background-color: #f2f4f7;
+        text-align: center;
+        padding: 3rem 2rem;
+        border-bottom: 5px solid #6BBE44;
+      }
+    </style>
 </head>
 <body>
     <!-- Site header with logo and navigation -->
@@ -54,7 +82,6 @@
                 <ul class="dropdown-menu">
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
-                    <li><a href="coverage.html">Areas We Cover</a></li>
                     <li><a href="faq.html">FAQ</a></li>
                     <li><a href="testimonials.html">Testimonials</a></li>
                 </ul>
@@ -72,86 +99,79 @@
     <section>
         <h2>Coverage</h2>
         <p>Envirosafe Removal provides asbestos surveys and removal services across London and the South East. Below you can explore each town and borough we serve. Click on your area to learn more about our local services.</p>
-        <!-- Embedded map showing the general service area (London and surrounding counties). You can customise the map centre/zoom as needed -->
-        <!-- Map centred on Guildford with a wide zoom to roughly cover a 100‑mile radius -->
-        <iframe
-          src="https://www.mapdevelopers.com/draw-circle-tool.php?circles=%5B%5B128747.2%2C51.4681502%2C-0.4500115%2C%22%23AAAAAA%22%2C%22%23000000%22%2C0.4%5D%5D"
-          width="100%"
-          height="400"
-          style="border:0;"
-          allowfullscreen
-          loading="lazy"></iframe>
+        <!-- Static map image showing your coverage area. Replace "map.png" with your map screenshot file. -->
+        <img src="map.png" alt="Coverage map for Envirosafe Removal" width="100%" height="400" style="border:0;">
     </section>
 
     <!-- List of all service areas. Styled with multiple columns via CSS. -->
     <section>
         <h2>Find Your Area</h2>
-        <ul class="coverage-list">
+        <div class="coverage-buttons">
             <!-- BEGIN AREA LINKS -->
-            <li><a href="aldershot-fleet.html">Aldershot Fleet</a></li>
-            <li><a href="barking-and-dagenham.html">Barking and Dagenham</a></li>
-            <li><a href="basildon.html">Basildon</a></li>
-            <li><a href="bexley.html">Bexley</a></li>
-            <li><a href="brent.html">Brent</a></li>
-            <li><a href="brentwood.html">Brentwood</a></li>
-            <li><a href="brighton-and-hove.html">Brighton and Hove</a></li>
-            <li><a href="bromley.html">Bromley</a></li>
-            <li><a href="camberley.html">Camberley</a></li>
-            <li><a href="camden.html">Camden</a></li>
-            <li><a href="canary-wharf-isle-of-dogs.html">Canary Wharf Isle of Dogs</a></li>
-            <li><a href="canterbury.html">Canterbury</a></li>
-            <li><a href="chelmsford.html">Chelmsford</a></li>
-            <li><a href="chichester.html">Chichester</a></li>
-            <li><a href="chiswick-and-acton.html">Chiswick and Acton</a></li>
-            <li><a href="colchester.html">Colchester</a></li>
-            <li><a href="crawley.html">Crawley</a></li>
-            <li><a href="croydon.html">Croydon</a></li>
-            <li><a href="ealing-broadway-area.html">Ealing Broadway Area</a></li>
-            <li><a href="ealing.html">Ealing</a></li>
-            <li><a href="eastbourne.html">Eastbourne</a></li>
-            <li><a href="enfield.html">Enfield</a></li>
-            <li><a href="epsom.html">Epsom</a></li>
-            <li><a href="farnham.html">Farnham</a></li>
-            <li><a href="folkestone-ashford.html">Folkestone Ashford</a></li>
-            <li><a href="gravesend-dartford.html">Gravesend Dartford</a></li>
-            <li><a href="greenwich-peninsula.html">Greenwich Peninsula</a></li>
-            <li><a href="greenwich.html">Greenwich</a></li>
-            <li><a href="hackney.html">Hackney</a></li>
-            <li><a href="hammersmith-and-fulham.html">Hammersmith and Fulham</a></li>
-            <li><a href="haringey.html">Haringey</a></li>
-            <li><a href="harrow.html">Harrow</a></li>
-            <li><a href="hastings.html">Hastings</a></li>
-            <li><a href="havering.html">Havering</a></li>
-            <li><a href="hounslow.html">Hounslow</a></li>
-            <li><a href="islington.html">Islington</a></li>
-            <li><a href="kensington-and-chelsea.html">Kensington and Chelsea</a></li>
-            <li><a href="kilburn-queens-park.html">Kilburn Queens Park</a></li>
-            <li><a href="kingston.html">Kingston</a></li>
-            <li><a href="lambeth.html">Lambeth</a></li>
-            <li><a href="leatherhead.html">Leatherhead</a></li>
-            <li><a href="lewisham.html">Lewisham</a></li>
-            <li><a href="maidstone.html">Maidstone</a></li>
-            <li><a href="medway-chatham-area.html">Medway Chatham Area</a></li>
-            <li><a href="merton.html">Merton</a></li>
-            <li><a href="newham.html">Newham</a></li>
-            <li><a href="redbridge.html">Redbridge</a></li>
-            <li><a href="reigate.html">Reigate</a></li>
-            <li><a href="richmond.html">Richmond</a></li>
-            <li><a href="sevenoaks.html">Sevenoaks</a></li>
-            <li><a href="southend-on-sea.html">Southend on Sea</a></li>
-            <li><a href="southwark.html">Southwark</a></li>
-            <li><a href="stratford-area.html">Stratford Area</a></li>
-            <li><a href="sutton.html">Sutton</a></li>
-            <li><a href="tower-hamlets.html">Tower Hamlets</a></li>
-            <li><a href="tunbridge-wells.html">Tunbridge Wells</a></li>
-            <li><a href="wandsworth.html">Wandsworth</a></li>
-            <li><a href="waverley-godalming-area.html">Waverley Godalming Area</a></li>
-            <li><a href="westminster.html">Westminster</a></li>
-            <li><a href="wimbledon-area.html">Wimbledon Area</a></li>
-            <li><a href="woking.html">Woking</a></li>
-            <li><a href="worthing.html">Worthing</a></li>
+            <a href="aldershot-fleet.html" class="cta-button coverage-link">Aldershot Fleet</a>
+            <a href="barking-and-dagenham.html" class="cta-button coverage-link">Barking and Dagenham</a>
+            <a href="basildon.html" class="cta-button coverage-link">Basildon</a>
+            <a href="bexley.html" class="cta-button coverage-link">Bexley</a>
+            <a href="brent.html" class="cta-button coverage-link">Brent</a>
+            <a href="brentwood.html" class="cta-button coverage-link">Brentwood</a>
+            <a href="brighton-and-hove.html" class="cta-button coverage-link">Brighton and Hove</a>
+            <a href="bromley.html" class="cta-button coverage-link">Bromley</a>
+            <a href="camberley.html" class="cta-button coverage-link">Camberley</a>
+            <a href="camden.html" class="cta-button coverage-link">Camden</a>
+            <a href="canary-wharf-isle-of-dogs.html" class="cta-button coverage-link">Canary Wharf Isle of Dogs</a>
+            <a href="canterbury.html" class="cta-button coverage-link">Canterbury</a>
+            <a href="chelmsford.html" class="cta-button coverage-link">Chelmsford</a>
+            <a href="chichester.html" class="cta-button coverage-link">Chichester</a>
+            <a href="chiswick-and-acton.html" class="cta-button coverage-link">Chiswick and Acton</a>
+            <a href="colchester.html" class="cta-button coverage-link">Colchester</a>
+            <a href="crawley.html" class="cta-button coverage-link">Crawley</a>
+            <a href="croydon.html" class="cta-button coverage-link">Croydon</a>
+            <a href="ealing-broadway-area.html" class="cta-button coverage-link">Ealing Broadway Area</a>
+            <a href="ealing.html" class="cta-button coverage-link">Ealing</a>
+            <a href="eastbourne.html" class="cta-button coverage-link">Eastbourne</a>
+            <a href="enfield.html" class="cta-button coverage-link">Enfield</a>
+            <a href="epsom.html" class="cta-button coverage-link">Epsom</a>
+            <a href="farnham.html" class="cta-button coverage-link">Farnham</a>
+            <a href="folkestone-ashford.html" class="cta-button coverage-link">Folkestone Ashford</a>
+            <a href="gravesend-dartford.html" class="cta-button coverage-link">Gravesend Dartford</a>
+            <a href="greenwich-peninsula.html" class="cta-button coverage-link">Greenwich Peninsula</a>
+            <a href="greenwich.html" class="cta-button coverage-link">Greenwich</a>
+            <a href="hackney.html" class="cta-button coverage-link">Hackney</a>
+            <a href="hammersmith-and-fulham.html" class="cta-button coverage-link">Hammersmith and Fulham</a>
+            <a href="haringey.html" class="cta-button coverage-link">Haringey</a>
+            <a href="harrow.html" class="cta-button coverage-link">Harrow</a>
+            <a href="hastings.html" class="cta-button coverage-link">Hastings</a>
+            <a href="havering.html" class="cta-button coverage-link">Havering</a>
+            <a href="hounslow.html" class="cta-button coverage-link">Hounslow</a>
+            <a href="islington.html" class="cta-button coverage-link">Islington</a>
+            <a href="kensington-and-chelsea.html" class="cta-button coverage-link">Kensington and Chelsea</a>
+            <a href="kilburn-queens-park.html" class="cta-button coverage-link">Kilburn Queens Park</a>
+            <a href="kingston.html" class="cta-button coverage-link">Kingston</a>
+            <a href="lambeth.html" class="cta-button coverage-link">Lambeth</a>
+            <a href="leatherhead.html" class="cta-button coverage-link">Leatherhead</a>
+            <a href="lewisham.html" class="cta-button coverage-link">Lewisham</a>
+            <a href="maidstone.html" class="cta-button coverage-link">Maidstone</a>
+            <a href="medway-chatham-area.html" class="cta-button coverage-link">Medway Chatham Area</a>
+            <a href="merton.html" class="cta-button coverage-link">Merton</a>
+            <a href="newham.html" class="cta-button coverage-link">Newham</a>
+            <a href="redbridge.html" class="cta-button coverage-link">Redbridge</a>
+            <a href="reigate.html" class="cta-button coverage-link">Reigate</a>
+            <a href="richmond.html" class="cta-button coverage-link">Richmond</a>
+            <a href="sevenoaks.html" class="cta-button coverage-link">Sevenoaks</a>
+            <a href="southend-on-sea.html" class="cta-button coverage-link">Southend on Sea</a>
+            <a href="southwark.html" class="cta-button coverage-link">Southwark</a>
+            <a href="stratford-area.html" class="cta-button coverage-link">Stratford Area</a>
+            <a href="sutton.html" class="cta-button coverage-link">Sutton</a>
+            <a href="tower-hamlets.html" class="cta-button coverage-link">Tower Hamlets</a>
+            <a href="tunbridge-wells.html" class="cta-button coverage-link">Tunbridge Wells</a>
+            <a href="wandsworth.html" class="cta-button coverage-link">Wandsworth</a>
+            <a href="waverley-godalming-area.html" class="cta-button coverage-link">Waverley Godalming Area</a>
+            <a href="westminster.html" class="cta-button coverage-link">Westminster</a>
+            <a href="wimbledon-area.html" class="cta-button coverage-link">Wimbledon Area</a>
+            <a href="woking.html" class="cta-button coverage-link">Woking</a>
+            <a href="worthing.html" class="cta-button coverage-link">Worthing</a>
             <!-- END AREA LINKS -->
-        </ul>
+        </div>
     </section>
 
     <!-- Call to action encouraging visitors to get a quote -->
