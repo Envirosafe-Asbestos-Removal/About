@@ -5,9 +5,67 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Hailsham asbestos removal | Envirosafe Removal</title>
-        <meta name="description" content="Professional asbestos removal and surveys in Hailsham. We offer Asbestos tile & bitumen removal, AIB removal, Asbestos sampling & testing, Demolition">
+        <meta name="description" content="Professional asbestos removal and surveys in Hailsham. We offer Warehouse roof removal, Demolition & strip outs, Asbestos removal from listed">
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://envirosafe-asbestos-removal.github.io/About/style.css">
+        <!-- Use local stylesheet for consistent styling -->
+        <!-- Load the site-wide stylesheet from the root to ensure consistent styling on all pages -->
+        <link rel="stylesheet" href="/style.css">
+        <!-- Override navigation styling to match core pages -->
+        <style id="dropdown-nav-style">
+          .main-nav {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            background-color: #0B2038;
+            flex-wrap: wrap;
+          }
+          .main-nav > li {
+            position: relative;
+            margin: 0 1rem;
+          }
+          .main-nav a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 0.8rem 1.2rem;
+            display: block;
+            font-weight: 600;
+            border-radius: 4px;
+          }
+          .main-nav a:hover {
+            background-color: #6BBE44;
+            color: #0B2038;
+          }
+          .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #0B2038;
+            list-style: none;
+            padding: 0.5rem 0;
+            min-width: 220px;
+            z-index: 1000;
+            display: none !important;
+          }
+          .dropdown-menu li a {
+            padding: 0.6rem 1rem;
+            font-size: 0.9rem;
+            color: #6BBE44;
+          }
+          .dropdown-menu li a:hover {
+            background-color: #6BBE44;
+            color: #0B2038;
+          }
+          /* Show submenu on hover for desktop */
+          .dropdown:hover > .dropdown-menu {
+            display: block !important;
+          }
+          /* Show submenu when opened via script */
+          .dropdown.open > .dropdown-menu {
+            display: block !important;
+          }
+        </style>
         <link rel="canonical" href="https://www.envirosaferemovals.co.uk/hailsham.html">
 
 <script type="application/ld+json">
@@ -15,7 +73,7 @@
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Envirosafe Removal Specialists",
-  "image": "https://envirosafe-asbestos-removal.github.io/logo.jpg",
+  "image": "https://www.envirosaferemovals.co.uk/logo.png",
   "@id": "https://www.envirosaferemovals.co.uk/hailsham.html",
   "url": "https://www.envirosaferemovals.co.uk/hailsham.html",
   "address": {
@@ -34,61 +92,60 @@
 
     </head>
     <body>
-
 <header>
-    <img src="https://envirosafe-asbestos-removal.github.io/About/logo.jpg" alt="Envirosafe Removal Specialists logo" class="logo">
-    <h1>Envirosafe Removal Specialists</h1>
-    <nav>
-    <ul class="main-nav">
-        <li><a href="index.html">Home</a></li>
-        <li class="dropdown"><a href="#" class="dropdown-toggle">Services</a>
-            <ul class="dropdown-menu">
-                <li><a href="licensed.html">Licensed Removal</a></li>
-                <li><a href="non-licensed.html">Non-Licensed Removal</a></li>
-                <li><a href="surveys.html">Asbestos Surveys</a></li>
-                <li><a href="commercial.html">Commercial</a></li>
-                <li><a href="residential.html">Residential</a></li>
-            </ul>
-        </li>
-        <li class="dropdown"><a href="#" class="dropdown-toggle">About</a>
-            <ul class="dropdown-menu">
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-                <li><a href="testimonials.html">Testimonials</a></li>
-                <li><a href="coverage.html">Coverage</a></li>
-            </ul>
-        </li>
-    </ul>
-    </nav>
+  <img alt="Envirosafe Removal logo" class="logo" src="https://www.envirosaferemovals.co.uk/logo.png"/>
+  <span class="site-title">Envirosafe Removal</span>
+  <div class="header-controls">
+    <a class="call-button" href="tel:07859970938">Call Us</a>
+    <span class="menu-label">Menu</span>
+    <button id="menu-toggle" class="menu-toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Menu"></button>
+  </div>
 </header>
 
-        <section>
+<!-- Primary navigation moved outside the header to allow push-down effect on mobile -->
+<nav id="primary-navigation" aria-label="Primary">
+<ul class="main-nav">
+<li><a href="index.html">Home</a></li>
+<li class="dropdown"><a class="dropdown-toggle" href="#">Services</a>
+<ul class="dropdown-menu">
+<li><a href="licensed.html">Licensed Removal</a></li>
+<li><a href="non-licensed.html">Non-Licensed Removal</a></li>
+<li><a href="surveys.html">Asbestos Surveys</a></li>
+<li><a href="commercial.html">Commercial</a></li>
+<li><a href="residential.html">Residential</a></li>
+</ul>
+</li>
+<li class="dropdown"><a class="dropdown-toggle" href="#">About</a>
+<ul class="dropdown-menu">
+<li><a href="about.html">About Us</a></li>
+<li><a href="contact.html">Contact Us</a></li>
+<li><a href="coverage.html">Areas We Cover</a></li>
+<li><a href="faq.html">FAQ</a></li>
+<li><a href="testimonials.html">Testimonials</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section>
             <h1>Hailsham Asbestos Removal</h1>
-            <p>Across the rural outskirts of Hailsham, there are numerous barns and outbuildings containing fibrous asbestos. Our specialists are adept at dismantling corrugated roofs, removing water tanks and clearing barns with minimal disruption to farm operations.
-
-From asbestos remediation to thorough surveys and testing, we offer a comprehensive range of services across Hailsham. Our certified specialists deliver safe removal, sampling and testing with minimal disruption to your day.</p>
+            <p>From asbestos management to comprehensive surveys and testing, we offer a full range of asbestos solutions across Hailsham. Our certified specialists deliver safe removal, sampling, testing and air monitoring with minimal disruption to your daily routine.</p>
+<p>Residents and business owners in Hailsham trust our experienced team for fast, efficient and compliant removal of hazardous materials. We’re known for our friendly service, meticulous workmanship and unwavering commitment to health and safety.</p>
             <h2>Our Services in Hailsham</h2>
             <ul>
-                <li>Pre purchase asbestos surveys</li>
-<li>Asbestos sampling & testing</li>
-<li>Licensed asbestos removal</li>
-<li>Asbestos tile & bitumen removal</li>
-<li>Asbestos surveys</li>
+                <li>Asbestos removal from barns</li>
+<li>Warehouse removal</li>
+<li>Asbestos lagging removal</li>
+<li>Lathe & plaster ceiling removal</li>
+<li>Artex ceiling removal</li>
 <li>And many more…</li>
             </ul>
             <h2>About Asbestos in Hailsham</h2>
-            <p>Hailsham and its surrounding areas feature a diverse range of houses, from mid‑century family homes to modern apartments. Our team is skilled at identifying and removing hidden asbestos materials from lofts, soffits, pipe lagging and garage roofs. We work discreetly and efficiently, leaving your property clean and ready for renovation or sale.
-
-Within Hailsham, there are numerous heritage properties that require special care. Our operatives are trained to carry out asbestos remediation in delicate environments, ensuring listed cornices, mouldings and timber frames remain intact.
-
-Beyond the town centre, the Hailsham region encompasses farms, barns and stables. We specialise in removing corrugated cement roofing, water tanks and bitumen sheeting from agricultural structures, so you can repurpose them safely.
-
-As a hub for small businesses, Hailsham has a variety of industrial units. We provide tailored solutions for office blocks, retail outlets and industrial estates, including site surveys, encapsulation and licensed removal when required.
-
-Health and safety is at the heart of everything we do. We adhere to UK legislation, including Control of Asbestos Regulations 2012, and provide method statements, risk assessments and waste consignment notes for every job. Our ongoing training ensures we use the latest techniques and equipment to manage dangerous fibres safely.
-
-We are proud to be part of the community in and around Hailsham. We recycle and dispose of waste at licensed facilities to minimise environmental impact, and we aim to raise awareness about the dangers of asbestos through local events and partnerships.</p>
+            <p>Hailsham and its surrounding areas feature a diverse range of houses, from mid‑century family homes to modern apartments. Our team is skilled at identifying and removing hidden asbestos materials from lofts, soffits, pipe lagging and garage roofs. We work discreetly and efficiently, leaving your property clean and ready for renovation or sale.</p>
+<p>Within Hailsham, there are many listed buildings that require special care. Our operatives are trained to carry out asbestos abatement in delicate environments, ensuring listed cornices, mouldings and timber frames remain intact while eliminating asbestos risks.</p>
+<p>Beyond the town centre, the Hailsham region encompasses rural properties, barns and stables. We specialise in removing corrugated cement roofing, water tanks and bitumen sheeting from these agricultural structures so you can repurpose them safely.</p>
+<p>As a hub for commercial enterprises, Hailsham has a variety of factories. We provide tailored solutions for office blocks, retail outlets and industrial estates, including site surveys, encapsulation and licensed removal when required.</p>
+<p>Health and safety is at the heart of everything we do. We adhere to UK legislation, including the Control of Asbestos Regulations 2012, and provide method statements, risk assessments and waste consignment notes for every job. Our ongoing training ensures we use the latest techniques and equipment to manage hazardous asbestos safely.</p>
+<p>We are proud to be part of the community in and around Hailsham. All waste is taken to licensed facilities to minimise environmental impact, and we actively raise awareness about the dangers of asbestos through local events and partnerships.</p>
         </section>
         <section>
             <h2>Call to Action</h2>
@@ -99,6 +156,17 @@ We are proud to be part of the community in and around Hailsham. We recycle and 
         <script>
         // Dropdown toggle script for mobile
         document.addEventListener('DOMContentLoaded', function() {
+  // Handle mobile menu toggle
+  var menuToggle = document.getElementById('menu-toggle');
+  var primaryNav = document.getElementById('primary-navigation');
+  if (menuToggle && primaryNav) {
+    menuToggle.addEventListener('click', function() {
+      var expanded = this.getAttribute('aria-expanded') === 'true' || false;
+      this.setAttribute('aria-expanded', !expanded);
+      primaryNav.classList.toggle('nav-open');
+    });
+  }
+
           function setupDropdowns() {
             var isMobile = window.innerWidth <= 768;
             document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
