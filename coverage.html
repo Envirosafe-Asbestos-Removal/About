@@ -1,373 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Find all the towns and villages we serve across London, the South East and beyond. Explore Envirosafe Removal's coverage and discover local asbestos removal services in your area.">
-  <title>Areas We Cover | Envirosafe Removal</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="canonical" href="https://www.envirosaferemovals.co.uk/coverage.html">
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "Envirosafe Removal",
-  "image": "https://www.envirosaferemovals.co.uk/logo.png",
-  "url": "https://www.envirosaferemovals.co.uk/",
-  "telephone": "07859970938",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Overglen Court Hill Brow",
-    "addressLocality": "Liss",
-    "addressRegion": "Hampshire",
-    "postalCode": "GU33 7PB",
-    "addressCountry": "GB"
-  }
-}
-  </script>
-  <style>
-    .coverage-buttons { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem; }
-    .coverage-buttons .cta-button { flex: 1 1 calc(33.333% - 1rem); text-align: center; margin-bottom: 0.75rem; }
-    @media (max-width: 768px) { .coverage-buttons .cta-button { flex: 1 1 100%; } }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- A concise description for search engines -->
+    <meta name="description" content="Explore all the towns and boroughs served by Envirosafe Removal across London and the South East. Find your local asbestos removal experts and learn about the services available in your area.">
+    <title>Areas We Cover | Envirosafe Removal</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Site stylesheet (relative path so it loads correctly on all pages) -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Canonical URL so search engines know the preferred version -->
+    <link rel="canonical" href="https://www.envirosaferemovals.co.uk/coverage.html">
+    <!-- Schema.org structured data describing the business -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Envirosafe Removal",
+      "image": "logo_transparent.png",
+      "@id": "https://www.envirosaferemovals.co.uk",
+      "url": "https://www.envirosaferemovals.co.uk",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Overglen Court",
+        "addressLocality": "Liss",
+        "addressRegion": "Hampshire",
+        "postalCode": "GU33 7PB",
+        "addressCountry": "GB"
+      }
+    }
+    </script>
+    <!-- Additional styles specific to coverage page -->
+    <style>
+      /* Layout for the grid of area buttons */
+      .coverage-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        justify-content: flex-start;
+        margin-top: 1rem;
+      }
+      .coverage-buttons .cta-button {
+        flex: 1 1 calc(33.333% - 1rem);
+        text-align: center;
+      }
+      @media (max-width: 768px) {
+        .coverage-buttons .cta-button {
+          flex: 1 1 100%;
+          width: 100%;
+        }
+      }
+      /* Style the hero section on the coverage page to blend with the site design */
+      .hero-coverage {
+        background-color: #f2f4f7;
+        text-align: center;
+        padding: 3rem 2rem;
+        border-bottom: 5px solid #6BBE44;
+      }
+    </style>
 </head>
 <body>
-  <header>
-    <img alt="Envirosafe Removal logo" class="logo" src="https://www.envirosaferemovals.co.uk/logo.png"/>
-    <span class="site-title">Envirosafe Removal</span>
-    <div class="header-controls">
-      <a class="call-button" href="tel:07859970938">Call Us</a>
-      <span class="menu-label">Menu</span>
-      <button id="menu-toggle" class="menu-toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Menu"></button>
-    </div>
-  </header>
-  <nav id="primary-navigation" aria-label="Primary">
-  <ul class="main-nav">
-    <li><a href="index.html">Home</a></li>
-    <li class="dropdown"><a class="dropdown-toggle" href="#">Services</a>
-      <ul class="dropdown-menu">
-        <li><a href="licensed.html">Licensed Removal</a></li>
-        <li><a href="non-licensed.html">Non-Licensed Removal</a></li>
-        <li><a href="surveys.html">Asbestos Surveys</a></li>
-        <li><a href="commercial.html">Commercial</a></li>
-        <li><a href="residential.html">Residential</a></li>
+    <!-- Site header with consistent navigation and call button -->
+    <header>
+      <img alt="Envirosafe Removal logo" class="logo" src="logo.png"/>
+      <span class="site-title">Envirosafe Removal</span>
+      <div class="header-controls">
+        <a class="call-button" href="tel:+447859970138">Call Us</a>
+        <span class="menu-label">Menu</span>
+        <button id="menu-toggle" class="menu-toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Menu"></button>
+      </div>
+    </header>
+    <!-- Primary navigation moved outside the header to allow push-down effect on mobile -->
+    <nav id="primary-navigation" aria-label="Primary">
+      <ul class="main-nav">
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown"><a class="dropdown-toggle" href="#">Services</a>
+          <ul class="dropdown-menu">
+            <li><a href="licensed.html">Licensed Removal</a></li>
+            <li><a href="non-licensed.html">Non-Licensed Removal</a></li>
+            <li><a href="surveys.html">Asbestos Surveys</a></li>
+            <li><a href="commercial.html">Commercial</a></li>
+            <li><a href="residential.html">Residential</a></li>
+          </ul>
+        </li>
+        <li class="dropdown"><a class="dropdown-toggle" href="#">About</a>
+          <ul class="dropdown-menu">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="coverage.html">Areas We Cover</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+          </ul>
+        </li>
       </ul>
-    </li>
-    <li class="dropdown"><a class="dropdown-toggle" href="#">About</a>
-      <ul class="dropdown-menu">
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-        <li><a href="coverage.html">Areas We Cover</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-        <li><a href="testimonials.html">Testimonials</a></li>
-      </ul>
-    </li>
-  </ul>
-  </nav>
-  <section>
-    <h1>Areas We Cover</h1>
-  </section>
-  <section>
-    <h2>Coverage</h2>
-    <p>Envirosafe Removal provides asbestos surveys and removal services across London and the South East. Below you can explore each town and village we serve. Click on your area to learn more about our local services.</p>
-    <img src="map.png" alt="Coverage map for Envirosafe Removal" width="100%" height="400" style="border:0;">
-  </section>
-  <section>
-    <h2>Find Your Area</h2>
-    <div class="coverage-buttons">
-      <a href="abingdon.html" class="cta-button coverage-link">Abingdon</a>
-      <a href="acton.html" class="cta-button coverage-link">Acton</a>
-      <a href="albury.html" class="cta-button coverage-link">Albury</a>
-      <a href="aldershot.html" class="cta-button coverage-link">Aldershot</a>
-      <a href="alton.html" class="cta-button coverage-link">Alton</a>
-      <a href="amersham.html" class="cta-button coverage-link">Amersham</a>
-      <a href="anerley.html" class="cta-button coverage-link">Anerley</a>
-      <a href="angmering.html" class="cta-button coverage-link">Angmering</a>
-      <a href="arundel.html" class="cta-button coverage-link">Arundel</a>
-      <a href="ascot.html" class="cta-button coverage-link">Ascot</a>
-      <a href="ash-vale.html" class="cta-button coverage-link">Ash Vale</a>
-      <a href="ash.html" class="cta-button coverage-link">Ash</a>
-      <a href="ashford.html" class="cta-button coverage-link">Ashford</a>
-      <a href="ashtead.html" class="cta-button coverage-link">Ashtead</a>
-      <a href="aylesbury.html" class="cta-button coverage-link">Aylesbury</a>
-      <a href="aylesford.html" class="cta-button coverage-link">Aylesford</a>
-      <a href="banstead.html" class="cta-button coverage-link">Banstead</a>
-      <a href="barking-and-dagenham.html" class="cta-button coverage-link">Barking and Dagenham</a>
-      <a href="barnet.html" class="cta-button coverage-link">Barnet</a>
-      <a href="basingstoke.html" class="cta-button coverage-link">Basingstoke</a>
-      <a href="beaconsfield.html" class="cta-button coverage-link">Beaconsfield</a>
-      <a href="beckenham.html" class="cta-button coverage-link">Beckenham</a>
-      <a href="bermondsey.html" class="cta-button coverage-link">Bermondsey</a>
-      <a href="bexhill-on-sea.html" class="cta-button coverage-link">Bexhill on Sea</a>
-      <a href="bexley.html" class="cta-button coverage-link">Bexley</a>
-      <a href="bexleyheath.html" class="cta-button coverage-link">Bexleyheath</a>
-      <a href="bicester.html" class="cta-button coverage-link">Bicester</a>
-      <a href="billingshurst.html" class="cta-button coverage-link">Billingshurst</a>
-      <a href="binfield.html" class="cta-button coverage-link">Binfield</a>
-      <a href="bishopstone.html" class="cta-button coverage-link">Bishopstone</a>
-      <a href="blackheath.html" class="cta-button coverage-link">Blackheath</a>
-      <a href="blackwater.html" class="cta-button coverage-link">Blackwater</a>
-      <a href="bognor-regis.html" class="cta-button coverage-link">Bognor Regis</a>
-      <a href="bordon.html" class="cta-button coverage-link">Bordon</a>
-      <a href="borough-green.html" class="cta-button coverage-link">Borough Green</a>
-      <a href="bosham.html" class="cta-button coverage-link">Bosham</a>
-      <a href="bournemouth.html" class="cta-button coverage-link">Bournemouth</a>
-      <a href="bracknell.html" class="cta-button coverage-link">Bracknell</a>
-      <a href="bramley.html" class="cta-button coverage-link">Bramley</a>
-      <a href="brent.html" class="cta-button coverage-link">Brent</a>
-      <a href="brixton.html" class="cta-button coverage-link">Brixton</a>
-      <a href="bromley-town.html" class="cta-button coverage-link">Bromley Town</a>
-      <a href="bromley.html" class="cta-button coverage-link">Bromley</a>
-      <a href="burgess-hill.html" class="cta-button coverage-link">Burgess Hill</a>
-      <a href="burpham.html" class="cta-button coverage-link">Burpham</a>
-      <a href="camberley.html" class="cta-button coverage-link">Camberley</a>
-      <a href="camden.html" class="cta-button coverage-link">Camden</a>
-      <a href="canary-wharf.html" class="cta-button coverage-link">Canary Wharf</a>
-      <a href="catford.html" class="cta-button coverage-link">Catford</a>
-      <a href="chalfont-st-giles.html" class="cta-button coverage-link">Chalfont St Giles</a>
-      <a href="chalfont-st-peter.html" class="cta-button coverage-link">Chalfont St Peter</a>
-      <a href="chatham.html" class="cta-button coverage-link">Chatham</a>
-      <a href="chesham.html" class="cta-button coverage-link">Chesham</a>
-      <a href="chichester.html" class="cta-button coverage-link">Chichester</a>
-      <a href="chilworth.html" class="cta-button coverage-link">Chilworth</a>
-      <a href="chiswick.html" class="cta-button coverage-link">Chiswick</a>
-      <a href="clapham.html" class="cta-button coverage-link">Clapham</a>
-      <a href="cobham.html" class="cta-button coverage-link">Cobham</a>
-      <a href="compton.html" class="cta-button coverage-link">Compton</a>
-      <a href="cooden.html" class="cta-button coverage-link">Cooden</a>
-      <a href="cranbrook.html" class="cta-button coverage-link">Cranbrook</a>
-      <a href="cranleigh.html" class="cta-button coverage-link">Cranleigh</a>
-      <a href="crawley.html" class="cta-button coverage-link">Crawley</a>
-      <a href="crowborough.html" class="cta-button coverage-link">Crowborough</a>
-      <a href="crowthorne.html" class="cta-button coverage-link">Crowthorne</a>
-      <a href="croydon.html" class="cta-button coverage-link">Croydon</a>
-      <a href="crystal-palace.html" class="cta-button coverage-link">Crystal Palace</a>
-      <a href="deptford.html" class="cta-button coverage-link">Deptford</a>
-      <a href="didcot.html" class="cta-button coverage-link">Didcot</a>
-      <a href="dorking.html" class="cta-button coverage-link">Dorking</a>
-      <a href="dulwich.html" class="cta-button coverage-link">Dulwich</a>
-      <a href="ealing-broadway.html" class="cta-button coverage-link">Ealing Broadway</a>
-      <a href="ealing.html" class="cta-button coverage-link">Ealing</a>
-      <a href="earley.html" class="cta-button coverage-link">Earley</a>
-      <a href="east-clandon.html" class="cta-button coverage-link">East Clandon</a>
-      <a href="east-grinstead.html" class="cta-button coverage-link">East Grinstead</a>
-      <a href="east-horsley.html" class="cta-button coverage-link">East Horsley</a>
-      <a href="east-malling.html" class="cta-button coverage-link">East Malling</a>
-      <a href="eastbourne.html" class="cta-button coverage-link">Eastbourne</a>
-      <a href="edenbridge.html" class="cta-button coverage-link">Edenbridge</a>
-      <a href="effingham.html" class="cta-button coverage-link">Effingham</a>
-      <a href="eltham.html" class="cta-button coverage-link">Eltham</a>
-      <a href="enfield.html" class="cta-button coverage-link">Enfield</a>
-      <a href="epsom.html" class="cta-button coverage-link">Epsom</a>
-      <a href="esher.html" class="cta-button coverage-link">Esher</a>
-      <a href="ewell.html" class="cta-button coverage-link">Ewell</a>
-      <a href="farnborough.html" class="cta-button coverage-link">Farnborough</a>
-      <a href="farnham.html" class="cta-button coverage-link">Farnham</a>
-      <a href="faversham.html" class="cta-button coverage-link">Faversham</a>
-      <a href="finchampstead.html" class="cta-button coverage-link">Finchampstead</a>
-      <a href="fishbourne.html" class="cta-button coverage-link">Fishbourne</a>
-      <a href="fleet.html" class="cta-button coverage-link">Fleet</a>
-      <a href="forest-hill.html" class="cta-button coverage-link">Forest Hill</a>
-      <a href="frimley.html" class="cta-button coverage-link">Frimley</a>
-      <a href="gerrards-cross.html" class="cta-button coverage-link">Gerrards Cross</a>
-      <a href="gillingham.html" class="cta-button coverage-link">Gillingham</a>
-      <a href="godalming.html" class="cta-button coverage-link">Godalming</a>
-      <a href="gomshall.html" class="cta-button coverage-link">Gomshall</a>
-      <a href="great-bookham.html" class="cta-button coverage-link">Great Bookham</a>
-      <a href="greenwich-peninsula.html" class="cta-button coverage-link">Greenwich Peninsula</a>
-      <a href="greenwich.html" class="cta-button coverage-link">Greenwich</a>
-      <a href="guildford.html" class="cta-button coverage-link">Guildford</a>
-      <a href="hackney.html" class="cta-button coverage-link">Hackney</a>
-      <a href="hailsham.html" class="cta-button coverage-link">Hailsham</a>
-      <a href="hammersmith-and-fulham.html" class="cta-button coverage-link">Hammersmith and Fulham</a>
-      <a href="haringey.html" class="cta-button coverage-link">Haringey</a>
-      <a href="harrow.html" class="cta-button coverage-link">Harrow</a>
-      <a href="hartley-wintney.html" class="cta-button coverage-link">Hartley Wintney</a>
-      <a href="haslemere.html" class="cta-button coverage-link">Haslemere</a>
-      <a href="havering.html" class="cta-button coverage-link">Havering</a>
-      <a href="haywards-heath.html" class="cta-button coverage-link">Haywards Heath</a>
-      <a href="headcorn.html" class="cta-button coverage-link">Headcorn</a>
-      <a href="heathfield.html" class="cta-button coverage-link">Heathfield</a>
-      <a href="hellingly.html" class="cta-button coverage-link">Hellingly</a>
-      <a href="henley-on-thames.html" class="cta-button coverage-link">Henley on Thames</a>
-      <a href="high-wycombe.html" class="cta-button coverage-link">High Wycombe</a>
-      <a href="hillingdon.html" class="cta-button coverage-link">Hillingdon</a>
-      <a href="hook.html" class="cta-button coverage-link">Hook</a>
-      <a href="horsham.html" class="cta-button coverage-link">Horsham</a>
-      <a href="horsted-keynes.html" class="cta-button coverage-link">Horsted Keynes</a>
-      <a href="hounslow.html" class="cta-button coverage-link">Hounslow</a>
-      <a href="isle-of-dogs.html" class="cta-button coverage-link">Isle of Dogs</a>
-      <a href="islington.html" class="cta-button coverage-link">Islington</a>
-      <a href="kensington-and-chelsea.html" class="cta-button coverage-link">Kensington and Chelsea</a>
-      <a href="kings-hill.html" class="cta-button coverage-link">Kings Hill</a>
-      <a href="kingston-upon-thames.html" class="cta-button coverage-link">Kingston upon Thames</a>
-      <a href="lambeth.html" class="cta-button coverage-link">Lambeth</a>
-      <a href="lancing.html" class="cta-button coverage-link">Lancing</a>
-      <a href="leatherhead.html" class="cta-button coverage-link">Leatherhead</a>
-      <a href="lewes.html" class="cta-button coverage-link">Lewes</a>
-      <a href="lewisham-town-centre.html" class="cta-button coverage-link">Lewisham Town Centre</a>
-      <a href="lewisham.html" class="cta-button coverage-link">Lewisham</a>
-      <a href="liphook.html" class="cta-button coverage-link">Liphook</a>
-      <a href="liss.html" class="cta-button coverage-link">Liss</a>
-      <a href="little-bookham.html" class="cta-button coverage-link">Little Bookham</a>
-      <a href="littlehampton.html" class="cta-button coverage-link">Littlehampton</a>
-      <a href="maidenhead.html" class="cta-button coverage-link">Maidenhead</a>
-      <a href="maidstone.html" class="cta-button coverage-link">Maidstone</a>
-      <a href="marlow.html" class="cta-button coverage-link">Marlow</a>
-      <a href="merrow.html" class="cta-button coverage-link">Merrow</a>
-      <a href="merton.html" class="cta-button coverage-link">Merton</a>
-      <a href="midhurst.html" class="cta-button coverage-link">Midhurst</a>
-      <a href="milton-keynes.html" class="cta-button coverage-link">Milton Keynes</a>
-      <a href="mytchett.html" class="cta-button coverage-link">Mytchett</a>
-      <a href="newbury.html" class="cta-button coverage-link">Newbury</a>
-      <a href="newham.html" class="cta-button coverage-link">Newham</a>
-      <a href="newhaven.html" class="cta-button coverage-link">Newhaven</a>
-      <a href="normandy.html" class="cta-button coverage-link">Normandy</a>
-      <a href="odiham.html" class="cta-button coverage-link">Odiham</a>
-      <a href="orpington.html" class="cta-button coverage-link">Orpington</a>
-      <a href="oxford.html" class="cta-button coverage-link">Oxford</a>
-      <a href="oxshott.html" class="cta-button coverage-link">Oxshott</a>
-      <a href="oxted.html" class="cta-button coverage-link">Oxted</a>
-      <a href="pangbourne.html" class="cta-button coverage-link">Pangbourne</a>
-      <a href="peacehaven.html" class="cta-button coverage-link">Peacehaven</a>
-      <a href="peaslake.html" class="cta-button coverage-link">Peaslake</a>
-      <a href="peckham.html" class="cta-button coverage-link">Peckham</a>
-      <a href="petersfield.html" class="cta-button coverage-link">Petersfield</a>
-      <a href="petworth.html" class="cta-button coverage-link">Petworth</a>
-      <a href="pevensey.html" class="cta-button coverage-link">Pevensey</a>
-      <a href="pirbright.html" class="cta-button coverage-link">Pirbright</a>
-      <a href="polegate.html" class="cta-button coverage-link">Polegate</a>
-      <a href="poole.html" class="cta-button coverage-link">Poole</a>
-      <a href="portsmouth.html" class="cta-button coverage-link">Portsmouth</a>
-      <a href="princes-risborough.html" class="cta-button coverage-link">Princes Risborough</a>
-      <a href="pulborough.html" class="cta-button coverage-link">Pulborough</a>
-      <a href="putney.html" class="cta-button coverage-link">Putney</a>
-      <a href="reading.html" class="cta-button coverage-link">Reading</a>
-      <a href="redbridge.html" class="cta-button coverage-link">Redbridge</a>
-      <a href="richmond-upon-thames.html" class="cta-button coverage-link">Richmond upon Thames</a>
-      <a href="ringmer.html" class="cta-button coverage-link">Ringmer</a>
-      <a href="ripley.html" class="cta-button coverage-link">Ripley</a>
-      <a href="rochester.html" class="cta-button coverage-link">Rochester</a>
-      <a href="rustington.html" class="cta-button coverage-link">Rustington</a>
-      <a href="salisbury.html" class="cta-button coverage-link">Salisbury</a>
-      <a href="sandhurst.html" class="cta-button coverage-link">Sandhurst</a>
-      <a href="seaford.html" class="cta-button coverage-link">Seaford</a>
-      <a href="selsey.html" class="cta-button coverage-link">Selsey</a>
-      <a href="send.html" class="cta-button coverage-link">Send</a>
-      <a href="sevenoaks.html" class="cta-button coverage-link">Sevenoaks</a>
-      <a href="shalford.html" class="cta-button coverage-link">Shalford</a>
-      <a href="shere.html" class="cta-button coverage-link">Shere</a>
-      <a href="shoreham-by-sea.html" class="cta-button coverage-link">Shoreham by Sea</a>
-      <a href="sidcup.html" class="cta-button coverage-link">Sidcup</a>
-      <a href="sittingbourne.html" class="cta-button coverage-link">Sittingbourne</a>
-      <a href="slough.html" class="cta-button coverage-link">Slough</a>
-      <a href="snodland.html" class="cta-button coverage-link">Snodland</a>
-      <a href="sompting.html" class="cta-button coverage-link">Sompting</a>
-      <a href="sonning.html" class="cta-button coverage-link">Sonning</a>
-      <a href="southampton.html" class="cta-button coverage-link">Southampton</a>
-      <a href="southwark.html" class="cta-button coverage-link">Southwark</a>
-      <a href="storrington.html" class="cta-button coverage-link">Storrington</a>
-      <a href="streatham.html" class="cta-button coverage-link">Streatham</a>
-      <a href="sunningdale.html" class="cta-button coverage-link">Sunningdale</a>
-      <a href="sunninghill.html" class="cta-button coverage-link">Sunninghill</a>
-      <a href="sutton.html" class="cta-button coverage-link">Sutton</a>
-      <a href="swindon.html" class="cta-button coverage-link">Swindon</a>
-      <a href="sydenham.html" class="cta-button coverage-link">Sydenham</a>
-      <a href="tadworth.html" class="cta-button coverage-link">Tadworth</a>
-      <a href="tenterden.html" class="cta-button coverage-link">Tenterden</a>
-      <a href="thame.html" class="cta-button coverage-link">Thame</a>
-      <a href="thatcham.html" class="cta-button coverage-link">Thatcham</a>
-      <a href="tonbridge.html" class="cta-button coverage-link">Tonbridge</a>
-      <a href="tongham.html" class="cta-button coverage-link">Tongham</a>
-      <a href="tower-hamlets.html" class="cta-button coverage-link">Tower Hamlets</a>
-      <a href="tring.html" class="cta-button coverage-link">Tring</a>
-      <a href="tunbridge-wells.html" class="cta-button coverage-link">Tunbridge Wells</a>
-      <a href="twyford.html" class="cta-button coverage-link">Twyford</a>
-      <a href="uckfield.html" class="cta-button coverage-link">Uckfield</a>
-      <a href="wallingford.html" class="cta-button coverage-link">Wallingford</a>
-      <a href="waltham-forest.html" class="cta-button coverage-link">Waltham Forest</a>
-      <a href="walton-on-thames.html" class="cta-button coverage-link">Walton on Thames</a>
-      <a href="wandsworth.html" class="cta-button coverage-link">Wandsworth</a>
-      <a href="wargrave.html" class="cta-button coverage-link">Wargrave</a>
-      <a href="wateringbury.html" class="cta-button coverage-link">Wateringbury</a>
-      <a href="wendover.html" class="cta-button coverage-link">Wendover</a>
-      <a href="west-clandon.html" class="cta-button coverage-link">West Clandon</a>
-      <a href="west-horsley.html" class="cta-button coverage-link">West Horsley</a>
-      <a href="west-malling.html" class="cta-button coverage-link">West Malling</a>
-      <a href="westerham.html" class="cta-button coverage-link">Westerham</a>
-      <a href="westham.html" class="cta-button coverage-link">Westham</a>
-      <a href="westminster.html" class="cta-button coverage-link">Westminster</a>
-      <a href="weybridge.html" class="cta-button coverage-link">Weybridge</a>
-      <a href="wheatley.html" class="cta-button coverage-link">Wheatley</a>
-      <a href="whitehill.html" class="cta-button coverage-link">Whitehill</a>
-      <a href="wimbledon.html" class="cta-button coverage-link">Wimbledon</a>
-      <a href="winchester.html" class="cta-button coverage-link">Winchester</a>
-      <a href="windsor.html" class="cta-button coverage-link">Windsor</a>
-      <a href="wokingham.html" class="cta-button coverage-link">Wokingham</a>
-      <a href="woodley.html" class="cta-button coverage-link">Woodley</a>
-      <a href="woolwich.html" class="cta-button coverage-link">Woolwich</a>
-      <a href="worplesdon.html" class="cta-button coverage-link">Worplesdon</a>
-      <a href="worthing.html" class="cta-button coverage-link">Worthing</a>
-      <a href="wrotham.html" class="cta-button coverage-link">Wrotham</a>
-      <a href="wye.html" class="cta-button coverage-link">Wye</a>
-      <a href="yateley.html" class="cta-button coverage-link">Yateley</a>
-    </div>
-  </section>
-  <section class="cta-section">
-    <h2>Ready to get started?</h2>
-    <p>Contact our friendly team today to discuss asbestos removal services in your area. We provide free quotes and expert advice.</p>
-    <a href="contact.html" class="cta-button">Contact Us</a>
-  </section>
-  <footer>
-    <p>&copy; 2025 Envirosafe Removal. All rights reserved.</p>
-  </footer>
-  <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.getElementById('menu-toggle');
-    const nav = document.getElementById('primary-navigation');
-    menuToggle.addEventListener('click', function() {
-      const isExpanded = this.getAttribute('aria-expanded') === 'true';
-      this.setAttribute('aria-expanded', String(!isExpanded));
-      nav.classList.toggle('nav-open');
-    });
-  });
-  </script>
-  <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    function setupDropdowns() {
-      var isMobile = window.innerWidth <= 768;
-      document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
-        toggle.onclick = null;
-        if (isMobile) {
-          toggle.onclick = function(e) {
-            e.preventDefault();
-            this.parentElement.classList.toggle('open');
-          };
-        }
+    </nav>
+
+    <!-- Hero section with page title -->
+    <section class="hero-coverage">
+        <h1>Areas We Cover</h1>
+    </section>
+
+    <!-- Introduction and map -->
+    <section>
+        <h2>Coverage</h2>
+        <p>Envirosafe Removal provides asbestos surveys and removal services across London and the South East. Below you can explore each town and borough we serve. Click on your area to learn more about our local services.</p>
+        <!-- Static map image showing your coverage area. Replace "map.png" with your map screenshot file. -->
+        <img src="map.png" alt="Coverage map for Envirosafe Removal" width="100%" height="400" style="border:0;">
+    </section>
+
+    <!-- List of all service areas. Styled with multiple columns via CSS. -->
+    <section>
+        <h2>Find Your Area</h2>
+        <div class="coverage-buttons">
+            <!-- BEGIN AREA LINKS -->
+            <a href="aldershot-fleet.html" class="cta-button coverage-link">Aldershot Fleet</a>
+            <a href="barking-and-dagenham.html" class="cta-button coverage-link">Barking and Dagenham</a>
+            <a href="basildon.html" class="cta-button coverage-link">Basildon</a>
+            <a href="bexley.html" class="cta-button coverage-link">Bexley</a>
+            <a href="brent.html" class="cta-button coverage-link">Brent</a>
+            <a href="brentwood.html" class="cta-button coverage-link">Brentwood</a>
+            <a href="brighton-and-hove.html" class="cta-button coverage-link">Brighton and Hove</a>
+            <a href="bromley.html" class="cta-button coverage-link">Bromley</a>
+            <a href="camberley.html" class="cta-button coverage-link">Camberley</a>
+            <a href="camden.html" class="cta-button coverage-link">Camden</a>
+            <a href="canary-wharf-isle-of-dogs.html" class="cta-button coverage-link">Canary Wharf Isle of Dogs</a>
+            <a href="canterbury.html" class="cta-button coverage-link">Canterbury</a>
+            <a href="chelmsford.html" class="cta-button coverage-link">Chelmsford</a>
+            <a href="chichester.html" class="cta-button coverage-link">Chichester</a>
+            <a href="chiswick-and-acton.html" class="cta-button coverage-link">Chiswick and Acton</a>
+            <a href="colchester.html" class="cta-button coverage-link">Colchester</a>
+            <a href="crawley.html" class="cta-button coverage-link">Crawley</a>
+            <a href="croydon.html" class="cta-button coverage-link">Croydon</a>
+            <a href="ealing-broadway-area.html" class="cta-button coverage-link">Ealing Broadway Area</a>
+            <a href="ealing.html" class="cta-button coverage-link">Ealing</a>
+            <a href="eastbourne.html" class="cta-button coverage-link">Eastbourne</a>
+            <a href="enfield.html" class="cta-button coverage-link">Enfield</a>
+            <a href="epsom.html" class="cta-button coverage-link">Epsom</a>
+            <a href="farnham.html" class="cta-button coverage-link">Farnham</a>
+            <a href="folkestone-ashford.html" class="cta-button coverage-link">Folkestone Ashford</a>
+            <a href="gravesend-dartford.html" class="cta-button coverage-link">Gravesend Dartford</a>
+            <a href="greenwich-peninsula.html" class="cta-button coverage-link">Greenwich Peninsula</a>
+            <a href="greenwich.html" class="cta-button coverage-link">Greenwich</a>
+            <a href="hackney.html" class="cta-button coverage-link">Hackney</a>
+            <a href="hammersmith-and-fulham.html" class="cta-button coverage-link">Hammersmith and Fulham</a>
+            <a href="haringey.html" class="cta-button coverage-link">Haringey</a>
+            <a href="harrow.html" class="cta-button coverage-link">Harrow</a>
+            <a href="hastings.html" class="cta-button coverage-link">Hastings</a>
+            <a href="havering.html" class="cta-button coverage-link">Havering</a>
+            <a href="hounslow.html" class="cta-button coverage-link">Hounslow</a>
+            <a href="islington.html" class="cta-button coverage-link">Islington</a>
+            <a href="kensington-and-chelsea.html" class="cta-button coverage-link">Kensington and Chelsea</a>
+            <a href="kilburn-queens-park.html" class="cta-button coverage-link">Kilburn Queens Park</a>
+            <a href="kingston.html" class="cta-button coverage-link">Kingston</a>
+            <a href="lambeth.html" class="cta-button coverage-link">Lambeth</a>
+            <a href="leatherhead.html" class="cta-button coverage-link">Leatherhead</a>
+            <a href="lewisham.html" class="cta-button coverage-link">Lewisham</a>
+            <a href="maidstone.html" class="cta-button coverage-link">Maidstone</a>
+            <a href="medway-chatham-area.html" class="cta-button coverage-link">Medway Chatham Area</a>
+            <a href="merton.html" class="cta-button coverage-link">Merton</a>
+            <a href="newham.html" class="cta-button coverage-link">Newham</a>
+            <a href="redbridge.html" class="cta-button coverage-link">Redbridge</a>
+            <a href="reigate.html" class="cta-button coverage-link">Reigate</a>
+            <a href="richmond.html" class="cta-button coverage-link">Richmond</a>
+            <a href="sevenoaks.html" class="cta-button coverage-link">Sevenoaks</a>
+            <a href="southend-on-sea.html" class="cta-button coverage-link">Southend on Sea</a>
+            <a href="southwark.html" class="cta-button coverage-link">Southwark</a>
+            <a href="stratford-area.html" class="cta-button coverage-link">Stratford Area</a>
+            <a href="sutton.html" class="cta-button coverage-link">Sutton</a>
+            <a href="tower-hamlets.html" class="cta-button coverage-link">Tower Hamlets</a>
+            <a href="tunbridge-wells.html" class="cta-button coverage-link">Tunbridge Wells</a>
+            <a href="wandsworth.html" class="cta-button coverage-link">Wandsworth</a>
+            <a href="waverley-godalming-area.html" class="cta-button coverage-link">Waverley Godalming Area</a>
+            <a href="westminster.html" class="cta-button coverage-link">Westminster</a>
+            <a href="wimbledon-area.html" class="cta-button coverage-link">Wimbledon Area</a>
+            <a href="woking.html" class="cta-button coverage-link">Woking</a>
+            <a href="worthing.html" class="cta-button coverage-link">Worthing</a>
+            <!-- END AREA LINKS -->
+        </div>
+    </section>
+
+    <!-- Call to action encouraging visitors to get a quote -->
+    <section class="cta-section">
+      <h2>Ready to get started?</h2>
+      <p>Contact our friendly team today to discuss asbestos removal services in your area. We provide free quotes and expert advice.</p>
+      <a href="contact.html" class="cta-button">Contact Us</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Envirosafe Removal. All rights reserved.</p>
+    </footer>
+
+    <script>
+    // Menu and dropdown handling for mobile and desktop
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuToggle = document.getElementById('menu-toggle');
+      const nav = document.getElementById('primary-navigation');
+      if (menuToggle && nav) {
+        menuToggle.addEventListener('click', function() {
+          const isOpen = nav.classList.toggle('nav-open');
+          this.setAttribute('aria-expanded', isOpen);
+        });
+      }
+      const dropdownLinks = document.querySelectorAll('.dropdown > a.dropdown-toggle');
+      dropdownLinks.forEach(function(link) {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const parentLi = this.parentElement;
+          parentLi.classList.toggle('open');
+          dropdownLinks.forEach(function(other) {
+            if (other !== link) {
+              other.parentElement.classList.remove('open');
+            }
+          });
+        });
       });
-    }
-    setupDropdowns();
-    window.addEventListener('resize', setupDropdowns);
-  });
-  </script>
+    });
+    </script>
 
 
-<!-- Floating actions: WhatsApp + Google Reviews -->
-<div class="floating-actions" aria-label="Quick actions">
+
+
+<!-- Floating Actions: WhatsApp + Google Reviews -->
+<div class="fab-wrap" aria-label="Quick actions">
   <!-- WhatsApp chat -->
-  <a class="fab fab-whatsapp" href="https://wa.me/447859970138?text=Hi%20Envirosafe%20Removal%2C%20please%20can%20you%20help%20with%20asbestos%20removal%20or%20a%20survey%3F" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-    <svg viewBox="0 0 32 32" width="24" height="24" aria-hidden="true">
-      <path fill="#ffffff" d="M19.11 17.54c-.27-.13-1.59-.78-1.84-.87-.25-.09-.43-.13-.61.13-.18.27-.7.87-.86 1.05-.16.18-.32.2-.59.07-.27-.13-1.12-.41-2.13-1.31-.79-.7-1.32-1.57-1.48-1.84-.16-.27-.02-.42.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.13-.61-1.47-.84-2.02-.22-.52-.44-.45-.61-.46l-.52-.01c-.18 0-.48.07-.73.34-.25.27-.97.95-.97 2.31 0 1.36.99 2.67 1.13 2.85.14.18 1.95 2.98 4.73 4.21.66.28 1.17.45 1.57.57.66.21 1.26.18 1.74.11.53-.08 1.59-.65 1.82-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.31z"/>
-      <path fill="#ffffff" d="M16 3C8.84 3 3 8.84 3 16c0 2.29.6 4.44 1.65 6.3L3 29l6.85-1.61A12.9 12.9 0 0 0 16 29c7.16 0 13-5.84 13-13S23.16 3 16 3zm0 23.5c-2.24 0-4.33-.65-6.1-1.78l-.44-.28-4.07.95.97-3.97-.29-.45A10.46 10.46 0 1 1 26.5 16 10.49 10.49 0 0 1 16 26.5z"/>
-    </svg>
-  </a>
-  <!-- Google Reviews -->
-  <a class="fab fab-google" href="https://search.google.com/local/writereview?placeid=PLACE_ID_HERE" target="_blank" rel="noopener" aria-label="Open Google Reviews">
-    <svg viewBox="0 0 256 262" width="22" height="22" aria-hidden="true">
-      <path fill="#ffffff" d="M255.9 133.5c0-11-1-19-3.2-27.3H130.6v49.8h71.8c-1.5 12-9.7 30-27.8 42.2l-.25.17 40.4 31.3 2.8.28c25.6-23.6 38.4-58.3 38.4-96.5zM130.6 262c35.1 0 64.6-11.6 86.2-31.6l-41.1-31.8c-11 7.6-25.8 13-45.1 13-34.5 0-63.8-23.1-74.2-55l-.2.02-42.6 33.1-.56.18C34.7 236.7 79.7 262 130.6 262zM56.4 156.6a77.8 77.8 0 0 1-4.1-25c0-8.7 1.5-17.2 4-25l-.07-.22-42.8-33.3-.28.14A130.3 130.3 0 0 0 0 131.6c0 20.9 5 40.6 13.9 58l42.5-33zM130.6 50.8c24.5 0 41 10.5 50.5 19.2l36.8-35.9C194.9 12.6 165.7 0 130.6 0 79.7 0 34.7 25.4 13.9 73.5l42.5 33c10.5-31.9 39.7-55.7 74.2-55.7z"/>
+  <a class="fab fab--whatsapp"
+     href="https://wa.me/447859970138?text=Hi%20Envirosafe%20Removal%2C%20please%20can%20you%20help%20with%20asbestos%20removal%3F"
+     target="_blank" rel="noopener" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path fill="currentColor" d="M20 3.9A10 10 0 0 0 3.3 17.4L2 22l4.7-1.2A10 10 0 1 0 20 3.9ZM12 20a8 8 0 0 1-4.1-1.1l-.3-.2l-2.5.6l.7-2.4l-.2-.3A8 8 0 1 1 12 20Zm4.6-5.1c-.2-.1-1.2-.6-1.4-.7s-.3-.1-.5.1c-.1.2-.6.7-.7.8s-.3.1-.5 0a6.5 6.5 0 0 1-1.9-1.2a7 7 0 0 1-1.3-1.6c-.1-.1 0-.3.1-.4l.3-.4l.2-.3c.1-.1.1-.3 0-.5l-.7-1.6c-.2-.4-.3-.4-.5-.4h-.4c-.2 0-.5.1-.7.3c-.7.7-1 1.5-1 2.3c0 .3.1.6.2.9a9.9 9.9 0 0 0 3.2 4.3a9 9 0 0 0 3.9 1.9c.3.1.6.1.9.1c.9 0 1.7-.3 2.3-.9c.2-.2.3-.5.3-.7c0-.2 0-.3-.2-.4Z"/>
     </svg>
   </a>
 </div>
+
+<!-- Google Reviews badge -->
+<a class="google-badge"
+   href="https://www.google.com/maps/place/?q=place_id:PLACE_ID_HERE"
+   target="_blank" rel="noopener"
+   aria-label="Read our Google reviews" title="Read our Google reviews">
+  <span class="g">G</span>
+  <span class="t">
+    <span class="title">Google Reviews</span><br>
+    <span class="stars">★★★★★</span>
+    <span class="cta">See what our customers say</span>
+  </span>
+</a>
 
 </body>
 </html>
